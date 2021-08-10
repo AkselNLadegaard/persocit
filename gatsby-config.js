@@ -5,6 +5,14 @@ module.exports = {
         author: 'Aksel'
     },
     plugins: [
+        {
+            resolve: "gatsby-plugin-react-svg",
+            options: {
+                rule: {
+                    include: /assets/
+                }
+            }
+        },
         "gatsby-plugin-emotion",
         {
             resolve: `gatsby-plugin-typography`,
@@ -16,6 +24,7 @@ module.exports = {
         "gatsby-plugin-image",
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-sitemap",
+
         {
             resolve: "gatsby-plugin-manifest",
             options: {

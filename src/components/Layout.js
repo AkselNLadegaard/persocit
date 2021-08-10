@@ -1,14 +1,18 @@
 import React from 'react';
-import {Global, css } from '@emotion/react'
+import {Global, css} from '@emotion/react'
 import {globalStyles} from '../abstracts/globalStyles'
 
-const Layout = ({ children }) => {
+// Components
+import Navbar from './Navbar'
+import Footer from './Footer'
+
+const Layout = ({children}) => {
     return (
         <>
             <Global styles={css`${globalStyles}`}/>
-            <Navbar />
+            <Navbar/>
             <main>{children}</main>
-            <footer>This is a footer!</footer>
+            <Footer>This is a footer!</Footer>
         </>
     );
 };

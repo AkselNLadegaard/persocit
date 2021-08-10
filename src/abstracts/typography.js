@@ -25,9 +25,11 @@ const typography = new Typography({
         },
         a: {
             fontFamily: 'Recursive, monospace',
+            textDecoration: 'none',
+
         },
-        'a>*': {
-            fontFamily: 'Recursive, monospace',
+        'a:hover': {
+            opacity: 0.67,
         },
         li: {
             marginBottom: '0 !important'
