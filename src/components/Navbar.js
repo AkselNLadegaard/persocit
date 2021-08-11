@@ -47,7 +47,7 @@ const Container = styled.div`
   }
 
   .logo {
-
+      align-self: center;
   }
 `
 const SideNavContainer = styled.div`
@@ -73,6 +73,7 @@ const Navbar = ({...props}) => {
             return (
                 <>
                     <Link to={'/About'}>About</Link>
+                    <Link to={'/TypographyPlayground'}>Typography</Link>
                 </>
             );
         }
@@ -87,7 +88,7 @@ const Navbar = ({...props}) => {
         return (
             <Header {...props}>
                 <Container>
-                    <Link to={'/'}>
+                    <Link to={'/'} className={'logo'}>
                             {/*<StaticImage src="../images/icon.png" alt="logo" placeholder="blurred" layout="fixed" height={96}/>*/}
                         <TestSvg height={'2em'} width={'auto'}/>
                     </Link>
