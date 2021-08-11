@@ -20,10 +20,18 @@ const TypographyPlayground = props => {
                     sequi veniam vero.</h5>
 
                 <h6>Distinctio, dolorem, nesciunt.</h6>
-
+                <hr/>
                 <p>P element! <Link to={'/'}>Lorem ipsum dolor</Link> sit amet, consectetur adipisicing elit. Animi
                     autem laudantium libero minus nam
-                    officia, velit veritatis?</p>
+                    officia, velit veritatis?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consectetur dolorum esse facere illo
+                    ipsum, magni minus molestiae molestias nam optio quia quo sapiente sed vel veritatis, voluptatibus?
+                    Nobis, voluptatibus?
+                    <br/>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aliquam aliquid aspernatur,
+                    atque consequatur debitis delectus <em>2x+4x</em> <sup>3.14x</sup> ea eum expedita, ipsam officia repellat rerum saepe vitae
+                    voluptas voluptatibus voluptatum.
+                </p>
                 <hr/>
                 <button>This is a stock button</button>
                 <br/>

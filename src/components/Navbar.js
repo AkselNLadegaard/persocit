@@ -17,7 +17,7 @@ const Container = styled.div`
   height: 100%;
   max-width: ${constant.siteWidth};
 
-  ${constant.mq[2]} {
+  ${constant.mq[1]} {
     margin: 10rem auto 2rem;
   }
 
@@ -30,7 +30,7 @@ const Container = styled.div`
   .links-container {
     display: none;
 
-    ${constant.mq[2]} {
+    ${constant.mq[1]} {
       display: flex;
       align-self: center;
       align-items: center;
@@ -60,7 +60,7 @@ const Hamburger = styled.button`
   width: 16px;
   height: 16px;
 
-  ${constant.mq[2]} {
+  ${constant.mq[1]} {
     display: none;
   }
 `

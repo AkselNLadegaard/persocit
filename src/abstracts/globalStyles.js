@@ -1,30 +1,48 @@
 import {css} from '@emotion/react'
 import * as constant from './constants'
-import {selectionColor} from "./constants";
+import {danger, selectionColor} from "./constants";
 import {rhythm} from 'typography'
 
 export const baseActiveStyles = css`
+  :hover {
+    opacity: 0.65;
+  }
   :focus, :active {
     outline: 2px solid ${constant.selectionColor};
     outline-offset: 4px;
   }
 
-  // implement more intense focus-visible-only:focus-visible for increased accessibility.
+  // implement more intense focus-visible-only5:focus-visible for increased accessibility.
   // https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible
 `
 export const basePseudoSelectorStyles = css`
-    ::selection {
-      background: ${constant.selectionColor};
-    }
+  ::selection {
+    background: ${constant.selectionColor};
+  }
 `
 const variableFontStyles = css`
   // May be moved into typography.js to decrease the number separate style declarations.
   // Headers
-  h1, h2, h3, h4, h5, h6, p, ul, ol, li, a, blockquote {
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, a, blockquote, sub, sup {
     max-width: ${constant.maxContentWidth};
+    font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
   }
-  h1 {
 
+  // Seperate header styling.
+  h1, h2, h3, h4, h5, h6 {
+    --mono: "MONO" 0.1;
+    --casl: "CASL" 0.3;
+    --wght: "wght" 800;
+    --slnt: "slnt" 0;
+    --CRSV: "CRSV" 1;
+  }
+
+  h1 {
+    --mono: "MONO" 0.1;
+    --casl: "CASL" 0.3;
+    --wght: "wght" 800;
+    --slnt: "slnt" 0;
+    --CRSV: "CRSV" 1;
   }
 
   h2 {
@@ -53,8 +71,9 @@ const variableFontStyles = css`
   }
 
   blockquote {
-    
+
   }
+
   // Base elements
   div {
 
@@ -67,6 +86,7 @@ const variableFontStyles = css`
   i {
     --slnt: "slnt" -15;
   }
+
   em {
     text-decoration: underline;
   }
@@ -126,6 +146,10 @@ export const baseButtonStyles = css`
     :active {
       background: ${constant.primaryDark};
     }
+
+    :disabled {
+      background: ${constant.disabled}
+    }
   }
 
 `
@@ -134,11 +158,11 @@ export const globalStyles = css`
   :root {
     //https://fonts.google.com/variablefonts?vfquery=recursi for full axis description 
     // Default font variation values. 
-    --mono: "MONO" 0.1;
-    --casl: "CASL" 0.3;
-    --wght: "wght" 412;
+    --mono: "MONO" 0;
+    --casl: "CASL" 0;
+    --wght: "wght" 400;
     --slnt: "slnt" 0;
-    --CRSV: "CRSV" 1;
+    --CRSV: "CRSV" 0;
     /* Monospace: Sans (natural-width) or Mono (fixed-width) */
     /* Casual: Linear to Casual */
     /* Weight: Light to ExtraBlack; usually set with \`font-weight\` */
