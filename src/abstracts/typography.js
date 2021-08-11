@@ -6,11 +6,11 @@ const bodyFontArray = ['RecursiveVariable', 'sans-serif']
 const typography = new Typography({
     baseFontSize: '20px',
     baseLineHeight: 1.4,
-    scaleRatio: 4,
+    scaleRatio: 3.5,
     headerFontFamily: headerFontArray,
     bodyFontFamily: bodyFontArray,
     headerGray: 10,
-    headerGrayHue: 'cool',
+    headerGrayHue: 'warm',
     bodyGray: 0,
     bodyGrayHue: 0,
     headerWeight: 600,

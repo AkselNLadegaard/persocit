@@ -8,24 +8,33 @@ import {StaticImage} from "gatsby-plugin-image"
 import TestSvg from '../assets/svg/svgTest.svg'
 
 const Header = styled.header`
-  min-height: 96px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  margin: 4rem auto 2rem;
   width: 100%;
+  background: white;
+  padding: 0.5em ${constant.gap} 0.25em;
+
+  ${constant.mq[1]} {
+    margin: 10rem auto 2rem;
+  }
 `
 const Container = styled.div`
-  margin: 1rem auto;
+
+
   width: 100%;
   height: 100%;
   max-width: ${constant.siteWidth};
 
   ${constant.mq[1]} {
-    margin: 10rem auto 2rem;
+    padding: 0 ${constant.gap}
   }
 
 
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  padding: 0 24px;
 
   .links-container {
     display: none;
@@ -48,23 +57,34 @@ const Container = styled.div`
 
   .logo {
     align-self: center;
+
+    svg {
+      height: 2rem;
+
+      ${constant.mq[1]} {
+        height: 3rem
+      }
+    }
+
   }
 `
 const SideNavContainer = styled.div`
   position: fixed;
-  
+
   bottom: 0;
   right: 0;
   display: flex;
-  
+
   min-height: 100vh;
   height: fit-content;
   width: 100vw;
   flex-direction: row-reverse;
   align-content: flex-end;
+
   .escape {
     width: 100%;
     background: rgba(233, 233, 233, 0.4);
+
     :hover, :focus, :active {
 
     }
@@ -79,7 +99,8 @@ const SideNavContainer = styled.div`
     min-height: 100vh;
     background: white;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: ${constant.gap};
     overflow-y: auto;
 
@@ -100,6 +121,11 @@ const SideNavActive = css`
 const Hamburger = styled.button`
   width: 2rem;
   height: 2rem;
+  background: rgba(0,0,0,0.8);
+  :hover, :focus, :active {
+    background: rgba(0,0,0,0.6);;
+    
+  }
   ${constant.mq[1]} {
     display: none;
   }
