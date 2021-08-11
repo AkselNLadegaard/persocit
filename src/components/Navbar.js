@@ -12,7 +12,7 @@ const Header = styled.header`
   width: 100%;
 `
 const Container = styled.div`
-  margin: 0 auto;
+  margin: 1rem auto;
   width: 100%;
   height: 100%;
   max-width: ${constant.siteWidth};
@@ -47,19 +47,59 @@ const Container = styled.div`
   }
 
   .logo {
-      align-self: center;
+    align-self: center;
   }
 `
 const SideNavContainer = styled.div`
+  position: fixed;
+  
+  bottom: 0;
+  right: 0;
+  display: flex;
+  
+  min-height: 100vh;
+  height: fit-content;
+  width: 100vw;
+  flex-direction: row-reverse;
+  align-content: flex-end;
+  .escape {
+    width: 100%;
+    background: rgba(233, 233, 233, 0.4);
+    :hover, :focus, :active {
+
+    }
+
+    filter: blur(4px);
+  }
+
+  .links-container {
+    max-width: 80vw;
+    min-width: max-content;
+    height: fit-content;
+    min-height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: ${constant.gap};
+    overflow-y: auto;
+
+    > * {
+      margin-top: ${constant.gap};
+    }
+
+    :first-child {
+      margin-top: 0;
+    }
+  }
+
 
 `
 const SideNavActive = css`
 
 `
 const Hamburger = styled.button`
-  width: 16px;
-  height: 16px;
-
+  width: 2rem;
+  height: 2rem;
   ${constant.mq[1]} {
     display: none;
   }
@@ -72,8 +112,9 @@ const Navbar = ({...props}) => {
 
             return (
                 <>
-                    <Link to={'/About'}>About</Link>
+                    <Link to={'/Plants'}>Plants</Link>
                     <Link to={'/TypographyPlayground'}>Typography</Link>
+                    <Link to={'/About'}>About</Link>
                 </>
             );
         }
@@ -81,7 +122,12 @@ const Navbar = ({...props}) => {
 
             return (
                 <SideNavContainer css={sideNavActive && SideNavActive}>
-                    <Links/>
+                    <div className={'links-container'}>
+                        <Links/>
+                    </div>
+                    <button className={'escape'} onClick={() => setSideNavActive(!sideNavActive)}>
+
+                    </button>
                 </SideNavContainer>
             )
         }
@@ -89,11 +135,11 @@ const Navbar = ({...props}) => {
             <Header {...props}>
                 <Container>
                     <Link to={'/'} className={'logo'}>
-                            {/*<StaticImage src="../images/icon.png" alt="logo" placeholder="blurred" layout="fixed" height={96}/>*/}
-                        <TestSvg height={'2em'} width={'auto'}/>
+                        {/*<StaticImage src="../images/icon.png" alt="logo" placeholder="blurred" layout="fixed" height={96}/>*/}
+                        <TestSvg height={'3rem'} width={'auto'}/>
                     </Link>
 
-                    <Hamburger onClick={() => (setSideNavActive(!sideNavActive))}/>
+                    <Hamburger onClick={() => (setSideNavActive(!sideNavActive))}>M</Hamburger>
                     <ul className={'links-container'}>
                         <Links/>
                     </ul>

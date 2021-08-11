@@ -13,7 +13,7 @@ export const disabled = 'grey'
 
 export const selectionColor = 'antiquewhite'
 
-export const gap = '12px'
+export const gap = '24px'
 
 const siteWidthUnitless = 70
 export const siteWidth = `${siteWidthUnitless}em`

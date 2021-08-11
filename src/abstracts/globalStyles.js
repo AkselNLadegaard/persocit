@@ -40,10 +40,22 @@ const variableFontStyles = css`
   // Seperate header styling.
   h1, h2, h3, h4, h5, h6 {
     --mono: "MONO" 0;
-    --casl: "CASL" 0.3;
+    --casl: "CASL" 0.2;
     --wght: "wght" 800;
     --slnt: "slnt" 0;
     --CRSV: "CRSV" 1;
+    ::first-letter {
+/*      font-size: 1.1em;
+      --mono: "MONO" 1; */
+/*     
+ background: ${constant.selectionColor};
+      padding: 0 0.2em;
+      
+      --mono: "MONO" 1;
+      --casl: "CASL" 0;
+      --wght: "wght" 1000;
+      */
+    }
   }
 
   h1 {
