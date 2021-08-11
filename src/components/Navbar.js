@@ -57,6 +57,7 @@ const Container = styled.div`
 
 		svg {
 			height: 2rem;
+			width: auto;
 
 			${constant.mq[1]} {
 				height: 3rem;
