@@ -9,7 +9,7 @@ const FooterContainer = styled.footer`
     width: 100%;
     margin: 0 auto;
     max-width: ${constant.siteWidth};
-    padding: 4rem 32px;
+    padding: 4rem 24px;
   }
 `
 
