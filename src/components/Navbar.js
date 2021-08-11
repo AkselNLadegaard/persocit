@@ -26,6 +26,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   max-width: ${constant.siteWidth};
+  margin: 0 auto;
 
   ${constant.mq[1]} {
     padding: 0 ${constant.gap}
