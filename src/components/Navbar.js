@@ -13,25 +13,22 @@ const Header = styled.header`
   right: 0;
   margin: 4rem auto 2rem;
   width: 100%;
-  background: white;
-  padding: 0.5em ${constant.gap} 0.25em;
 
   ${constant.mq[1]} {
     margin: 10rem auto 2rem;
   }
 `
 const Container = styled.div`
-
-
   width: 100%;
   height: 100%;
   max-width: ${constant.siteWidth};
   margin: 0 auto;
+  padding: 0.5em ${constant.gap} 0.25em;
+  background: white;
 
   ${constant.mq[1]} {
     padding: 0 ${constant.gap}
   }
-
 
   display: flex;
   align-items: stretch;
@@ -122,11 +119,13 @@ const SideNavActive = css`
 const Hamburger = styled.button`
   width: 2rem;
   height: 2rem;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
+
   :hover, :focus, :active {
-    background: rgba(0,0,0,0.6);;
-    
+    background: rgba(0, 0, 0, 0.6);;
+
   }
+
   ${constant.mq[1]} {
     display: none;
   }
