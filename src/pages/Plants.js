@@ -1,12 +1,8 @@
-import React from 'react';
-import Layout from "../components/Layout";
+import React from 'react'
+import Layout from '../components/Layout'
 
 const Plants = () => {
-    return (
-        <Layout>
+	return <Layout></Layout>
+}
 
-        </Layout>
-    );
-};
-
-export default Plants;
+export default Plants

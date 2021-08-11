@@ -38,5 +38,9 @@
     "react-helmet": "^6.1.0",
     "react-typography": "^0.16.20",
     "typography": "^0.16.21"
+  },
+  "devDependencies": {
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-react": "^7.24.0"
   }
 }
