@@ -5,7 +5,7 @@ const headerFontArray = ['RecursiveVariable', 'serif']
 const bodyFontArray = ['RecursiveVariable', 'sans-serif']
 const typography = new Typography({
     baseFontSize: '20px',
-    baseLineHeight: 1.3,
+    baseLineHeight: 1.4,
     scaleRatio: 4,
     headerFontFamily: headerFontArray,
     bodyFontFamily: bodyFontArray,

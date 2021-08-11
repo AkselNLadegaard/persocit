@@ -4,9 +4,14 @@ import {danger, selectionColor} from "./constants";
 import {rhythm} from 'typography'
 
 export const baseActiveStyles = css`
-  :hover {
-    opacity: 0.65;
+  :hover, :focus, :active {
+    --wght: "wght" 800;
+    cursor: pointer;
   }
+  :hover {
+    //opacity: 0.65;
+  }
+
   :focus, :active {
     outline: 2px solid ${constant.selectionColor};
     outline-offset: 4px;
@@ -23,14 +28,18 @@ export const basePseudoSelectorStyles = css`
 const variableFontStyles = css`
   // May be moved into typography.js to decrease the number separate style declarations.
   // Headers
-  h1, h2, h3, h4, h5, h6, p, ul, ol, li, a, blockquote, sub, sup {
+  h1, h2, h3, h4, h5, h6, p, ul, ol, li, a, blockquote, sub, sup, i, em, b, strong, pre, button {
     max-width: ${constant.maxContentWidth};
     font-variation-settings: var(--mono), var(--casl), var(--wght), var(--slnt), var(--CRSV);
   }
 
+  pre {
+    --mono: "MONO" 0;
+  }
+
   // Seperate header styling.
   h1, h2, h3, h4, h5, h6 {
-    --mono: "MONO" 0.1;
+    --mono: "MONO" 0;
     --casl: "CASL" 0.3;
     --wght: "wght" 800;
     --slnt: "slnt" 0;
@@ -38,43 +47,43 @@ const variableFontStyles = css`
   }
 
   h1 {
-    --mono: "MONO" 0.1;
-    --casl: "CASL" 0.3;
     --wght: "wght" 800;
-    --slnt: "slnt" 0;
-    --CRSV: "CRSV" 1;
   }
 
   h2 {
-
+    --wght: "wght" 700;
   }
 
   h3 {
-
+    --wght: "wght" 600;
   }
 
   h4 {
-
+    --wght: "wght" 600;
   }
 
   h5 {
-
+    --wght: "wght" 800;
   }
 
   h6 {
-
+    --wght: "wght" 800;
   }
 
-  a {
-    ${baseActiveStyles};
-    text-decoration: none;
-  }
 
   blockquote {
-
+    font-size: 1.1rem;
   }
 
   // Base elements
+  a {
+    ${baseActiveStyles};
+    text-decoration: none;
+
+    :hover, :active, :focus {
+
+    }
+  }
   div {
 
   }
@@ -89,10 +98,11 @@ const variableFontStyles = css`
 
   em {
     text-decoration: underline;
+
   }
 
   b, strong {
-    font-weight: 800;
+    --wght: "wght" 800;
   }
 
   sub, sup {
@@ -110,12 +120,22 @@ const variableFontStyles = css`
 
 
   // List styling
+  ul, ol {
+    ::marker {
+      --mono: "MONO" 1;  
+    }
+  }
+
   li {
+    --mono: "MONO" 0.7;
+    --casl: "CASL" 0;
+    --wght: "wght" 450;
+    --slnt: "slnt" 0;
+    --CRSV: "CRSV" 0;
 
   }
 
   ul {
-
   }
 
   ol {
@@ -162,7 +182,7 @@ export const globalStyles = css`
     --casl: "CASL" 0;
     --wght: "wght" 400;
     --slnt: "slnt" 0;
-    --CRSV: "CRSV" 0;
+    --CRSV: "CRSV" 0.5;
     /* Monospace: Sans (natural-width) or Mono (fixed-width) */
     /* Casual: Linear to Casual */
     /* Weight: Light to ExtraBlack; usually set with \`font-weight\` */
