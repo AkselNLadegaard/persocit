@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 import * as constant from '../abstracts/constants'
 // Components
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import TestSvg from '../assets/svg/svgTest.svg'
 
 const Header = styled.header`
@@ -136,6 +135,7 @@ const Navbar = ({ ...props }) => {
 			<>
 				<Link to={'/Plants'}>Plants</Link>
 				<Link to={'/TypographyPlayground'}>Typography</Link>
+				<Link to={'/Index'}>Empty blog</Link>
 				<Link to={'/About'}>About</Link>
 			</>
 		)

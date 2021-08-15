@@ -3,6 +3,8 @@ module.exports = {
 		siteUrl: 'https://persocitmain.gatsbyjs.io/',
 		title: 'Persocite',
 		author: 'Aksel',
+		description:
+			'Personal site for learning, having fun and possible a CV and portfolio in the future!',
 	},
 	plugins: [
 		{
@@ -35,12 +37,36 @@ module.exports = {
 		'gatsby-plugin-sharp',
 		'gatsby-transformer-sharp',
 		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [
+					{
+						resolve: `gatsby-remark-images`,
+						options: {
+							// It's important to specify the maxWidth (in pixels) of
+							// the content container as this plugin uses this as the
+							// base for generating different widths of each image.
+							maxWidth: 590,
+						},
+					},
+					`gatsby-remark-autolink-headers`,
+				],
+			},
+		},
+		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
 				name: 'images',
 				path: './src/images/',
 			},
 			__key: 'images',
+		},
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				name: `blogPosts`,
+				path: `${__dirname}/blogPosts`,
+			},
 		},
 		{
 			resolve: 'gatsby-source-filesystem',
