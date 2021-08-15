@@ -133,10 +133,10 @@ const Navbar = ({ ...props }) => {
 	const Links = () => {
 		return (
 			<>
-				<Link to={'/Plants'}>Plants</Link>
-				<Link to={'/TypographyPlayground'}>Typography</Link>
-				<Link to={'/Index'}>Empty blog</Link>
-				<Link to={'/About'}>About</Link>
+				<Link to={'/plants'}>Plants</Link>
+				<Link to={'/typographyPlayground'}>Typography</Link>
+				<Link to={'/blog'}>Empty blog</Link>
+				<Link to={'/about'}>About</Link>
 			</>
 		)
 	}
