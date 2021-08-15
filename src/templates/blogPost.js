@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Section from '../components/Section'
 import { MDXProvider } from '@mdx-js/react'
 
@@ -11,7 +11,9 @@ export default function BlogPost({ data: { mdx } }) {
 	return (
 		<Layout>
 			<Section>
-				<MDXRenderer>{mdx.body}</MDXRenderer>
+				<MDXProvider components={shortcodes}>
+					<MDXRenderer>{mdx.body}</MDXRenderer>
+				</MDXProvider>
 			</Section>
 		</Layout>
 	)

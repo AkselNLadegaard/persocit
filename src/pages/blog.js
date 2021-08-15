@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Section from '../components/Section'
 
 const Blog = ({ data }) => {
