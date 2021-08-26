@@ -20,13 +20,13 @@ const Header = styled.header`
 const Container = styled.div`
 	width: 100%;
 	height: 100%;
-	max-width: ${constant.siteWidth};
+	max-width: var(--siteWidth);
 	margin: 0 auto;
-	padding: 0.5em ${constant.gap} 0.25em;
+	padding: 0.5em var(--gap) 0.25em;
 	background: white;
 
 	${constant.mq[1]} {
-		padding: 0 ${constant.gap};
+		padding: 0 var(--gap);
 	}
 
 	display: flex;
@@ -98,14 +98,14 @@ const SideNavContainer = styled.div`
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
-		padding: ${constant.gap};
+		padding: var(--gap);
 		overflow-y: auto;
 
 		> * {
-			margin-top: ${constant.gap};
+			margin-top: var(--gap);
 		}
 
-		:first-child {
+		:first-of-type {
 			margin-top: 0;
 		}
 	}
@@ -130,6 +130,8 @@ const Hamburger = styled.button`
 const Navbar = ({ ...props }) => {
 	const [sideNavActive, setSideNavActive] = useState(false)
 
+	const handleSidenav = ({ toStatus }) =>
+		setSideNavActive(toStatus ? toStatus : !sideNavActive)
 	const Links = () => {
 		return (
 			<>
@@ -140,15 +142,16 @@ const Navbar = ({ ...props }) => {
 			</>
 		)
 	}
-	const SideNav = ({}) => {
+	const SideNav = () => {
 		return (
 			<SideNavContainer css={sideNavActive && SideNavActive}>
 				<div className={'links-container'}>
 					<Links />
 				</div>
 				<button
+					aria-label='Close sidenav'
 					className={'escape'}
-					onClick={() => setSideNavActive(!sideNavActive)}
+					onClick={() => handleSidenav(false)}
 				/>
 			</SideNavContainer>
 		)
@@ -161,9 +164,7 @@ const Navbar = ({ ...props }) => {
 					<TestSvg />
 				</Link>
 
-				<Hamburger onClick={() => setSideNavActive(!sideNavActive)}>
-					M
-				</Hamburger>
+				<Hamburger onClick={handleSidenav}>M</Hamburger>
 				<ul className={'links-container'}>
 					<Links />
 				</ul>

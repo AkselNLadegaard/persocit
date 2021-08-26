@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import * as constant from '../abstracts/constants'
 
 const SectionContainer = styled.section`
 	width: 100%;
-	max-width: ${constant.siteWidth};
+	max-width: var(--siteWidth);
 	margin: 0 auto;
 	padding: 0 24px;
 `

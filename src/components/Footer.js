@@ -1,21 +1,20 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import * as constant from '../abstracts/constants'
 import { graphql, useStaticQuery } from 'gatsby'
 
 const FooterContainer = styled.footer`
 	width: 100%;
-	border-top: 0.3em solid ${constant.primary};
+	border-top: 0.3em solid var(--primary);
 	margin: 3rem 0 0;
 	.inner-container {
 		width: 100%;
 		margin: 0 auto;
-		max-width: ${constant.siteWidth};
+		max-width: var(--siteWidth);
 		padding: 2rem 24px;
 	}
 	.about {
 		padding: 1em;
-		border: 0.3em dashed ${constant.primaryLight};
+		border: 0.3em dashed var(--primary);
 	}
 `
 
