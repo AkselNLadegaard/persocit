@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-
 const isBrowser = typeof window !== 'undefined'
-
 function setTheme(toTheme) {
-	document.documentElement.setAttribute('data-theme', toTheme)
+	if (isBrowser) {
+		document.documentElement.setAttribute('data-theme', toTheme)
+	}
 }
 
 function browserPrefersColorScheme() {
@@ -24,7 +24,6 @@ function detectColorScheme() {
 	// 1. Browser has changed preference (prefers-color-scheme)
 	// 2. Local storage
 	// 3. Default light styling & no-preference.
-
 	if (isBrowser) {
 		if (window.matchMedia('(prefers-color-scheme)').matches) {
 			const browserPreference = browserPrefersColorScheme()
@@ -58,6 +57,7 @@ const DarkMode = ({ name = 'darkModeToggle', children, ...rest }) => {
 	const [darkMode, setDarkMode] = useState(() =>
 		detectColorScheme(setDarkMode)
 	)
+
 	if (isBrowser) {
 		window
 			.matchMedia('(prefers-color-scheme: dark)')
