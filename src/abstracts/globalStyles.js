@@ -28,6 +28,7 @@ export const basePseudoSelectorStyles = css`
 `
 const typography = css`
 	// Overriding typography.js styles.
+
 	// Headers
 	h1,
 	h2,
@@ -73,9 +74,11 @@ const typography = css`
 		${activeStyles};
 		text-decoration: none;
 		color: var(--primary);
+
 		:visited {
 			opacity: var(--opaque);
 		}
+
 		:hover,
 		:active,
 		:focus {
@@ -154,9 +157,26 @@ export const baseButtonStyles = css`
 		}
 	}
 `
+export const darkThemeStyles = css`
+	--black: slateGrey;
+	--white: darkGrey;
+	--background: pink;
+`
 export const globalStyles = css`
 	:root {
 		${constant.initialCustomProperties};
+	}
+	html,
+	body,
+	main {
+		color: var(--black);
+	}
+	html {
+		background: var(--background);
+	}
+
+	html[data-theme='dark'] {
+		${darkThemeStyles};
 	}
 
 	${basePseudoSelectorStyles};

@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import * as constant from '../abstracts/constants'
 // Components
 import { Link } from 'gatsby'
 import TestSvg from '../assets/svg/svgTest.svg'
+import DarkMode from '../components/DarkMode'
 
 const Header = styled.header`
 	position: sticky;
@@ -23,7 +24,7 @@ const Container = styled.div`
 	max-width: var(--siteWidth);
 	margin: 0 auto;
 	padding: 0.5em var(--gap) 0.25em;
-	background: white;
+	background: var(--background);
 
 	${constant.mq[1]} {
 		padding: 0 var(--gap);
@@ -57,6 +58,11 @@ const Container = styled.div`
 		svg {
 			height: 2rem;
 			width: auto;
+
+			path {
+				// fill: var(--black); Depends on the SVG.
+				stroke: var(--black) !important;
+			}
 
 			${constant.mq[1]} {
 				height: 3rem;
@@ -94,7 +100,7 @@ const SideNavContainer = styled.div`
 		min-width: max-content;
 		height: fit-content;
 		min-height: 100vh;
-		background: white;
+		background: var(--background);
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -128,13 +134,15 @@ const Hamburger = styled.button`
 `
 
 const Navbar = ({ ...props }) => {
-	const [sideNavActive, setSideNavActive] = useState(false)
+	//determines if the user has a set them
 
+	const [sideNavActive, setSideNavActive] = useState(false)
 	const handleSidenav = ({ toStatus }) =>
 		setSideNavActive(toStatus ? toStatus : !sideNavActive)
 	const Links = () => {
 		return (
 			<>
+				<DarkMode>Swtich theme</DarkMode>
 				<Link to={'/plants'}>Plants</Link>
 				<Link to={'/typographyPlayground'}>Typography</Link>
 				<Link to={'/blog'}>Empty blog</Link>
@@ -173,4 +181,5 @@ const Navbar = ({ ...props }) => {
 		</Header>
 	)
 }
+
 export default Navbar

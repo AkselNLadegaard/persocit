@@ -7,6 +7,8 @@ export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
 
 export const initialCustomProperties = css`
 	// inserted on :root, as global styles.
+
+	color-scheme: light dark;
 	--black: #3d373d;
 	--white: #fff;
 
@@ -20,6 +22,7 @@ export const initialCustomProperties = css`
 
 	--selectionColor: antiqueWhite;
 
+	--background: var(--white);
 	--gap: 24px;
 
 	--siteWidth: 70em;
