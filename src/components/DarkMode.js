@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
+const isBrowser = typeof window !== 'undefined'
+
 function setTheme(toTheme) {
 	document.documentElement.setAttribute('data-theme', toTheme)
 }
@@ -23,50 +25,53 @@ function detectColorScheme() {
 	// 2. Local storage
 	// 3. Default light styling & no-preference.
 
-	if (window.matchMedia('(prefers-color-scheme)').matches) {
-		const browserPreference = browserPrefersColorScheme()
-		if (localStorage.getItem('initialPreference') === null) {
-			localStorage.setItem('initialPreference', browserPreference)
-			setTheme(browserPreference)
-			return browserPreference === 'dark'
-		} else if (
-			localStorage.getItem('initialPreference') !== browserPreference
-		) {
-			setTheme(browserPreference)
-			localStorage.setItem('initialPreference', browserPreference)
-		} else if (localStorage.getItem('theme') !== null) {
+	if (isBrowser) {
+		if (window.matchMedia('(prefers-color-scheme)').matches) {
+			const browserPreference = browserPrefersColorScheme()
+			if (localStorage.getItem('initialPreference') === null) {
+				localStorage.setItem('initialPreference', browserPreference)
+				setTheme(browserPreference)
+				return browserPreference === 'dark'
+			} else if (
+				localStorage.getItem('initialPreference') !== browserPreference
+			) {
+				setTheme(browserPreference)
+				localStorage.setItem('initialPreference', browserPreference)
+			} else if (localStorage.getItem('theme') !== null) {
+				const prefersTheme = localStorage.getItem('theme')
+				setTheme(prefersTheme)
+				return prefersTheme === 'dark'
+			}
+		} else if (localStorage.getItem('theme')) {
 			const prefersTheme = localStorage.getItem('theme')
+			console.log('Fallback to local storage theme, for old browsers')
 			setTheme(prefersTheme)
 			return prefersTheme === 'dark'
+		} else {
+			setTheme('light')
+			return false
 		}
-	} else if (localStorage.getItem('theme')) {
-		const prefersTheme = localStorage.getItem('theme')
-		console.log('Fallback to local storage theme, for old browsers')
-		setTheme(prefersTheme)
-		return prefersTheme === 'dark'
-	} else {
-		setTheme('light')
-		return false
-	}
+	} else return false
 }
 
 const DarkMode = ({ name = 'darkModeToggle', children, ...rest }) => {
 	const [darkMode, setDarkMode] = useState(() =>
 		detectColorScheme(setDarkMode)
 	)
-
-	window
-		.matchMedia('(prefers-color-scheme: dark)')
-		.addEventListener('change', (e) => {
-			detectColorScheme()
-			setDarkMode(e.matches)
-		})
-	window
-		.matchMedia('(prefers-color-scheme: no-preference)')
-		.addEventListener('change', (e) => {
-			detectColorScheme()
-			setDarkMode(!e.matches)
-		})
+	if (isBrowser) {
+		window
+			.matchMedia('(prefers-color-scheme: dark)')
+			.addEventListener('change', (e) => {
+				detectColorScheme()
+				setDarkMode(e.matches)
+			})
+		window
+			.matchMedia('(prefers-color-scheme: no-preference)')
+			.addEventListener('change', (e) => {
+				detectColorScheme()
+				setDarkMode(!e.matches)
+			})
+	}
 	// TODO cleanup event listeners?
 	useEffect(() => {
 		if (darkMode) {
