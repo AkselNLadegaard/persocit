@@ -137,12 +137,13 @@ const Navbar = ({ ...props }) => {
 	//determines if the user has a set them
 
 	const [sideNavActive, setSideNavActive] = useState(false)
+	const isBrowser = typeof window !== 'undefined'
 	const handleSidenav = ({ toStatus }) =>
 		setSideNavActive(toStatus ? toStatus : !sideNavActive)
 	const Links = () => {
 		return (
 			<>
-				<DarkMode>Swtich theme</DarkMode>
+				{isBrowser && <DarkMode>Swtich theme</DarkMode>}
 				<Link to={'/plants'}>Plants</Link>
 				<Link to={'/typographyPlayground'}>Typography</Link>
 				<Link to={'/blog'}>Empty blog</Link>

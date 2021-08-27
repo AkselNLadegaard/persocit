@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
-const isBrowser = typeof window !== 'undefined'
+
 function setTheme(toTheme) {
-	if (isBrowser) {
-		document.documentElement.setAttribute('data-theme', toTheme)
-	}
+	document.documentElement.setAttribute('data-theme', toTheme)
 }
 
 function browserPrefersColorScheme() {
@@ -24,33 +22,31 @@ function detectColorScheme() {
 	// 1. Browser has changed preference (prefers-color-scheme)
 	// 2. Local storage
 	// 3. Default light styling & no-preference.
-	if (isBrowser) {
-		if (window.matchMedia('(prefers-color-scheme)').matches) {
-			const browserPreference = browserPrefersColorScheme()
-			if (localStorage.getItem('initialPreference') === null) {
-				localStorage.setItem('initialPreference', browserPreference)
-				setTheme(browserPreference)
-				return browserPreference === 'dark'
-			} else if (
-				localStorage.getItem('initialPreference') !== browserPreference
-			) {
-				setTheme(browserPreference)
-				localStorage.setItem('initialPreference', browserPreference)
-			} else if (localStorage.getItem('theme') !== null) {
-				const prefersTheme = localStorage.getItem('theme')
-				setTheme(prefersTheme)
-				return prefersTheme === 'dark'
-			}
-		} else if (localStorage.getItem('theme')) {
+	if (window.matchMedia('(prefers-color-scheme)').matches) {
+		const browserPreference = browserPrefersColorScheme()
+		if (localStorage.getItem('initialPreference') === null) {
+			localStorage.setItem('initialPreference', browserPreference)
+			setTheme(browserPreference)
+			return browserPreference === 'dark'
+		} else if (
+			localStorage.getItem('initialPreference') !== browserPreference
+		) {
+			setTheme(browserPreference)
+			localStorage.setItem('initialPreference', browserPreference)
+		} else if (localStorage.getItem('theme') !== null) {
 			const prefersTheme = localStorage.getItem('theme')
-			console.log('Fallback to local storage theme, for old browsers')
 			setTheme(prefersTheme)
 			return prefersTheme === 'dark'
-		} else {
-			setTheme('light')
-			return false
 		}
-	} else return false
+	} else if (localStorage.getItem('theme')) {
+		const prefersTheme = localStorage.getItem('theme')
+		console.log('Fallback to local storage theme, for old browsers')
+		setTheme(prefersTheme)
+		return prefersTheme === 'dark'
+	} else {
+		setTheme('light')
+		return false
+	}
 }
 
 const DarkMode = ({ name = 'darkModeToggle', children, ...rest }) => {
@@ -58,20 +54,19 @@ const DarkMode = ({ name = 'darkModeToggle', children, ...rest }) => {
 		detectColorScheme(setDarkMode)
 	)
 
-	if (isBrowser) {
-		window
-			.matchMedia('(prefers-color-scheme: dark)')
-			.addEventListener('change', (e) => {
-				detectColorScheme()
-				setDarkMode(e.matches)
-			})
-		window
-			.matchMedia('(prefers-color-scheme: no-preference)')
-			.addEventListener('change', (e) => {
-				detectColorScheme()
-				setDarkMode(!e.matches)
-			})
-	}
+	window
+		.matchMedia('(prefers-color-scheme: dark)')
+		.addEventListener('change', (e) => {
+			detectColorScheme()
+			setDarkMode(e.matches)
+		})
+	window
+		.matchMedia('(prefers-color-scheme: no-preference)')
+		.addEventListener('change', (e) => {
+			detectColorScheme()
+			setDarkMode(!e.matches)
+		})
+
 	// TODO cleanup event listeners?
 	useEffect(() => {
 		if (darkMode) {
