@@ -1,23 +1,20 @@
 import { css } from '@emotion/react'
 import * as constant from './constants'
-import { danger, selectionColor } from './constants'
-import { rhythm } from 'typography'
 
-export const baseActiveStyles = css`
+export const activeStyles = css`
 	:hover,
 	:focus,
 	:active {
-		--wght: 'wght' 800;
+		opacity: var(--opaque);
 		cursor: pointer;
 	}
 
 	:hover {
-		//opacity: 0.65;
 	}
 
 	:focus,
 	:active {
-		outline: 2px solid ${constant.selectionColor};
+		outline: 2px solid var(--selectionColor);
 		outline-offset: 4px;
 	}
 
@@ -26,11 +23,12 @@ export const baseActiveStyles = css`
 `
 export const basePseudoSelectorStyles = css`
 	::selection {
-		background: ${constant.selectionColor};
+		background: var(--selectionColor);
 	}
 `
-const variableFontStyles = css`
-	// May be moved into typography.js to decrease the number separate style declarations.
+const typography = css`
+	// Overriding typography.js styles.
+
 	// Headers
 	h1,
 	h2,
@@ -52,13 +50,10 @@ const variableFontStyles = css`
 	strong,
 	pre,
 	button {
-		max-width: ${constant.maxContentWidth};
-		font-variation-settings: var(--mono), var(--casl), var(--wght),
-			var(--slnt), var(--CRSV);
+		max-width: var(--maxContentWidth);
 	}
 
 	pre {
-		--mono: 'MONO' 0;
 	}
 
 	// Seperate header styling.
@@ -68,48 +63,6 @@ const variableFontStyles = css`
 	h4,
 	h5,
 	h6 {
-		--mono: 'MONO' 0;
-		--casl: 'CASL' 0.2;
-		--wght: 'wght' 800;
-		--slnt: 'slnt' 0;
-		--CRSV: 'CRSV' 1;
-
-		::first-letter {
-			/*      font-size: 1.1em;
-            --mono: "MONO" 1; */
-			/*     
- background: ${constant.selectionColor};
-      padding: 0 0.2em;
-      
-      --mono: "MONO" 1;
-      --casl: "CASL" 0;
-      --wght: "wght" 1000;
-      */
-		}
-	}
-
-	h1 {
-		--wght: 'wght' 800;
-	}
-
-	h2 {
-		--wght: 'wght' 700;
-	}
-
-	h3 {
-		--wght: 'wght' 600;
-	}
-
-	h4 {
-		--wght: 'wght' 600;
-	}
-
-	h5 {
-		--wght: 'wght' 800;
-	}
-
-	h6 {
-		--wght: 'wght' 800;
 	}
 
 	blockquote {
@@ -118,8 +71,13 @@ const variableFontStyles = css`
 
 	// Base elements
 	a {
-		${baseActiveStyles};
+		${activeStyles};
 		text-decoration: none;
+		color: var(--primary);
+
+		:visited {
+			opacity: var(--opaque);
+		}
 
 		:hover,
 		:active,
@@ -134,7 +92,6 @@ const variableFontStyles = css`
 	}
 
 	i {
-		--slnt: 'slnt' -15;
 	}
 
 	em {
@@ -143,12 +100,10 @@ const variableFontStyles = css`
 
 	b,
 	strong {
-		--wght: 'wght' 800;
 	}
 
 	sub,
 	sup {
-		--mono: 'MONO' 1;
 	}
 
 	pre {
@@ -161,16 +116,10 @@ const variableFontStyles = css`
 	ul,
 	ol {
 		::marker {
-			--mono: 'MONO' 1;
 		}
 	}
 
 	li {
-		--mono: 'MONO' 0.7;
-		--casl: 'CASL' 0;
-		--wght: 'wght' 450;
-		--slnt: 'slnt' 0;
-		--CRSV: 'CRSV' 0;
 	}
 
 	ul {
@@ -183,7 +132,7 @@ export const baseButtonStyles = css`
 	button {
 		border: 0;
 		border-radius: 0.25rem;
-		background: ${constant.primary};
+		background: var(--primary);
 		color: white;
 		font-size: 1.3rem;
 		line-height: 1.2;
@@ -193,44 +142,44 @@ export const baseButtonStyles = css`
 		margin: 0.25rem;
 		cursor: pointer;
 
-		${baseActiveStyles};
+		${activeStyles};
 
 		:hover,
 		:focus {
-			background: ${constant.primaryLight};
 		}
 
 		:active {
-			background: ${constant.primaryDark};
+			opacity: 1;
 		}
 
 		:disabled {
-			background: ${constant.disabled};
+			background: var(--disabled);
 		}
 	}
 `
+export const darkThemeStyles = css`
+	--black: slateGrey;
+	--white: darkGrey;
+	--background: pink;
+`
 export const globalStyles = css`
 	:root {
-		//https://fonts.google.com/variablefonts?vfquery=recursi for full axis description
-		// Default font variation values.
-		--mono: 'MONO' 0;
-		--casl: 'CASL' 0;
-		--wght: 'wght' 400;
-		--slnt: 'slnt' 0;
-		--CRSV: 'CRSV' 0.5;
-		/* Monospace: Sans (natural-width) or Mono (fixed-width) */
-		/* Casual: Linear to Casual */
-		/* Weight: Light to ExtraBlack; usually set with \`font-weight\` */
-		/* Slant: 0 to -15 degrees, auto cursive at -14 */
-		/* Cursive: always roman (0), auto substitution (0.5), or always cursive (1)*/ /* apply axis values with CSS custom properties */
+		${constant.initialCustomProperties};
+	}
+	html,
+	body,
+	main {
+		color: var(--black);
+	}
+	html {
+		background: var(--background);
 	}
 
-	html {
-		font-variation-settings: var(--mono), var(--casl), var(--wght),
-			var(--slnt), var(--CRSV);
+	html[data-theme='dark'] {
+		${darkThemeStyles};
 	}
 
 	${basePseudoSelectorStyles};
-	${variableFontStyles};
+	${typography};
 	${baseButtonStyles};
 `

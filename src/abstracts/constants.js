@@ -1,23 +1,37 @@
 import { css } from '@emotion/react'
 
-export const primary = 'hotpink'
-export const primaryLight = 'pink'
-export const primaryDark = 'purple'
+const siteWidthUntiles = 70
+const breakpoints = [30, 45, siteWidthUntiles]
 
-export const secondary = 'blue'
-export const secondaryLight = 'blue'
-export const secondaryDark = 'blue'
-
-export const danger = 'firebrick'
-export const disabled = 'grey'
-
-export const selectionColor = 'antiquewhite'
-
-export const gap = '24px'
-
-const siteWidthUnitless = 70
-export const siteWidth = `${siteWidthUnitless}em`
-export const maxContentWidth = '60ch'
-
-const breakpoints = [30, 45, siteWidthUnitless]
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
+
+export const initialCustomProperties = css`
+	// inserted on :root, as global styles.
+
+	color-scheme: light dark;
+	--black: #3d373d;
+	--white: #fff;
+
+	--primary: #264653;
+
+	--secondary: #f4a261;
+
+	--warning: yellow;
+	--danger: firebrick;
+	--disabled: gray;
+
+	--selectionColor: antiqueWhite;
+
+	--background: var(--white);
+	--gap: 24px;
+
+	--siteWidth: 70em;
+	--maxContentWidth: 60ch;
+
+	// breakpoints
+	--phone: ${breakpoints[0]};
+	--tablet: ${breakpoints[1]};
+	--desktop: ${`${siteWidthUntiles}em`};
+
+	--opaque: 0.8;
+`

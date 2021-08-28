@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import * as constant from '../abstracts/constants'
 // Components
 import { Link } from 'gatsby'
 import TestSvg from '../assets/svg/svgTest.svg'
+import DarkMode from '../components/DarkMode'
 
 const Header = styled.header`
 	position: sticky;
@@ -20,13 +21,13 @@ const Header = styled.header`
 const Container = styled.div`
 	width: 100%;
 	height: 100%;
-	max-width: ${constant.siteWidth};
+	max-width: var(--siteWidth);
 	margin: 0 auto;
-	padding: 0.5em ${constant.gap} 0.25em;
-	background: white;
+	padding: 0.5em var(--gap) 0.25em;
+	background: var(--background);
 
 	${constant.mq[1]} {
-		padding: 0 ${constant.gap};
+		padding: 0 var(--gap);
 	}
 
 	display: flex;
@@ -57,6 +58,11 @@ const Container = styled.div`
 		svg {
 			height: 2rem;
 			width: auto;
+
+			path {
+				// fill: var(--black); Depends on the SVG.
+				stroke: var(--black) !important;
+			}
 
 			${constant.mq[1]} {
 				height: 3rem;
@@ -94,18 +100,18 @@ const SideNavContainer = styled.div`
 		min-width: max-content;
 		height: fit-content;
 		min-height: 100vh;
-		background: white;
+		background: var(--background);
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
-		padding: ${constant.gap};
+		padding: var(--gap);
 		overflow-y: auto;
 
 		> * {
-			margin-top: ${constant.gap};
+			margin-top: var(--gap);
 		}
 
-		:first-child {
+		:first-of-type {
 			margin-top: 0;
 		}
 	}
@@ -128,11 +134,16 @@ const Hamburger = styled.button`
 `
 
 const Navbar = ({ ...props }) => {
-	const [sideNavActive, setSideNavActive] = useState(false)
+	//determines if the user has a set them
 
+	const [sideNavActive, setSideNavActive] = useState(false)
+	const isBrowser = typeof window !== 'undefined'
+	const handleSidenav = ({ toStatus }) =>
+		setSideNavActive(toStatus ? toStatus : !sideNavActive)
 	const Links = () => {
 		return (
 			<>
+				{isBrowser && <DarkMode>Swtich theme</DarkMode>}
 				<Link to={'/plants'}>Plants</Link>
 				<Link to={'/typographyPlayground'}>Typography</Link>
 				<Link to={'/blog'}>Empty blog</Link>
@@ -140,15 +151,16 @@ const Navbar = ({ ...props }) => {
 			</>
 		)
 	}
-	const SideNav = ({}) => {
+	const SideNav = () => {
 		return (
 			<SideNavContainer css={sideNavActive && SideNavActive}>
 				<div className={'links-container'}>
 					<Links />
 				</div>
 				<button
+					aria-label='Close sidenav'
 					className={'escape'}
-					onClick={() => setSideNavActive(!sideNavActive)}
+					onClick={() => handleSidenav(false)}
 				/>
 			</SideNavContainer>
 		)
@@ -161,9 +173,7 @@ const Navbar = ({ ...props }) => {
 					<TestSvg />
 				</Link>
 
-				<Hamburger onClick={() => setSideNavActive(!sideNavActive)}>
-					M
-				</Hamburger>
+				<Hamburger onClick={handleSidenav}>M</Hamburger>
 				<ul className={'links-container'}>
 					<Links />
 				</ul>
@@ -172,4 +182,5 @@ const Navbar = ({ ...props }) => {
 		</Header>
 	)
 }
+
 export default Navbar

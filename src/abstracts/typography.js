@@ -1,15 +1,14 @@
 import Typography from 'typography'
-import * as constant from './constants'
 
-const headerFontArray = ['RecursiveVariable', 'serif']
-const bodyFontArray = ['RecursiveVariable', 'sans-serif']
+const headerFontArray = ['Atkinson Hyperlegible', 'serif']
+const bodyFontArray = ['Atkinson Hyperlegible', 'sans-serif']
 const typography = new Typography({
 	baseFontSize: '20px',
 	baseLineHeight: 1.4,
 	scaleRatio: 2,
 	headerFontFamily: headerFontArray,
 	bodyFontFamily: bodyFontArray,
-	headerGray: 10,
+	headerGray: 0,
 	headerGrayHue: 'warm',
 	bodyGray: 0,
 	bodyGrayHue: 0,
@@ -18,7 +17,5 @@ const typography = new Typography({
 	boldWeight: 700,
 	blockMarginBottom: 1,
 	includeNormalize: true,
-
-	overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({}),
 })
 export default typography
