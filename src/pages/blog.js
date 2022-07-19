@@ -3,6 +3,10 @@ import Layout from '../components/Layout'
 import { graphql, Link } from 'gatsby'
 import Section from '../components/Section'
 
+function isEmpty(str) {
+	return !str || str.length === 0
+}
+
 const Blog = ({ data }) => {
 	return (
 		<Layout>
@@ -15,7 +19,14 @@ const Blog = ({ data }) => {
 								{nodes.frontmatter.title}
 							</Link>
 							<br />
-							<sup>Posted the: {nodes.frontmatter.date}</sup>
+							<sup>
+								Created the: {nodes.frontmatter.dateCreated}
+							</sup>
+							{isEmpty(nodes.frontmatter.dateUpdated) && (
+								<sup>
+									Updated the: {nodes.frontmatter.dateUpdated}
+								</sup>
+							)}
 						</li>
 					))}
 				</ul>
@@ -27,14 +38,18 @@ const Blog = ({ data }) => {
 export const query = graphql`
 	{
 		allMdx(
-			filter: { frontmatter: { category: { eq: "blogPost" } } }
-			sort: { fields: frontmatter___date, order: DESC }
+			filter: { frontmatter: { type: { eq: "blogPost" } } }
+			sort: { fields: frontmatter___dateCreated, order: DESC }
 		) {
 			nodes {
 				frontmatter {
-					date
+					dateCreated
+					tags
+					type
+					misc
 					title
-					lead
+					description
+					dateUpdated
 				}
 				id
 				slug

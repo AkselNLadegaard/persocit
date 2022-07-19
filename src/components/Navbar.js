@@ -144,9 +144,9 @@ const Navbar = ({ ...props }) => {
 		return (
 			<>
 				{isBrowser && <DarkMode>Swtich theme</DarkMode>}
-				<Link to={'/plants'}>Plants</Link>
+				<Link to={'/experiments'}>Experiments</Link>
 				<Link to={'/typographyPlayground'}>Typography</Link>
-				<Link to={'/blog'}>Empty blog</Link>
+				<Link to={'/blog'}>Blog</Link>
 				<Link to={'/about'}>About</Link>
 			</>
 		)
