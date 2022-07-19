@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import * as constant from './constants'
+import { darkThemeStyles } from './constants'
 
 export const activeStyles = css`
 	:hover,
@@ -73,6 +74,7 @@ const typography = css`
 	a {
 		${activeStyles};
 		text-decoration: none;
+		border-bottom: dotted 0.1rem;
 		color: var(--primary);
 
 		:visited {
@@ -82,6 +84,7 @@ const typography = css`
 		:hover,
 		:active,
 		:focus {
+			border-bottom: solid 0.1rem;
 		}
 	}
 
@@ -153,24 +156,21 @@ export const baseButtonStyles = css`
 		}
 
 		:disabled {
-			background: var(--disabled);
 		}
 	}
 `
-export const darkThemeStyles = css`
-	--black: slateGrey;
-	--white: darkGrey;
-	--background: pink;
-`
+
 export const globalStyles = css`
 	:root {
 		${constant.initialCustomProperties};
 	}
+
 	html,
 	body,
 	main {
-		color: var(--black);
+		color: var(--textColor);
 	}
+
 	html {
 		background: var(--background);
 	}

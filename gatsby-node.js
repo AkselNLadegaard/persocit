@@ -6,7 +6,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 	const blogPostQuery = await graphql(`
 		query {
-			allMdx(filter: { frontmatter: { category: { eq: "blogPost" } } }) {
+			allMdx(filter: { frontmatter: { type: { eq: "blogPost" } } }) {
 				edges {
 					node {
 						id

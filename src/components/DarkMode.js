@@ -15,9 +15,9 @@ function browserPrefersColorScheme() {
 function detectColorScheme() {
 	// The ideal detect color scheme function:
 	// Saves browser preference to local storage. If browser preference has changed since the last visit, then
-	// the new preference is assumed to be the most important, and thus the theme is set to the new browser preference.
+	// the new preference is assumed to be the most important, and thus the themer is set to the new browser preference.
 	// Otherwise, it relies on the users specified preference.
-	// and finally it fall backs to default intended styling (light theme)
+	// and finally it fall backs to default intended styling (light themer)
 
 	// 1. Browser has changed preference (prefers-color-scheme)
 	// 2. Local storage
@@ -40,7 +40,7 @@ function detectColorScheme() {
 		}
 	} else if (localStorage.getItem('theme')) {
 		const prefersTheme = localStorage.getItem('theme')
-		console.log('Fallback to local storage theme, for old browsers')
+		console.log('Fallback to local storage themer, for old browsers')
 		setTheme(prefersTheme)
 		return prefersTheme === 'dark'
 	} else {
