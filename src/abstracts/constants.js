@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { themer } from './themer'
 import { darken, lighten } from 'polished'
 
-const siteWidthUntiles = 70
+const siteWidthUntiles = 60
 const breakpoints = [30, 45, siteWidthUntiles]
 
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
