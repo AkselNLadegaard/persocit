@@ -168,7 +168,7 @@ export const globalStyles = css`
 	html,
 	body,
 	main {
-		color: var(--textColor);
+		color: var(--backgroundText);
 	}
 
 	html {
