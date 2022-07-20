@@ -61,7 +61,7 @@ const Container = styled.div`
 
 			path {
 				// fill: var(--black); Depends on the SVG.
-				stroke: var(--black) !important;
+				stroke: var(--backgroundText) !important;
 			}
 
 			${constant.mq[1]} {

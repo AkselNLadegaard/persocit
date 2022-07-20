@@ -32,8 +32,7 @@ const Layout = ({ children, theme }) => {
 			) : (
 				<Global
 					styles={css`
-                      :root {
-                        ${themer(...themes.prm)}`}
+                      :root {${themes.default.theme}`}
 				/>
 			)}
 			}

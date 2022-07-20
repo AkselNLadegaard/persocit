@@ -12,7 +12,7 @@ const SectionContainer = styled.section`
 
 const Section = ({ children, bgColor, theme, ...props }) => {
 	return (
-		<SectionContainer bgColor={bgColor} {...props}>
+		<SectionContainer {...props}>
 			<div className='sectionInner'>{children}</div>
 		</SectionContainer>
 	)

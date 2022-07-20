@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import * as constant from './constants'
-import { darkThemeStyles } from './constants'
+import { darkThemeStyles, themes } from './constants'
+import { themerClasses, themesUtilityClasses } from './themer'
 
 export const activeStyles = css`
 	:hover,
@@ -176,10 +177,11 @@ export const globalStyles = css`
 	}
 
 	html[data-theme='dark'] {
-		${darkThemeStyles};
+		${themes.dark.theme};
 	}
 
 	${basePseudoSelectorStyles};
 	${typography};
 	${baseButtonStyles};
+	${themesUtilityClasses(themes)};
 `

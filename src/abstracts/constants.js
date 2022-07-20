@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { themer } from './themer'
+import { Theme, themer } from './themer'
 import { darken, lighten } from 'polished'
 
 const siteWidthUntiles = 60
@@ -8,28 +8,31 @@ const breakpoints = [30, 45, siteWidthUntiles]
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
 
 // Base color constants
-export const colorPrimary = '#264653'
-export const colorSecondary = '#f4a261'
-export const colorTertiary = '#B22222'
+export const colorPrimary = '#AF1B3F'
+export const colorSecondary = '#83E8BA'
+export const colorTertiary = '#4381C1'
 export const colorBlack = '#2b272b'
 export const colorWhite = '#ffffff'
 
 // Theme generation
+const themeDefault = new Theme({
+	primary: colorPrimary,
+	secondary: colorSecondary,
+	tertiary: colorTertiary,
+})
+
+const themeDark = new Theme({
+	primary: darken(0.1, colorPrimary),
+	secondary: darken(0.1, colorSecondary),
+	tertiary: darken(0.1, colorTertiary),
+	white: colorBlack,
+	black: colorWhite,
+	background: lighten(0.5, colorBlack),
+})
+
 export const themes = {
-	prm: [colorPrimary, colorSecondary, colorTertiary],
-	dark: [
-		darken(0.2, colorPrimary),
-		darken(0.2, colorSecondary),
-		darken(0.2, colorTertiary),
-		colorBlack,
-		colorWhite,
-		lighten(0.3, colorBlack),
-	],
-	prmAlt: [colorPrimary, colorTertiary, colorSecondary],
-	sec: [colorSecondary, colorPrimary, colorTertiary],
-	secAlt: [colorSecondary, colorTertiary, colorPrimary],
-	ter: [colorTertiary, colorPrimary, colorSecondary],
-	terAlt: [colorTertiary, colorSecondary, colorPrimary],
+	default: themeDefault,
+	dark: themeDark,
 }
 
 export const initialCustomProperties = css`
@@ -49,7 +52,4 @@ export const initialCustomProperties = css`
 	--desktop: ${`${siteWidthUntiles}em`};
 
 	--opaque: 0.8;
-`
-export const darkThemeStyles = css`
-	${themer(...themes.dark)};
 `
