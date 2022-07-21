@@ -48,7 +48,8 @@ export const initialCustomProperties = css`
 	// inserted on :root, as global styles.
 	color-scheme: light dark;
 
-	--selectionColor: antiqueWhite;
+	--selectionColor: var(--tertiary);
+	// this doesn't work as it is only set at global scope not theme scopes
 
 	--gap: 24px;
 

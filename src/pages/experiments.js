@@ -50,7 +50,11 @@ const Experiments = () => {
 
 			<Section>
 				<ExperimentCardContainer>
-					<a href='/experiments/theming' className='card'>
+					<a
+						href='/experiments/theming'
+						title={'Go see the theming experiments'}
+						className='card'
+					>
 						<h3>Overview of theming</h3>
 						<p>
 							Needlesly copmlicated theming happens on this site
@@ -58,14 +62,28 @@ const Experiments = () => {
 					</a>
 					<a
 						href='/experiments/typographyPlayground'
+						title={'Go see the typography experiments'}
 						className='card'
 					>
 						<h3>Typography</h3>
 						<p>All of the typographic elements!</p>
 					</a>
-					<a href='/experiments/gradients' className='card'>
+					<a
+						href='/experiments/gradients'
+						title={'Go see the gradient experiments'}
+						className='card'
+					>
 						<h3>Gradients</h3>
 						<p>Uh want to see some cool gradients?</p>
+					</a>
+
+					<a
+						href='/experiments/buttons'
+						title={'Go see the gradient experiments'}
+						className='card'
+					>
+						<h3>Buttons</h3>
+						<p>Feeeling hovery? Clicky? Click on some buttons!</p>
 					</a>
 				</ExperimentCardContainer>
 			</Section>

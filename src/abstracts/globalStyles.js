@@ -16,7 +16,7 @@ export const activeStyles = css`
 
 	:focus,
 	:active {
-		outline: 2px solid var(--selectionColor);
+		outline: 2px solid var(--tertiary);
 		outline-offset: 4px;
 	}
 
@@ -25,7 +25,9 @@ export const activeStyles = css`
 `
 export const basePseudoSelectorStyles = css`
 	::selection {
-		background: var(--selectionColor);
+		// intermediate theming solution - tertiary used is currently not constrained to 'UA' actions
+		background: var(--tertiary);
+		color: var(--tertiaryText);
 	}
 `
 const typography = css`
@@ -161,14 +163,17 @@ export const baseButtonStyles = css`
 		:disabled {
 		}
 	}
+
 	.btn-pri {
 		--btnBg: var(--primary);
 		---btnColor: var(--primaryText);
 	}
+
 	.btn-sec {
 		--btnBg: var(--secondary);
 		---btnColor: var(--secondaryText);
 	}
+
 	.btn-ter {
 		--btnBg: var(--tertiary);
 		---btnColor: var(--tertiaryText);

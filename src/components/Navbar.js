@@ -33,7 +33,13 @@ const Container = styled.div`
 	display: flex;
 	align-items: stretch;
 	justify-content: space-between;
-
+	a {
+		:hover,
+		:focus,
+		:active {
+			outline: none;
+		}
+	}
 	.links-container {
 		display: none;
 
@@ -54,18 +60,28 @@ const Container = styled.div`
 
 	.logo {
 		align-self: center;
-
+		border-bottom: none;
 		svg {
 			height: 2rem;
 			width: auto;
 
 			path {
-				// fill: var(--black); Depends on the SVG.
+				transition: 0.1s ease-in-out fill, stroke;
 				stroke: var(--backgroundText) !important;
+				fill: var(--background) !important;
 			}
 
 			${constant.mq[1]} {
 				height: 3rem;
+			}
+		}
+
+		:active,
+		:hover,
+		:focus {
+			svg path {
+				fill: var(--primary) !important;
+				stroke: var(--tertiary) !important;
 			}
 		}
 	}
