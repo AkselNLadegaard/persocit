@@ -195,8 +195,16 @@ export const globalStyles = css`
 		background: var(--background);
 	}
 
+	@media (prefers-color-scheme: dark) {
+		${themes.dark.theme};
+	}
+
 	html[data-theme='dark'] {
 		${themes.dark.theme};
+	}
+
+	html[data-theme='light'] {
+		${themes.default.theme};
 	}
 
 	${basePseudoSelectorStyles};
