@@ -3,6 +3,7 @@ import { themes } from '../../abstracts/constants'
 import styled from '@emotion/styled'
 import Layout from '../../components/Layout'
 import Section from '../../components/Section'
+import { css } from '@emotion/react'
 
 const ThemeTestContainer = styled.div`
 	display: grid;
@@ -52,7 +53,13 @@ const Theming = ({ data }) => {
 				<p>Possibly also a color theme generator playground! </p>
 				<ThemeTestContainer>
 					{Object.keys(themes).map((value, index) => (
-						<div key={index} css={`card ${themes[value].theme}`}>
+						<div
+							key={index}
+							css={css`
+								${themes[value].theme}
+							`}
+							className={'card'}
+						>
 							<h3>This is theme {value}</h3>
 							<a href='src/pages/experiments'>
 								this is an empty link
