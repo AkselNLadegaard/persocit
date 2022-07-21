@@ -1,4 +1,5 @@
 import {
+	adjustHue,
 	complement,
 	darken,
 	invert,
@@ -41,45 +42,60 @@ export function setTheme(
 	background,
 	setAltTheme = false
 ) {
-	let backgroundDark = setLightness(0.6, background)
+	let backgroundDark = setLightness(0.7, background)
 	let primaryDark = correctContrast({
 		mainColor: backgroundDark,
-		colorToCorrect: setLightness(0.2, primary),
+		colorToCorrect: setLightness(0.5, primary),
 	})
 	let secondaryDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: setLightness(0.2, secondary),
+		colorToCorrect: setLightness(0.5, secondary),
 	})
 	let tertiaryDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: setLightness(0.2, tertiary),
+		colorToCorrect: setLightness(0.5, tertiary),
 	})
 	let whiteDark = white
 	let blackDark = black
 
-	let primaryAlt = generateSecondary(primary)
-	let secondaryAlt = generateSecondary(primary, invert(primaryAlt))
-	let tertiaryAlt = generateSecondary(primary, complement(secondaryAlt))
-	let bgAlt = complement(background)
-
+	//let primaryAlt = generateSecondary(primary)
+	//let secondaryAlt = generateSecondary(primary, invert(primaryAlt))
+	//let tertiaryAlt = generateSecondary(primary, complement(secondaryAlt))
+	//let bgAlt = complement(background)
+	let primaryAlt = correctContrast({
+		mainColor: primary,
+		colorToCorrect: adjustHue(45, primary),
+	})
+	let secondaryAlt = correctContrast({
+		mainColor: backgroundDark,
+		colorToCorrect: adjustHue(120, primary),
+	})
+	let tertiaryAlt = correctContrast({
+		mainColor: backgroundDark,
+		colorToCorrect: adjustHue(-120, primary),
+	})
+	let bgAlt = correctContrast({
+		mainColor: primaryAlt,
+		colorToCorrect: background,
+	})
+	let backgroundAltDark = darken(0.2, bgAlt)
 	let primaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: darken(0.2, primaryAlt),
+		colorToCorrect: setLightness(0.5, primaryAlt),
 	})
 
 	let secondaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: darken(0.2, secondaryAlt),
+		colorToCorrect: setLightness(0.5, secondaryAlt),
 	})
 
 	let tertiaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: darken(0.2, tertiaryAlt),
+		colorToCorrect: setLightness(0.5, tertiaryAlt),
 	})
 
 	let whiteAltDark = white
 	let blackAltDark = black
-	let backgroundAltDark = darken(0.2, bgAlt)
 	if (setAltTheme === false) {
 		let cssObject = createThemeCssObject(
 			primary,
@@ -145,18 +161,26 @@ export class Theme {
 			mainColor: this.bg,
 			colorToCorrect: primary,
 		})
-		this.secondary = generateSecondary(primary, secondary)
 		//this.secondary = generateSecondary(primary, secondary)
-
-		this.tertiary = tertiary
-			? correctContrast({
-					mainColor: this.bg,
-					colorToCorrect: tertiary,
-			  })
-			: correctContrast({
-					mainColor: this.bg,
-					colorToCorrect: invert(this.secondary),
-			  })
+		this.secondary = correctContrast({
+			mainColor: this.bg,
+			colorToCorrect: secondary
+				? secondary
+				: adjustHue(120, this.primary),
+		})
+		// this.tertiary = tertiary
+		// 	? correctContrast({
+		// 			mainColor: this.bg,
+		// 			colorToCorrect: tertiary,
+		// 	  })
+		// 	: correctContrast({
+		// 			mainColor: this.bg,
+		// 			colorToCorrect: invert(this.secondary),
+		// 	  })
+		this.tertiary = correctContrast({
+			mainColor: this.bg,
+			colorToCorrect: tertiary ? tertiary : adjustHue(-120, this.primary),
+		})
 		// White, black and background color generation
 		this.white = white ? white : colorWhite
 		this.black = black ? black : colorBlack

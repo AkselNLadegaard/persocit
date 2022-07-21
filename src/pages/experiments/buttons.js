@@ -54,17 +54,19 @@ const IndexPage = () => {
 						</button>
 					</ButtonCard>
 					<ButtonCard className={'bg-default'}>
-						<h3>Default buttons</h3>
-						<p>Default button options in the style</p>
-						<button className='outline'>
-							Interact with the primary button!
-						</button>
-						<button className='btn-sec outline'>
-							Interact with the secondary button!
-						</button>
-						<button className='btn-ter outline'>
-							Interact with the tertiary button!
-						</button>
+						<div className='bg-inner'>
+							<h3>Default buttons</h3>
+							<p>Default button options in the style</p>
+							<button className='outline'>
+								Interact with the primary button!
+							</button>
+							<button className='btn-sec outline'>
+								Interact with the secondary button!
+							</button>
+							<button className='btn-ter outline'>
+								Interact with the tertiary button!
+							</button>
+						</div>
 					</ButtonCard>
 				</ButtonCardContainer>
 			</Section>
