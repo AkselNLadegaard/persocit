@@ -1,23 +1,20 @@
 import {
-	adjustHue,
 	complement,
 	darken,
 	invert,
-	lighten,
-	meetsContrastGuidelines,
 	readableColor,
-	saturate,
-	toColorString,
+	setLightness,
 } from 'polished'
 import { css } from '@emotion/react'
 import { colorBlack, colorWhite } from './constants'
+import { correctContrast, generateSecondary } from './colorFunctions'
 
 export function colorTemp(role, color) {
 	return `--${role}: ${color};
       --${role}Text: ${readableColor(color)};`
 }
 
-export function setTheme(
+function createThemeCssObject(
 	primary,
 	secondary,
 	tertiary,
@@ -35,148 +32,103 @@ export function setTheme(
 	`
 }
 
-export function canDarken({ mainColor, colorToCorrect, level = 'AA' }) {
-	let colorIm = colorToCorrect
-	let i = 1
-	for (i; !meetsContrastGuidelines(mainColor, colorIm)[level]; i++) {
-		colorIm = darken(i / 100, colorIm)
-		if (i >= 100) {
-			console.log('Cannot correct color with lighten')
-			colorIm = colorToCorrect
-			break
-		}
-	}
+export function setTheme(
+	primary,
+	secondary,
+	tertiary,
+	white,
+	black,
+	background,
+	setAltTheme = false
+) {
+	let backgroundDark = setLightness(0.6, background)
+	let primaryDark = correctContrast({
+		mainColor: backgroundDark,
+		colorToCorrect: setLightness(0.2, primary),
+	})
+	let secondaryDark = correctContrast({
+		mainColor: primaryDark,
+		colorToCorrect: setLightness(0.2, secondary),
+	})
+	let tertiaryDark = correctContrast({
+		mainColor: primaryDark,
+		colorToCorrect: setLightness(0.2, tertiary),
+	})
+	let whiteDark = white
+	let blackDark = black
 
-	return {
-		canDarken: meetsContrastGuidelines(mainColor, colorIm)[level],
-		correctedColor: colorIm,
-		steps: i,
-	}
-}
+	let primaryAlt = generateSecondary(primary)
+	let secondaryAlt = generateSecondary(primary, invert(primaryAlt))
+	let tertiaryAlt = generateSecondary(primary, complement(secondaryAlt))
+	let bgAlt = complement(background)
 
-export function canLighten({ mainColor, colorToCorrect, level = 'AA' }) {
-	let colorIm = colorToCorrect
-	let i = 1
-	for (i; !meetsContrastGuidelines(mainColor, colorIm)[level]; i++) {
-		colorIm = lighten(i / 100, colorIm)
-		if (i >= 100) {
-			console.log('Cannot correct color with lighten')
-			colorIm = colorToCorrect
-			break
-		}
-	}
-	return {
-		canLighten: meetsContrastGuidelines(mainColor, colorIm)[level],
-		correctedColor: colorIm,
-		steps: i,
-	}
-}
+	let primaryAltDark = correctContrast({
+		mainColor: primaryDark,
+		colorToCorrect: darken(0.2, primaryAlt),
+	})
 
-export function correctContrast({
-	mainColor,
-	colorToCorrect,
-	level = 'AA',
-	type = 'auto',
-}) {
-	// forces colorTOCorrect, a hex, to meet WCAG contrast level AA.
-	// If contrast is met, colorToCorrect is returned unaltered
-	console.log('correct contrast')
-	console.log(
-		`Meets ${level} of contrast: ${
-			meetsContrastGuidelines(mainColor, colorToCorrect)[level]
-		}`
-	)
-	let colorIm = colorToCorrect
-	console.log(`color to correct initially: ${colorIm}`)
-	console.log(
-		`colorIm test: ${meetsContrastGuidelines(mainColor, colorIm)[level]}`
-	)
-	console.log(`Attempting ${type} correction`)
-	if (meetsContrastGuidelines(mainColor, colorToCorrect)[level]) {
-		return colorToCorrect
-	} else if (type === 'hue') {
-		for (
-			let i = 1;
-			!meetsContrastGuidelines(mainColor, colorIm)[level];
-			i++
-		) {
-			colorIm = adjustHue(i, colorIm)
-			if (i >= 360) {
-				console.log('Cannot correct color with hue')
-				colorIm = colorToCorrect
-				break
-			}
-		}
-		console.log(
-			`Original color: ${colorToCorrect}, returned color: ${colorIm}, meets contrast: ${
-				meetsContrastGuidelines(mainColor, colorIm)[level]
-			}`
+	let secondaryAltDark = correctContrast({
+		mainColor: primaryDark,
+		colorToCorrect: darken(0.2, secondaryAlt),
+	})
+
+	let tertiaryAltDark = correctContrast({
+		mainColor: primaryDark,
+		colorToCorrect: darken(0.2, tertiaryAlt),
+	})
+
+	let whiteAltDark = white
+	let blackAltDark = black
+	let backgroundAltDark = darken(0.2, bgAlt)
+	if (setAltTheme === false) {
+		let cssObject = createThemeCssObject(
+			primary,
+			secondary,
+			tertiary,
+			white,
+			black,
+			background
 		)
-		return colorIm
-	} else if (type === 'saturation') {
-		for (
-			let i = 1;
-			!meetsContrastGuidelines(mainColor, colorIm)[level];
-			i++
-		) {
-			colorIm = saturate(i / 100, colorIm)
-			if (i >= 100) {
-				console.log('Cannot correct color with saturate')
-				colorIm = colorToCorrect
-				break
-			}
-		}
-		console.log(
-			`Original color: ${colorToCorrect}, returned color: ${colorIm}, meets contrast: ${
-				meetsContrastGuidelines(mainColor, colorIm)[level]
-			}`
+
+		let cssObjectDark = createThemeCssObject(
+			primaryDark,
+			secondaryDark,
+			tertiaryDark,
+			whiteDark,
+			blackDark,
+			backgroundDark
 		)
-		return colorIm
-	} else if (type === 'auto') {
-		let canDarkenObj = canDarken({
-			mainColor: mainColor,
-			colorToCorrect: colorToCorrect,
-			level: level,
-		})
-		let canLightenObj = canLighten({
-			mainColor: mainColor,
-			colorToCorrect: colorToCorrect,
-			level: level,
-		})
-
-		if (canDarkenObj.canDarken && canLightenObj.canLighten) {
-			if (canLightenObj.steps > canDarkenObj.steps) {
-				colorIm = canDarkenObj.correctedColor
-			} else if (canLightenObj.steps < canDarkenObj.steps) {
-				colorIm = canLightenObj.correctedColor
-			} else {
-				colorIm = canDarkenObj.correctedColor
+		return css`
+			${cssObject};
+			@media (prefers-color-scheme: dark) {
+				${cssObjectDark}
 			}
-		} else if (canDarkenObj.canDarken) {
-			colorIm = canDarkenObj.correctedColor
-		} else if (canLightenObj.canLighten) {
-			colorIm = canLightenObj.correctedColor
-		} else return colorIm
-	}
-	return colorIm
-}
+		`
+	} else if (setAltTheme === true) {
+		let cssObject = createThemeCssObject(
+			primaryAlt,
+			secondaryAlt,
+			tertiaryAlt,
+			white,
+			black,
+			bgAlt
+		)
+		let cssObjectDark = createThemeCssObject(
+			primaryAltDark,
+			secondaryAltDark,
+			tertiaryAltDark,
+			whiteAltDark,
+			blackAltDark,
+			backgroundAltDark
+		)
 
-function generateSecondary(primary, secondary = null) {
-	console.log(`logging secondary ${secondary}`)
-	console.log(`logging secondary ${secondary ? 'true' : 'false'}`)
-	let secondaryIm = secondary ? secondary : complement(primary)
-	console.log(`logging secondaryIm: ${secondaryIm} `)
-	let meetsContrast = meetsContrastGuidelines(primary, secondaryIm)['AA']
-	console.log(`logging meetsContrast: ${meetsContrast} `)
-	if (meetsContrast === true) {
-		return secondaryIm
-	} else if (meetsContrast === false) {
-		return correctContrast({
-			mainColor: primary,
-			colorToCorrect: secondaryIm,
-			type: 'AA',
-		})
-	} else return secondaryIm
+		return css`
+			${cssObject};
+			@media (prefers-color-scheme: dark) {
+				${cssObjectDark}
+			}
+		`
+	}
 }
 
 export class Theme {
@@ -188,41 +140,49 @@ export class Theme {
 		black = null,
 		background = null,
 	}) {
-		this.primary = primary
+		this.bg = background ? background : colorWhite
+		this.primary = correctContrast({
+			mainColor: this.bg,
+			colorToCorrect: primary,
+		})
 		this.secondary = generateSecondary(primary, secondary)
 		//this.secondary = generateSecondary(primary, secondary)
 
-		this.tertiary = tertiary ? tertiary : invert(this.secondary)
+		this.tertiary = tertiary
+			? correctContrast({
+					mainColor: this.bg,
+					colorToCorrect: tertiary,
+			  })
+			: correctContrast({
+					mainColor: this.bg,
+					colorToCorrect: invert(this.secondary),
+			  })
 		// White, black and background color generation
 		this.white = white ? white : colorWhite
 		this.black = black ? black : colorBlack
-		this.bg = background ? background : colorWhite
 
-		this.theme = setTheme(
-			this.primary,
-			this.secondary,
-			this.tertiary,
-			this.white,
-			this.black,
-			this.bg
-		)
-		this.primaryAlt = generateSecondary(this.primary)
-		this.secondaryAlt = generateSecondary(
-			this.primary,
-			invert(this.primaryAlt)
-		)
-		this.tertiaryAlt = generateSecondary(
-			this.primary,
-			complement(this.secondaryAlt)
-		)
-		this.themeAlt = setTheme(
-			this.primaryAlt,
-			this.secondaryAlt,
-			this.tertiaryAlt,
-			this.white,
-			this.black,
-			complement(this.bg)
-		)
+		this.theme = css`
+			${setTheme(
+				this.primary,
+				this.secondary,
+				this.tertiary,
+				this.white,
+				this.black,
+				this.bg,
+				false
+			)};
+		`
+		this.themeAlt = css`
+			${setTheme(
+				this.primary,
+				this.secondary,
+				this.tertiary,
+				this.white,
+				this.black,
+				this.bg,
+				true
+			)}
+		`
 	}
 }
 
@@ -231,10 +191,13 @@ export function themesUtilityClasses(themes) {
 		(value, index) =>
 			css`
 				.bg-${value} {
-					${themes[value].themeAlt};
-					--background: ${themes[value].primary};
-					background: var(--background);
+					${themes[value].theme};
+					background: var(--primary);
 					color: var(--primaryText);
+
+					> .bg-inner {
+						${themes[value].themeAlt};
+					}
 				}
 			`
 	)

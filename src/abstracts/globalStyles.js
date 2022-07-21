@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import * as constant from './constants'
-import { darkThemeStyles, themes } from './constants'
-import { themerClasses, themesUtilityClasses } from './themer'
+import { themes } from './constants'
+import { themesUtilityClasses } from './themer'
 import { baseButtonStyles } from './buttonStyles'
 
 export const activeStyles = css`

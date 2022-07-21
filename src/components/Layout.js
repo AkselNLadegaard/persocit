@@ -1,19 +1,14 @@
 import React from 'react'
-import { Global, css } from '@emotion/react'
+import { css, Global } from '@emotion/react'
 import { globalStyles } from '../abstracts/globalStyles'
 
 // Components
 import Navbar from './Navbar'
 import Footer from './Footer'
-import {
-	colorPrimary,
-	colorSecondary,
-	colorTertiary,
-	themes,
-} from '../abstracts/constants'
-import { themer } from '../abstracts/themer'
+import { themes } from '../abstracts/constants'
 
 const Layout = ({ children, theme }) => {
+	let layoutTheme = theme ? theme.theme : themes.default.theme
 	return (
 		<>
 			<Global
@@ -21,39 +16,13 @@ const Layout = ({ children, theme }) => {
 					${globalStyles};
 				`}
 			/>
-			{theme ? (
-				<Global
-					styles={css`
-						@media (prefers-color-scheme: dark) {
-							${themes.dark.theme};
-						}
-
-						html[data-theme='dark'] {
-							${themes.dark.theme};
-						}
-
-						html[data-theme='light'] {
-							${theme}
-						}
-					`}
-				/>
-			) : (
-				<Global
-					styles={css`
-						@media (prefers-color-scheme: dark) {
-							${themes.dark.theme};
-						}
-
-						html[data-theme='dark'] {
-							${themes.dark.theme};
-						}
-
-						html[data-theme='light'] {
-							${themes.default.theme}
-						}
-					`}
-				/>
-			)}
+			<Global
+				styles={css`
+					:root {
+						${layoutTheme};
+					}
+				`}
+			/>
 			<Navbar />
 			<main>{children}</main>
 			<Footer>This is a footer!</Footer>

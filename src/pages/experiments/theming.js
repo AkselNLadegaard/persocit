@@ -17,6 +17,7 @@ const ThemeTestContainer = styled.div`
 `
 
 const Theming = ({ data }) => {
+	console.log(themes)
 	return (
 		<Layout>
 			<Section>
@@ -75,14 +76,16 @@ const Theming = ({ data }) => {
 					<h2>Now with classes bg-themeName</h2>
 					{Object.keys(themes).map((value, index) => (
 						<div key={index} className={`card bg-${value}`}>
-							<h3>This is theme {value}</h3>
-							<a href='src/pages/experiments'>
-								this is an empty link
-							</a>
-							<button className='btn-pri'>Click me</button>
-							<button className='btn-sec'>Click me</button>
-							<button className='btn-ter'>Click me</button>
-							😳
+							<div className='bg-inner'>
+								<h3>This is theme {value}</h3>
+								<a href='src/pages/experiments'>
+									this is an empty link
+								</a>
+								<button className='btn-pri'>Click me</button>
+								<button className='btn-sec'>Click me</button>
+								<button className='btn-ter'>Click me</button>
+								😳
+							</div>
 						</div>
 					))}
 				</ThemeTestContainer>

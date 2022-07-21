@@ -12,22 +12,13 @@ export const colorPrimary = '#AF1B3F'
 export const colorSecondary = '#83E8BA'
 export const colorTertiary = '#4381C1'
 export const colorBlack = '#2b272b'
-export const colorWhite = '#ffffff'
-
+export const colorWhite = '#f1efec'
+export const colorBackground = '#ffffff'
 // Theme generation
 const themeDefault = new Theme({
 	primary: colorPrimary,
 	secondary: colorSecondary,
 	tertiary: colorTertiary,
-})
-
-const themeDark = new Theme({
-	primary: darken(0.1, colorPrimary),
-	secondary: darken(0.1, colorSecondary),
-	tertiary: darken(0.1, colorTertiary),
-	white: colorBlack,
-	black: colorWhite,
-	background: lighten(0.5, colorBlack),
 })
 
 const themeAutoPri = new Theme({
@@ -39,7 +30,6 @@ const themeAutoSec = new Theme({
 
 export const themes = {
 	default: themeDefault,
-	dark: themeDark,
 	themeAutoPri: themeAutoPri,
 	themeAutoSec: themeAutoSec,
 }

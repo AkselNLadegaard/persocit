@@ -36,8 +36,9 @@ function themeGradients(themes) {
 }
 
 const Experiments = () => {
+	const pageTheme = new Theme({ primary: '#2da98c' })
 	return (
-		<Layout theme={new Theme({ primary: '#2da98c' }).theme}>
+		<Layout theme={pageTheme}>
 			<Section>
 				<h1>Experiments</h1>
 				<p>A bunch of experiments!</p>
