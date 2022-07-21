@@ -32,10 +32,10 @@ const Layout = ({ children, theme }) => {
 			) : (
 				<Global
 					styles={css`
-                      :root {${themes.default.theme}`}
+                      :root {
+                        ${themes.default.theme}`}
 				/>
 			)}
-			}
 			<Navbar />
 			<main>{children}</main>
 			<Footer>This is a footer!</Footer>

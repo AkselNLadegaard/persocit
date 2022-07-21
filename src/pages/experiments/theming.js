@@ -57,7 +57,9 @@ const Theming = ({ data }) => {
 							<a href='src/pages/experiments'>
 								this is an empty link
 							</a>
-							<button>Click me</button>
+							<button className='btn-pri'>Click me</button>
+							<button className='btn-sec'>Click me</button>
+							<button className='btn-ter'>Click me</button>
 							😳
 						</div>
 					))}
@@ -70,7 +72,6 @@ const Theming = ({ data }) => {
 							<a href='src/pages/experiments'>
 								this is an empty link
 							</a>
-							<button></button>
 							<button className='btn-pri'>Click me</button>
 							<button className='btn-sec'>Click me</button>
 							<button className='btn-ter'>Click me</button>

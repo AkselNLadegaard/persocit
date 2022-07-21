@@ -206,13 +206,22 @@ export class Theme {
 			this.black,
 			this.bg
 		)
+		this.primaryAlt = generateSecondary(this.primary)
+		this.secondaryAlt = generateSecondary(
+			this.primary,
+			invert(this.primaryAlt)
+		)
+		this.tertiaryAlt = generateSecondary(
+			this.primary,
+			complement(this.secondaryAlt)
+		)
 		this.themeAlt = setTheme(
-			complement(this.primary),
-			invert(this.secondary),
-			complement(this.tertiary),
+			this.primaryAlt,
+			this.secondaryAlt,
+			this.tertiaryAlt,
 			this.white,
 			this.black,
-			invert(this.bg)
+			complement(this.bg)
 		)
 	}
 }
