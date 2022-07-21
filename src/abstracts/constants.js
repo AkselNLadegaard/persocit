@@ -30,9 +30,13 @@ const themeDark = new Theme({
 	background: lighten(0.5, colorBlack),
 })
 
+const themeAuto = new Theme({
+	primary: colorPrimary,
+})
 export const themes = {
 	default: themeDefault,
 	dark: themeDark,
+	themeAuto: themeAuto,
 }
 
 export const initialCustomProperties = css`
@@ -43,7 +47,7 @@ export const initialCustomProperties = css`
 
 	--gap: 24px;
 
-	--siteWidth: 70em;
+	--siteWidth: ${`${siteWidthUntiles}em`};
 	--maxContentWidth: 60ch;
 
 	// breakpoints

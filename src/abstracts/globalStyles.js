@@ -134,10 +134,12 @@ const typography = css`
 `
 export const baseButtonStyles = css`
 	button {
+		--btnBg: var(--primary);
+		---btnColor: var(--primaryText);
 		border: 0;
 		border-radius: 0.25rem;
-		background: var(--primary);
-		color: white;
+		background: var(--btnBg);
+		color: var(---btnColor);
 		font-size: 1.3rem;
 		line-height: 1.2;
 		white-space: nowrap;
@@ -158,6 +160,18 @@ export const baseButtonStyles = css`
 
 		:disabled {
 		}
+	}
+	.btn-pri {
+		--btnBg: var(--primary);
+		---btnColor: var(--primaryText);
+	}
+	.btn-sec {
+		--btnBg: var(--secondary);
+		---btnColor: var(--secondaryText);
+	}
+	.btn-ter {
+		--btnBg: var(--tertiary);
+		---btnColor: var(--tertiaryText);
 	}
 `
 
