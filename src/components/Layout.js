@@ -24,7 +24,15 @@ const Layout = ({ children, theme }) => {
 			{theme ? (
 				<Global
 					styles={css`
-						:root {
+						@media (prefers-color-scheme: dark) {
+							${themes.dark.theme};
+						}
+
+						html[data-theme='dark'] {
+							${themes.dark.theme};
+						}
+
+						html[data-theme='light'] {
 							${theme}
 						}
 					`}
@@ -32,8 +40,18 @@ const Layout = ({ children, theme }) => {
 			) : (
 				<Global
 					styles={css`
-                      :root {
-                        ${themes.default.theme}`}
+						@media (prefers-color-scheme: dark) {
+							${themes.dark.theme};
+						}
+
+						html[data-theme='dark'] {
+							${themes.dark.theme};
+						}
+
+						html[data-theme='light'] {
+							${themes.default.theme}
+						}
+					`}
 				/>
 			)}
 			<Navbar />

@@ -2,16 +2,31 @@ import * as React from 'react'
 import Layout from '../../components/Layout'
 import Section from '../../components/Section'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
 const ButtonCardContainer = styled.div`
 	--borderCard: 2px dashed var(--primary);
 	display: grid;
 	grid-template-columns: repeat(auto, 3);
 `
+const outlineButtonStyles = css`
+	.outline {
+		background: var(--background);
+		color: var(--backgroundText);
+		border: 2px solid var(--btnBg);
 
+		:hover,
+		:focus,
+		:active {
+			background: var(--btnBg);
+			color: var(--btnColor);
+		}
+	}
+`
 const ButtonCard = styled.div`
 	padding: var(--gap);
-	border: var(--borderCard);
+	border: var(--primary);
+	${outlineButtonStyles};
 `
 
 const IndexPage = () => {
@@ -35,6 +50,19 @@ const IndexPage = () => {
 							Interact with the secondary button!
 						</button>
 						<button className='btn-ter'>
+							Interact with the tertiary button!
+						</button>
+					</ButtonCard>
+					<ButtonCard className={'bg-default'}>
+						<h3>Default buttons</h3>
+						<p>Default button options in the style</p>
+						<button className='outline'>
+							Interact with the primary button!
+						</button>
+						<button className='btn-sec outline'>
+							Interact with the secondary button!
+						</button>
+						<button className='btn-ter outline'>
 							Interact with the tertiary button!
 						</button>
 					</ButtonCard>

@@ -232,7 +232,8 @@ export function themesUtilityClasses(themes) {
 			css`
 				.bg-${value} {
 					${themes[value].themeAlt};
-					background-color: ${themes[value].primary};
+					--background: ${themes[value].primary};
+					background: var(--background);
 					color: var(--primaryText);
 				}
 			`

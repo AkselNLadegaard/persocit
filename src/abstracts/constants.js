@@ -61,5 +61,5 @@ export const initialCustomProperties = css`
 	--tablet: ${breakpoints[1]};
 	--desktop: ${`${siteWidthUntiles}em`};
 
-	--opaque: 0.8;
+	--opaque: 0.7;
 `
