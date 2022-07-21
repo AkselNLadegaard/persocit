@@ -1,37 +1,42 @@
 import { css } from '@emotion/react'
 import { Theme, themer } from './themer'
-import { darken, lighten } from 'polished'
+import { adjustHue, complement, darken, lighten } from 'polished'
 
 const siteWidthUntiles = 60
 const breakpoints = [30, 45, siteWidthUntiles]
 
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
 
-// Base color constants
-export const colorPrimary = '#AF1B3F'
-export const colorSecondary = '#83E8BA'
-export const colorTertiary = '#4381C1'
+// Base colors!
+export const primaryDefault = '#d85300'
+export const primaryExperiments = '#0dc832'
 export const colorBlack = '#2b272b'
-export const colorWhite = '#f1efec'
-export const colorBackground = '#ffffff'
+export const colorWhite = '#fafafa'
+
 // Theme generation
 const themeDefault = new Theme({
-	primary: colorPrimary,
-	secondary: colorSecondary,
-	tertiary: colorTertiary,
+	primary: primaryDefault,
 })
 
-const themeAutoPri = new Theme({
-	primary: colorPrimary,
+const themeExperiments = new Theme({
+	primary: primaryExperiments,
+	background: '#462d2d',
 })
-const themeAutoSec = new Theme({
-	primary: colorSecondary,
+const themeBlogColor = '#7aed00'
+const themeBlog = new Theme({
+	primary: adjustHue(120, themeBlogColor),
+	background: themeBlogColor,
+})
+const themeAbout = new Theme({
+	primary: '#2da98c',
+	background: '#0e2c5f',
 })
 
 export const themes = {
 	default: themeDefault,
-	themeAutoPri: themeAutoPri,
-	themeAutoSec: themeAutoSec,
+	themeExperiments: themeExperiments,
+	themeBlog: themeBlog,
+	themeAbout: themeAbout,
 }
 
 export const initialCustomProperties = css`

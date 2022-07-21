@@ -2,10 +2,11 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { Link } from 'gatsby'
 import Section from '../components/Section'
+import { themes } from '../abstracts/constants'
 
 const About = () => {
 	return (
-		<Layout>
+		<Layout theme={themes.themeAbout}>
 			<Section>
 				<h1>The about page</h1>
 				<p>This website is built mainly using:</p>

@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import { graphql, Link } from 'gatsby'
 import Section from '../components/Section'
+import { themes } from '../abstracts/constants'
 
 function isEmpty(str) {
 	return !str || str.length === 0
@@ -9,7 +10,7 @@ function isEmpty(str) {
 
 const Blog = ({ data }) => {
 	return (
-		<Layout>
+		<Layout theme={themes.themeBlog}>
 			<Section>
 				<h1> Blog overview</h1>
 				<ul>

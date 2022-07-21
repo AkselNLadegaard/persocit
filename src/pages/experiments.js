@@ -4,6 +4,7 @@ import Section from '../components/Section'
 import { Theme } from '../abstracts/themer'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
+import { themes } from '../abstracts/constants'
 
 const ExperimentCardContainer = styled.div`
 	display: grid;
@@ -36,9 +37,8 @@ function themeGradients(themes) {
 }
 
 const Experiments = () => {
-	const pageTheme = new Theme({ primary: '#2da98c' })
 	return (
-		<Layout theme={pageTheme}>
+		<Layout theme={themes.themeExperiments}>
 			<Section>
 				<h1>Experiments</h1>
 				<p>A bunch of experiments!</p>

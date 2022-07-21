@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { css } from '@emotion/react'
+import { css, keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import * as constant from '../abstracts/constants'
 // Components
@@ -18,6 +18,21 @@ const Header = styled.header`
 		margin: 10rem auto 2rem;
 	}
 `
+const animationCycleLogoColors = keyframes`
+  0% {
+    fill: var(--primary);
+  }
+  33% {
+    fill: var(--secondary);
+  }
+  66% {
+    fill: var(--tertiary);
+
+  }
+  100% {
+    fill: var(--primary);
+  }
+`
 const Container = styled.div`
 	width: 100%;
 	height: 100%;
@@ -33,6 +48,7 @@ const Container = styled.div`
 	display: flex;
 	align-items: stretch;
 	justify-content: space-between;
+
 	a {
 		:hover,
 		:focus,
@@ -40,6 +56,7 @@ const Container = styled.div`
 			outline: none;
 		}
 	}
+
 	.links-container {
 		display: none;
 
@@ -61,6 +78,7 @@ const Container = styled.div`
 	.logo {
 		align-self: center;
 		border-bottom: none;
+
 		svg {
 			height: 2rem;
 			width: auto;
@@ -68,7 +86,8 @@ const Container = styled.div`
 			path {
 				transition: 0.1s ease-in-out fill, stroke;
 				stroke: var(--backgroundText) !important;
-				fill: var(--background) !important;
+				//fill: var(--background) !important;
+				animation: ${animationCycleLogoColors} 5s ease-in-out infinite;
 			}
 
 			${constant.mq[1]} {
