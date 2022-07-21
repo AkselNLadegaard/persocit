@@ -11,6 +11,13 @@ const ExperimentCardContainer = styled.div`
 
 	.card {
 		padding: var(--gap);
+		border: dotted 2px;
+
+		:hover,
+		:focus,
+		:active {
+			border: solid 2px;
+		}
 	}
 `
 
@@ -25,7 +32,21 @@ const Experiments = () => {
 			<Section>
 				<ExperimentCardContainer>
 					<a href='/experiments/theming' className='card'>
-						<h3>Overview of the way theming is handled here</h3>
+						<h3>Overview of theming</h3>
+						<p>
+							Needlesly copmlicated theming happens on this site
+						</p>
+					</a>
+					<a
+						href='/experiments/typographyPlayground'
+						className='card'
+					>
+						<h3>Typography</h3>
+						<p>All of the typographic elements!</p>
+					</a>
+					<a href='/experiments/gradients' className='card'>
+						<h3>Gradients</h3>
+						<p>Uh want to see some cool gradients?</p>
 					</a>
 				</ExperimentCardContainer>
 			</Section>
