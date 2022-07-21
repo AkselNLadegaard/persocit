@@ -30,13 +30,18 @@ const themeDark = new Theme({
 	background: lighten(0.5, colorBlack),
 })
 
-const themeAuto = new Theme({
+const themeAutoPri = new Theme({
 	primary: colorPrimary,
 })
+const themeAutoSec = new Theme({
+	primary: colorSecondary,
+})
+
 export const themes = {
 	default: themeDefault,
 	dark: themeDark,
-	themeAuto: themeAuto,
+	themeAutoPri: themeAutoPri,
+	themeAutoSec: themeAutoSec,
 }
 
 export const initialCustomProperties = css`

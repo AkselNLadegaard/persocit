@@ -21,6 +21,7 @@ const ExperimentCardContainer = styled.div`
 		}
 	}
 `
+
 function themeGradients(themes) {
 	return Object.keys(themes).map(
 		(value, index) =>
@@ -33,12 +34,18 @@ function themeGradients(themes) {
 			`
 	)
 }
+
 const Experiments = () => {
 	return (
 		<Layout theme={new Theme({ primary: '#2da98c' }).theme}>
 			<Section>
 				<h1>Experiments</h1>
 				<p>A bunch of experiments!</p>
+				<p>
+					I dream of having one for every major UI element, to
+					illustrate the breadth of possibilities with CSS with a
+					little sprinkle of js
+				</p>
 			</Section>
 
 			<Section>

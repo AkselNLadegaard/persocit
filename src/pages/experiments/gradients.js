@@ -8,15 +8,24 @@ import { css } from '@emotion/react'
 const GradientContainer = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 20ch);
-	grid-auto-rows: minmax(20ch);
+	grid-auto-rows: minmax(20ch, auto);
 	grid-gap: var(--gap);
 
 	.card {
 		padding: var(--gap);
+		aspect-ratio: 1 / 1;
 		border: dotted 2px;
 	}
 
-	.gradient {
+	.linearGradient {
+		background: linear-gradient(
+			var(--primary),
+			var(--secondary),
+			var(--tertiary)
+		);
+	}
+
+	.radialGradient {
 		background: radial-gradient(
 			var(--primary),
 			var(--secondary),
@@ -30,7 +39,7 @@ const Experiments = () => {
 		<Layout>
 			<Section>
 				<h1>Gradient fun!</h1>
-				<p>Messing aroudn with gradients </p>
+				<p>Messing around with gradients </p>
 			</Section>
 
 			<Section>
@@ -42,10 +51,22 @@ const Experiments = () => {
 							css={css`
 								${themes[value].theme}
 							`}
-							className={'card gradient'}
-						>
-							<h3>wow</h3>
-						</div>
+							className={'card linearGradient'}
+						></div>
+					))}
+				</GradientContainer>
+			</Section>
+			<Section>
+				<h2></h2>
+				<GradientContainer>
+					{Object.keys(themes).map((value, index) => (
+						<div
+							key={index}
+							css={css`
+								${themes[value].theme}
+							`}
+							className={'card radialGradient'}
+						></div>
 					))}
 				</GradientContainer>
 			</Section>
