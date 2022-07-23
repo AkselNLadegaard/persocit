@@ -31,13 +31,16 @@ function createThemeCssObject(
 	`
 }
 
-export const lightness = 0.5
+export const saturation = 0.99
+
+export const lightness = 0.66
 export const bgLightness = 0.9
-export const saturation = 0.88
-export const darkLightness = 0.7
-export const bgDarkLightness = 0.3
+
+export const darkLightness = 0.277
+export const bgDarkLightness = 0.6
+
 export const rotateDegree = 120
-export const rotateDegreeAlt = 45
+export const rotateDegreeAlt = 90
 
 export function setTheme(
 	primary,
@@ -46,9 +49,9 @@ export function setTheme(
 	white,
 	black,
 	background,
+	backgroundDark,
 	setAltTheme = false
 ) {
-	let backgroundDark = setLightness(bgDarkLightness, background)
 	let primaryDark = correctContrast({
 		mainColor: backgroundDark,
 		colorToCorrect: setLightness(darkLightness, primary),
@@ -61,58 +64,47 @@ export function setTheme(
 		mainColor: backgroundDark,
 		colorToCorrect: setLightness(darkLightness, tertiary),
 	})
+
 	let whiteDark = white
 	let blackDark = black
 
-	//let primaryAlt = generateSecondary(primary)
-	//let secondaryAlt = generateSecondary(primary, invert(primaryAlt))
-	//let tertiaryAlt = generateSecondary(primary, complement(secondaryAlt))
-	//let bgAlt = complement(background)
+	let rawPrimaryAlt = adjustHue(rotateDegreeAlt, primary)
+	let rawSecondaryAlt = adjustHue(rotateDegree, rawPrimaryAlt)
+	let rawTertiaryAlt = adjustHue(rotateDegree * 2, rawPrimaryAlt)
+
 	let primaryAlt = correctContrast({
 		mainColor: primary,
-		colorToCorrect: setLightness(
-			lightness,
-			setSaturation(saturation, adjustHue(rotateDegreeAlt, primary))
-		),
+		colorToCorrect: rawPrimaryAlt,
 	})
 	let secondaryAlt = correctContrast({
 		mainColor: primary,
-		colorToCorrect: correctContrast({
-			mainColor: primaryAlt,
-			colorToCorrect: setLightness(
-				lightness,
-				setSaturation(saturation, adjustHue(rotateDegree, primary))
-			),
-		}),
+		colorToCorrect: rawSecondaryAlt,
 	})
 	let tertiaryAlt = correctContrast({
-		mainColor: primaryAlt,
-		colorToCorrect: correctContrast({
-			mainColor: secondaryAlt,
-			colorToCorrect: setLightness(
-				lightness,
-				setSaturation(saturation, adjustHue(rotateDegree * 2, primary))
-			),
-		}),
+		mainColor: primary,
+		colorToCorrect: rawTertiaryAlt,
 	})
+
 	let bgAlt = correctContrast({
 		mainColor: primaryAlt,
-		colorToCorrect: background,
+		colorToCorrect: adjustHue(rotateDegreeAlt, background),
 	})
-	let backgroundAltDark = darken(0.2, bgAlt)
+
+	let backgroundAltDark = adjustHue(rotateDegreeAlt, backgroundDark)
+
 	let primaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: setLightness(darkLightness, primaryAlt),
+		colorToCorrect: setLightness(darkLightness, rawPrimaryAlt),
 	})
 
 	let secondaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: setLightness(darkLightness, secondaryAlt),
+		colorToCorrect: setLightness(darkLightness, rawSecondaryAlt),
 	})
 
 	let tertiaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: setLightness(darkLightness, tertiaryAlt),
+		colorToCorrect: setLightness(darkLightness, rawTertiaryAlt),
 	})
 
 	let whiteAltDark = white

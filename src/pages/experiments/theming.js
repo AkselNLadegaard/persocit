@@ -23,35 +23,57 @@ const Theming = ({ data }) => {
 			<Section>
 				<h2>Theme testing</h2>
 				<p>
-					Themes are generated with some regard to color science,
-					albeit it not a lot at this point
+					So we all naturally want to have many different themes on
+					our sites - cause why not, colors are nice.
 				</p>
 				<p>
-					One can generate themes with 1-3 colors, black, white and
-					background colors.{' '}
+					But generating functional color themes, changing them for
+					darkmode and ensuring OK contrast levels is hard
 				</p>
 				<p>
-					The theme function then creates all the necessary colors and
-					sets them as custom properties
+					This is why this site generates entire themes, alt-themes
+					and dark versions of both, from a single hue!{' '}
 				</p>
 				<p>
-					Another function generates useful utility classes like
-					.bg-themeName.{' '}
+					The saturation and ligtness are hardcoded for dark and light
+					themes.{' '}
 				</p>
 				<p>
-					To avoid conflicting colors, the children of .bg-themeName
-					will be following the generated themeNameAlt.{' '}
-				</p>
-				<h3>All 'normal' themes</h3>
-				<p>
-					Belows maps all of the existing themes to illustrate them
-					(alt themes not mapped)
+					Theme colors contrast to their backgrounds are checked and
+					adjusted if needed.
 				</p>
 				<p>
-					In the future all themes will also respect darkmodes, proper
-					contrasts and better complement color generation
+					All generated colors have a corresponded --colorText, which
+					tends to be AA rated!{' '}
 				</p>
-				<p>Possibly also a color theme generator playground! </p>
+				<h3>The process:</h3>
+				<ol>
+					<li>
+						Give hue and generate HSL color with constants for
+						Saturation and Lightenss
+					</li>
+					<li>
+						Check contrast with background color -- if not AA,
+						adjust lightness until it fits
+					</li>
+					<li>
+						Generate secondary and tertiary by rotating plus minus
+						120 degrees
+					</li>
+					<li>
+						Check secondary and tertiary contrast to background, --
+						adjust if needed
+					</li>
+					<li>
+						Generate alt versions of primary, secondary and tertiary
+						by rotating by some offset, and repeat 2 & 3
+					</li>
+					<li>
+						A similair approach is then used to generate a dark
+						version - all colors are darkened and the steps are
+						repeated with different constants
+					</li>
+				</ol>
 				<ThemeTestContainer>
 					{Object.keys(themes).map((value, index) => (
 						<div

@@ -8,28 +8,27 @@ const breakpoints = [30, 45, siteWidthUntiles]
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
 
 // Base colors!
-export const primaryDefault = '#d85300'
-export const primaryExperiments = '#0dc832'
+export const primaryDefault = 12
+export const primaryExperiments = 120
 export const colorBlack = '#2b272b'
 export const colorWhite = '#fafafa'
+export const colorBackgroundLight = '#fcfcfc'
+export const colorBackgroundDark = '#ffe4c7'
 
 // Theme generation
 const themeDefault = new Theme({
-	primary: primaryDefault,
+	primaryHue: primaryDefault,
 })
 
 const themeExperiments = new Theme({
-	primary: primaryExperiments,
-	background: '#462d2d',
+	primaryHue: primaryExperiments,
 })
-const themeBlogColor = '#7aed00'
+const themeBlogColor = 180
 const themeBlog = new Theme({
-	primary: adjustHue(120, themeBlogColor),
-	background: themeBlogColor,
+	primaryHue: themeBlogColor,
 })
 const themeAbout = new Theme({
-	primary: '#2da98c',
-	background: '#0e2c5f',
+	primaryHue: 220,
 })
 
 export const themes = {

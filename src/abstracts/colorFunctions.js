@@ -18,9 +18,11 @@ export function canDarken({ mainColor, colorToCorrect, level = 'AA' }) {
 			break
 		}
 	}
-
+	let canDarken = meetsContrastGuidelines(mainColor, colorIm)[level]
+	console.log(`This color canDarken: ${canDarken}`)
+	console.log(`This color canDarken steps: ${i}`)
 	return {
-		canDarken: meetsContrastGuidelines(mainColor, colorIm)[level],
+		canDarken: canDarken,
 		correctedColor: colorIm,
 		steps: i,
 	}
@@ -37,8 +39,10 @@ export function canLighten({ mainColor, colorToCorrect, level = 'AA' }) {
 			break
 		}
 	}
+	let canLighten = meetsContrastGuidelines(mainColor, colorIm)[level]
+
 	return {
-		canLighten: meetsContrastGuidelines(mainColor, colorIm)[level],
+		canLighten: canLighten,
 		correctedColor: colorIm,
 		steps: i,
 	}
@@ -52,18 +56,7 @@ export function correctContrast({
 }) {
 	// forces colorTOCorrect, a hex, to meet WCAG contrast level AA.
 	// If contrast is met, colorToCorrect is returned unaltered
-	console.log('correct contrast')
-	console.log(
-		`Meets ${level} of contrast: ${
-			meetsContrastGuidelines(mainColor, colorToCorrect)[level]
-		}`
-	)
 	let colorIm = colorToCorrect
-	console.log(`color to correct initially: ${colorIm}`)
-	console.log(
-		`colorIm test: ${meetsContrastGuidelines(mainColor, colorIm)[level]}`
-	)
-	console.log(`Attempting ${type} correction`)
 	if (meetsContrastGuidelines(mainColor, colorToCorrect)[level]) {
 		return colorToCorrect
 	} else if (type === 'hue') {
@@ -79,11 +72,6 @@ export function correctContrast({
 				break
 			}
 		}
-		console.log(
-			`Original color: ${colorToCorrect}, returned color: ${colorIm}, meets contrast: ${
-				meetsContrastGuidelines(mainColor, colorIm)[level]
-			}`
-		)
 		return colorIm
 	} else if (type === 'saturation') {
 		for (
@@ -98,11 +86,6 @@ export function correctContrast({
 				break
 			}
 		}
-		console.log(
-			`Original color: ${colorToCorrect}, returned color: ${colorIm}, meets contrast: ${
-				meetsContrastGuidelines(mainColor, colorIm)[level]
-			}`
-		)
 		return colorIm
 	} else if (type === 'auto') {
 		let canDarkenObj = canDarken({
@@ -134,12 +117,8 @@ export function correctContrast({
 }
 
 export function generateSecondary(primary, secondary = null) {
-	console.log(`logging secondary ${secondary}`)
-	console.log(`logging secondary ${secondary ? 'true' : 'false'}`)
 	let secondaryIm = secondary ? secondary : complement(primary)
-	console.log(`logging secondaryIm: ${secondaryIm} `)
 	let meetsContrast = meetsContrastGuidelines(primary, secondaryIm)['AA']
-	console.log(`logging meetsContrast: ${meetsContrast} `)
 	if (meetsContrast === true) {
 		return secondaryIm
 	} else if (meetsContrast === false) {
