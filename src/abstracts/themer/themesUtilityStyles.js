@@ -6,10 +6,13 @@ export function themesUtilityClasses(themes) {
 			css`
 				.bg-${value} {
 					${themes[value].theme};
-					background: var(--primary);
-					color: var(--primaryText);
+					--background: var(--primary);
+					--backgroundText: var(--primaryText);
+					background: var(--background);
+					color: var(--backgroundText);
 
-					> .bg-inner {
+					> .bg-inner,
+					> .section-inner {
 						${themes[value].themeAlt};
 					}
 				}

@@ -13,7 +13,7 @@ const Header = styled.header`
 	right: 0;
 	margin: 4rem auto 2rem;
 	width: 100%;
-
+	z-index: var(--zIndexNav);
 	${constant.mq[1]} {
 		margin: 10rem auto 2rem;
 	}
@@ -107,7 +107,6 @@ const Container = styled.div`
 `
 const SideNavContainer = styled.div`
 	position: fixed;
-
 	bottom: 0;
 	right: 0;
 	display: flex;

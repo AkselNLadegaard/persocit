@@ -56,4 +56,8 @@ export const initialCustomProperties = css`
 	--desktop: ${`${siteWidthUntiles}em`};
 
 	--opaque: 0.7;
+	--zIndexNav: 10;
+
+	--siteGap: 2ch;
+	--sectionPadding: 8ch;
 `
