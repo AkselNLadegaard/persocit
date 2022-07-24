@@ -9,9 +9,9 @@ const ButtonCardContainer = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto, 3);
 `
-const outlineButtonStyles = css`
+const ButtonOptionsStyles = css`
 	.outline {
-		background: var(--background);
+		background: transparent;
 		color: var(--backgroundText);
 		border: 2px solid var(--btnBg);
 
@@ -22,11 +22,62 @@ const outlineButtonStyles = css`
 			color: var(--btnColor);
 		}
 	}
+
+	.triangle {
+		position: relative;
+		--borderWidth: 0%;
+		z-index: 1;
+
+		::before,
+		::after {
+			content: '';
+			position: absolute;
+			height: var(--borderWidth);
+			width: var(--borderWidth);
+			background: var(--tertiary);
+			z-index: -1;
+			transition: height, width 0.3s ease-in-out;
+		}
+
+		::before {
+			clip-path: polygon(0% 0, 0 100%, 100% 0);
+			top: 0;
+			left: 0;
+		}
+
+		::after {
+			clip-path: polygon(100% 0, 100% 100%, 0 100%);
+			bottom: 0;
+			right: 0;
+		}
+
+		:hover,
+		:focus {
+			::before,
+			::after {
+				--borderWidth: 100%;
+			}
+
+			::before {
+			}
+
+			::after {
+			}
+		}
+
+		:active {
+			::before,
+			::after {
+				--borderWidth: 50%;
+			}
+		}
+	}
 `
+const animatedButtons = css``
 const ButtonCard = styled.div`
 	padding: var(--gap);
 	border: var(--primary);
-	${outlineButtonStyles};
+	${ButtonOptionsStyles};
 `
 
 const IndexPage = () => {
@@ -67,6 +118,9 @@ const IndexPage = () => {
 								Interact with the tertiary button!
 							</button>
 						</div>
+					</ButtonCard>
+					<ButtonCard>
+						<button className='btn triangle'>triangle</button>
 					</ButtonCard>
 				</ButtonCardContainer>
 			</Section>

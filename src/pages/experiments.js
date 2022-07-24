@@ -86,6 +86,14 @@ const Experiments = () => {
 						<h3>Buttons</h3>
 						<p>Feeeling hovery? Clicky? Click on some buttons!</p>
 					</a>
+					<a
+						href='/experiments/clipPaths'
+						title={'Go see the clip path experiments'}
+						className='card'
+					>
+						<h3>Clip Paths</h3>
+						<p>Feeeling Clippy?</p>
+					</a>
 				</ExperimentCardContainer>
 			</Section>
 		</Layout>
