@@ -6,15 +6,22 @@ export function themesUtilityClasses(themes) {
 			css`
 				.bg-${value} {
 					${themes[value].theme};
-					--background: var(--primary);
-					--backgroundText: var(--primaryText);
+					--background: var(--primary) !important;
+					--backgroundText: var(--primaryText) !important;
 					background: var(--background);
 					color: var(--backgroundText);
 
-					> .bg-inner,
-					> .section-inner {
+					> * {
 						${themes[value].themeAlt};
 					}
+				}
+
+				.set-${value} {
+					${themes[value].theme};
+				}
+
+				.set-${value}-alt {
+					${themes[value].themeAlt};
 				}
 			`
 	)

@@ -13,14 +13,14 @@ const Layout = ({ children, theme }) => {
 		<>
 			<Global
 				styles={css`
-					${globalStyles};
+					:root {
+						${layoutTheme};
+					}
 				`}
 			/>
 			<Global
 				styles={css`
-					:root {
-						${layoutTheme};
-					}
+					${globalStyles};
 				`}
 			/>
 			<Navbar />

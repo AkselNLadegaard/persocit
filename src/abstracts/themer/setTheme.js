@@ -1,10 +1,4 @@
-import {
-	adjustHue,
-	darken,
-	readableColor,
-	setLightness,
-	setSaturation,
-} from 'polished'
+import { adjustHue, readableColor, setLightness } from 'polished'
 import { correctContrast } from '../colorFunctions'
 import { css } from '@emotion/react'
 
@@ -130,6 +124,7 @@ export function setTheme(
 		)
 		return css`
 			${cssObject};
+
 			@media (prefers-color-scheme: dark) {
 				${cssObjectDark}
 			}

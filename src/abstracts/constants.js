@@ -55,7 +55,7 @@ export const initialCustomProperties = css`
 	--tablet: ${breakpoints[1]};
 	--desktop: ${`${siteWidthUntiles}em`};
 
-	--opaque: 0.7;
+	--opaque: 0.8;
 	--zIndexNav: 10;
 
 	--siteGap: 2ch;
