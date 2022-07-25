@@ -5,7 +5,6 @@ import * as constant from '../abstracts/constants'
 // Components
 import { Link } from 'gatsby'
 import TestSvg from '../assets/svg/svgTest.svg'
-import DarkMode from '../components/DarkMode'
 
 const Header = styled.header`
 	position: sticky;
@@ -14,6 +13,7 @@ const Header = styled.header`
 	margin: 4rem auto 2rem;
 	width: 100%;
 	z-index: var(--zIndexNav);
+
 	${constant.mq[1]} {
 		margin: 10rem auto 2rem;
 	}
@@ -171,13 +171,11 @@ const Navbar = ({ ...props }) => {
 	//determines if the user has a set them
 
 	const [sideNavActive, setSideNavActive] = useState(false)
-	const isBrowser = typeof window !== 'undefined'
 	const handleSidenav = ({ toStatus }) =>
 		setSideNavActive(toStatus ? toStatus : !sideNavActive)
 	const Links = () => {
 		return (
 			<>
-				{isBrowser && <DarkMode>Swtich theme</DarkMode>}
 				<Link to={'/experiments'}>Experiments</Link>
 				<Link to={'/blog'}>Blog</Link>
 				<Link to={'/about'}>About</Link>
