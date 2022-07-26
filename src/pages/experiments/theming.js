@@ -3,7 +3,6 @@ import { themes } from '../../abstracts/constants'
 import styled from '@emotion/styled'
 import Layout from '../../components/Layout'
 import Section from '../../components/Section'
-import { css } from '@emotion/react'
 
 const ThemeTestContainer = styled.div`
 	display: grid;

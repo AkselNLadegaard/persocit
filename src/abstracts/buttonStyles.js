@@ -1,5 +1,4 @@
 import { css } from '@emotion/react'
-import { activeStyles } from './globalStyles'
 
 export const baseButtonStyles = css`
 	button {

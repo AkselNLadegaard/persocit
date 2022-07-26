@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import Section from '../components/Section'
-import { Theme } from '../abstracts/themer'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { themes } from '../abstracts/constants'
@@ -22,19 +21,6 @@ const ExperimentCardContainer = styled.div`
 		}
 	}
 `
-
-function themeGradients(themes) {
-	return Object.keys(themes).map(
-		(value, index) =>
-			css`
-				.bg-${value} {
-					${themes[value].themeAlt};
-					background-color: ${themes[value].primary};
-					color: var(--primaryText);
-				}
-			`
-	)
-}
 
 const Experiments = () => {
 	return (

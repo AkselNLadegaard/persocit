@@ -1,5 +1,30 @@
 import { css } from '@emotion/react'
-import { activeStyles } from './globalStyles'
+
+export const activeStyles = css`
+	:hover,
+	:focus,
+	:focus-visible,
+	:active {
+		opacity: var(--opaque);
+		cursor: pointer;
+	}
+
+	:hover {
+	}
+
+	:focus,
+	:active {
+		outline: 2px solid var(--tertiary);
+		outline-offset: 4px;
+	}
+`
+export const basePseudoSelectorStyles = css`
+	::selection {
+		// intermediate theming solution - tertiary used is currently not constrained to 'UA' actions
+		background: var(--tertiary);
+		color: var(--tertiaryText);
+	}
+`
 
 export const typographyStyles = css`
 	// Overriding typography.js styles.

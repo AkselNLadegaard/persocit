@@ -73,7 +73,6 @@ const ButtonOptionsStyles = css`
 		}
 	}
 `
-const animatedButtons = css``
 const ButtonCard = styled.div`
 	padding: var(--gap);
 	border: var(--primary);

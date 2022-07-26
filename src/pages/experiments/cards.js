@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import Layout from '../../components/Layout'
 import Section from '../../components/Section'
-import { css } from '@emotion/react'
 
 const CardsContainer = styled.div`
 	display: flex;

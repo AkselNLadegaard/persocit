@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import Layout from '../../components/Layout'
 import Section from '../../components/Section'
@@ -85,7 +85,7 @@ const CardsContainer = styled.div`
 `
 
 const Experiments = () => {
-	const [count, setCount] = useState(0)
+	const [count] = useState(0)
 	const [card1Range, setCard1Range] = useState(0)
 	let card1CssObject = css`
 		border-width: ${card1Range}px !important;
