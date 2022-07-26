@@ -4,7 +4,7 @@ export function themesUtilityClasses(themes) {
 	return Object.keys(themes).map(
 		(value, index) =>
 			css`
-				.bg-${value} {
+				.bg-${value}-primary {
 					${themes[value].theme};
 					--background: var(--primary) !important;
 					--backgroundText: var(--primaryText) !important;
@@ -14,6 +14,12 @@ export function themesUtilityClasses(themes) {
 					> * {
 						${themes[value].themeAlt};
 					}
+				}
+
+				.bg-${value} {
+					${themes[value].theme};
+					background: var(--background);
+					color: var(--backgroundText);
 				}
 
 				.set-${value} {

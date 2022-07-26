@@ -7,13 +7,26 @@ const breakpoints = [30, 45, siteWidthUntiles]
 
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
 
+// base theme Saturations
+export const saturation = 0.8
+export const saturationDark = 0.99
+export const lightnessPrm = 0.7
+export const lightness = 0.75
+
+export const lightnessDarkPrm = 0.7
+export const lightnessDark = 0.8
+export const lightnessDarkAlt = 0.9
+
+export const rotateDegree = 120
+export const rotateDegreeAlt = 180
+
 // Base colors!
-export const primaryDefault = 12
-export const primaryExperiments = 120
+export const primaryDefault = 22
+export const primaryExperiments = 20
 export const colorBlack = '#2b272b'
 export const colorWhite = '#fafafa'
 export const colorBackgroundLight = '#fcfcfc'
-export const colorBackgroundDark = '#ffe4c7'
+export const colorBackgroundDark = '#dabca9'
 
 // Theme generation
 const themeDefault = new Theme({
@@ -22,13 +35,16 @@ const themeDefault = new Theme({
 
 const themeExperiments = new Theme({
 	primaryHue: primaryExperiments,
+	background: '#c7c48c',
 })
-const themeBlogColor = 180
+const themeBlogColor = 666
 const themeBlog = new Theme({
 	primaryHue: themeBlogColor,
+	background: '#cdcde1',
 })
 const themeAbout = new Theme({
 	primaryHue: 220,
+	background: '#7f148d',
 })
 
 export const themes = {
@@ -59,5 +75,5 @@ export const initialCustomProperties = css`
 	--zIndexNav: 10;
 
 	--siteGap: 2ch;
-	--sectionPadding: 8ch;
+	--sectionPadding: 7ch;
 `

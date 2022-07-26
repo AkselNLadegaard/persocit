@@ -17,8 +17,6 @@ const Hero = styled.div`
 			--borderWidth: 0.2em;
 			font-size: 1.5rem;
 			border: var(--primary) dashed var(--borderWidth);
-			background: none;
-			color: var(--primary);
 
 			:hover,
 			:focus,

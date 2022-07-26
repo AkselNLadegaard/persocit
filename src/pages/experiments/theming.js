@@ -75,29 +75,26 @@ const Theming = ({ data }) => {
 					</li>
 				</ol>
 				<ThemeTestContainer>
+					<h2>Now with classes bg-themeName</h2>
 					{Object.keys(themes).map((value, index) => (
-						<div
-							key={index}
-							css={css`
-								${themes[value].theme}
-							`}
-							className={'card'}
-						>
-							<h3>This is theme {value}</h3>
-							<a href='src/pages/experiments'>
-								this is an empty link
-							</a>
-							<button className='btn-pri'>Click me</button>
-							<button className='btn-sec'>Click me</button>
-							<button className='btn-ter'>Click me</button>
-							😳
+						<div key={index} className={`card bg-${value}`}>
+							<div className='bg-inner'>
+								<h3>This is theme {value}</h3>
+								<a href='src/pages/experiments'>
+									this is an empty link
+								</a>
+								<button className='btn-pri'>Click me</button>
+								<button className='btn-sec'>Click me</button>
+								<button className='btn-ter'>Click me</button>
+								😳
+							</div>
 						</div>
 					))}
 				</ThemeTestContainer>
 				<ThemeTestContainer>
-					<h2>Now with classes bg-themeName</h2>
+					<h2>Now with classes bg-themeName-primary</h2>
 					{Object.keys(themes).map((value, index) => (
-						<div key={index} className={`card bg-${value}`}>
+						<div key={index} className={`card bg-${value}-primary`}>
 							<div className='bg-inner'>
 								<h3>This is theme {value}</h3>
 								<a href='src/pages/experiments'>
