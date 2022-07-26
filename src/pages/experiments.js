@@ -102,6 +102,13 @@ const Experiments = () => {
 						<h3>Cards</h3>
 						<p>Feeeling Clippy?</p>
 					</a>
+					<a
+						href='/experiments/interactiveStyles'
+						title={'Go see the card experiments'}
+						className='card'
+					>
+						<h3>Interactive styles</h3>
+					</a>
 				</ExperimentCardContainer>
 			</Section>
 		</Layout>

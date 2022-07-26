@@ -11,8 +11,10 @@ const CardsContainer = styled.div`
 
 	.card-row {
 		display: grid;
-		grid-template-columns: (auto-fill, minmax(20ch, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
 		gap: 4ch;
+		border-bottom: 2px solid var(--backgroundText);
+		padding: 2ch 0;
 	}
 
 	.subtitle {
@@ -68,6 +70,10 @@ const CardsContainer = styled.div`
 	}
 
 	.card-3 {
+		border: solid var(--tertiary);
+		border-width: calc(var(--card3BorderWidth) / 4)
+			calc(var(--card3BorderWidth) / 1) calc(var(--card3BorderWidth) / 3)
+			calc(var(--card3BorderWidth) / 4);
 	}
 
 	.card-4 {
@@ -89,6 +95,7 @@ const Experiments = () => {
 	const [card2Slider3, setCard2Slider3] = useState(0)
 	const [card2Slider4, setCard2Slider4] = useState(0)
 
+	const [card3Slider1, setCard3Slider1] = useState(0)
 	return (
 		<Layout>
 			<Section>
@@ -99,14 +106,12 @@ const Experiments = () => {
 				<CardsContainer>
 					<div className='card-row'>
 						<div className='card-description'>
-							<h3>A sweet description of card-</h3>
-							<p>Oh yes a lot of stuff</p>
+							<h3>Generate css class with emotion-</h3>
+							<p>This is extremely slow</p>
 						</div>
 						<div className='card card-1' css={card1CssObject}>
 							<h4>Lorem ipsum</h4>
-							<p className='subtitle'>
-								Generate css class with emotion
-							</p>
+							<p className='subtitle'>Slow slow slow</p>
 							<p>The css class then uses the value</p>
 							<p> {count}</p>
 							<p> {card1Range}</p>
@@ -191,10 +196,15 @@ const Experiments = () => {
 					</div>
 					<div className='card-row'>
 						<div className='card-description'>
-							<h3>A sweet description of card-</h3>
-							<p>Oh yes a lot of stuff</p>
+							<h3>Updating a CSS custom property-</h3>
+							<p>Which is then used in the border styling.</p>
 						</div>
-						<div className='card card-3'>
+						<div
+							className='card card-3'
+							style={{
+								'--card3BorderWidth': `${card3Slider1}px`,
+							}}
+						>
 							<h4>Lorem ipsum</h4>
 							<p>
 								Lorem ipsum dolor sit amet, consectetur
@@ -204,6 +214,17 @@ const Experiments = () => {
 								recusandae repellat reprehenderit saepe vero
 								voluptates.
 							</p>
+
+							<input
+								type='range'
+								min='0'
+								max='100'
+								value={card3Slider1}
+								onChange={(event) =>
+									setCard3Slider1(event.target.value)
+								}
+								step='1'
+							/>
 						</div>
 					</div>
 					<div className='card-row'>
