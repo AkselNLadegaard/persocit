@@ -11,7 +11,7 @@ export const saturation = 0.85
 export const lightness = 0.75
 
 export const saturationDark = 0.75
-export const lightnessDark = 0.8
+export const lightnessDark = 0.83
 
 export const saturationAlt = 0.9
 export const lightnessAlt = 0.75
@@ -42,8 +42,22 @@ const themeExperiments = new Theme({
 	background: '#c7c48c',
 })
 
+const themeBlack = new Theme({
+	primaryHue: 200,
+	background: '#000000',
+})
+
+const themeBlackAlt = new Theme({
+	primaryHue: 100,
+	background: '#333333',
+})
+const themeWhite = new Theme({
+	primaryHue: 200,
+	background: '#ffffff',
+})
+
 const themeBlog = new Theme({
-	primaryHue: 666,
+	primaryHue: 333,
 	background: '#cdcde1',
 })
 
@@ -55,6 +69,9 @@ const themeAbout = new Theme({
 export const themes = {
 	default: themeDefault,
 	themeExperiments: themeExperiments,
+	white: themeWhite,
+	black: themeBlack,
+	blackAlt: themeBlackAlt,
 	themeExpNoBg: themeExpNoBg,
 	themeBlog: themeBlog,
 	themeAbout: themeAbout,
