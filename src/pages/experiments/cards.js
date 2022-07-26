@@ -77,15 +77,6 @@ const CardsContainer = styled.div`
 `
 
 const Experiments = () => {
-	const [count, setCount] = useState(0)
-	const [stateInputRange, setInputRange] = useState(0)
-	let title = ''
-	const handleChange = (event) => {
-		setInputRange(event)
-	}
-	useEffect(() => {
-		title = `You clicked ${count} times`
-	})
 	return (
 		<Layout>
 			<Section>
@@ -99,12 +90,7 @@ const Experiments = () => {
 							<h3>A sweet description of card-</h3>
 							<p>Oh yes a lot of stuff</p>
 						</div>
-						<div
-							className='card card-1'
-							css={css`
-								border-width: ${stateInputRange}px;
-							`}
-						>
+						<div className='card card-1'>
 							<h4>Lorem ipsum</h4>
 							<p className='subtitle'>Neat subtitle</p>
 							<p>
@@ -114,24 +100,7 @@ const Experiments = () => {
 								natus necessitatibus neque nesciunt odit qui
 								rerum, soluta veniam!
 							</p>
-							<p> {count}</p>
-							<p> {stateInputRange}</p>
-							<button
-								className='btn'
-								onClick={() => setCount(count + 1)}
-							>
-								Goofy
-							</button>
-							<input
-								type='range'
-								min='0'
-								max='100'
-								value={stateInputRange}
-								onChange={(event) =>
-									setInputRange(event.target.value)
-								}
-								step='1'
-							/>
+							<button className='btn'>Goofy</button>
 						</div>
 					</div>
 					<div className='card-row '>
@@ -139,10 +108,7 @@ const Experiments = () => {
 							<h3>A sweet description of card-</h3>
 							<p>Oh yes a lot of stuff</p>
 						</div>
-						<div
-							className='bg-themeBlog card card-2'
-							style={{ borderWidth: `${stateInputRange}px` }}
-						>
+						<div className='bg-themeBlog card card-2'>
 							<div className='bg-inner'>
 								<h4>Lorem ipsum</h4>
 								<p>
@@ -155,16 +121,6 @@ const Experiments = () => {
 									saepe?
 								</p>
 								<a href=''>Empty link</a>
-								<input
-									type='range'
-									min='0'
-									max='100'
-									value={stateInputRange}
-									onChange={(event) =>
-										setInputRange(event.target.value)
-									}
-									step='1'
-								/>
 							</div>
 						</div>
 					</div>

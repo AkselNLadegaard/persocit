@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import Layout from '../../components/Layout'
 import Section from '../../components/Section'
 import { css } from '@emotion/react'
+import StaggerEffect from '../../components/experiments/interactiveStyles/staggerEffect'
 
 const CardsContainer = styled.div`
 	display: flex;
@@ -230,17 +231,14 @@ const Experiments = () => {
 					<div className='card-row'>
 						<div className='card-description'>
 							<h3>A sweet description of card-</h3>
-							<p>Oh yes a lot of stuff</p>
+							<p>
+								Kudos to the idea and example from:
+								https://twitter.com/DavidKPiano/status/1009499115720495114
+							</p>
 						</div>
 						<div className='card card-4'>
-							<h4>Lorem ipsum</h4>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. A alias atque autem
-								consequatur, cumque expedita id illo incidunt
-								ipsum, maiores, natus neque nesciunt provident
-								sunt totam ut veritatis. Esse, perferendis.
-							</p>
+							<h4>Click me </h4>
+							<StaggerEffect></StaggerEffect>
 						</div>
 					</div>
 					<div className='card-row'>
