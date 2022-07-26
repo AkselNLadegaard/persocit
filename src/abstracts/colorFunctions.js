@@ -36,7 +36,6 @@ export function canLighten({ mainColor, colorToCorrect, level = 'AA' }) {
 		}
 	}
 	let canLighten = meetsContrastGuidelines(mainColor, colorIm)[level]
-
 	return {
 		canLighten: canLighten,
 		correctedColor: colorIm,

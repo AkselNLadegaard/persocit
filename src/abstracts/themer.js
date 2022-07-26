@@ -1,19 +1,10 @@
-import {
-	adjustHue,
-	darken,
-	hslToColorString,
-	saturate,
-	setLightness,
-	setSaturation,
-} from 'polished'
+import { adjustHue, darken, hslToColorString } from 'polished'
 import { css } from '@emotion/react'
 import {
-	colorBackgroundDark,
 	colorBackgroundLight,
 	colorBlack,
 	colorWhite,
 	lightness,
-	lightnessPrm,
 	rotateDegree,
 	saturation,
 } from './constants'
@@ -21,20 +12,16 @@ import { correctContrast } from './colorFunctions'
 import { setTheme } from './themer/setTheme'
 
 export class Theme {
-	constructor({ primaryHue, background = null, backgroundDark = null }) {
+	constructor({ primaryHue, background = null }) {
 		let primary = hslToColorString({
 			hue: primaryHue,
 			saturation: saturation,
-			lightness: lightnessPrm,
+			lightness: lightness,
 		})
 
 		this.backgroundLight = background ? background : colorBackgroundLight
 
-		this.backgroundDark = backgroundDark
-			? backgroundDark
-			: background
-			? darken(0.08, saturate(0.1, background))
-			: colorBackgroundDark
+		this.backgroundDark = darken(0.1, this.backgroundLight)
 
 		this.primary = correctContrast({
 			mainColor: this.backgroundLight,
@@ -43,21 +30,12 @@ export class Theme {
 		//this.secondary = generateSecondary(primary, secondary)
 		this.secondary = correctContrast({
 			mainColor: this.backgroundLight,
-			colorToCorrect: setSaturation(
-				saturation,
-				setLightness(lightness, adjustHue(rotateDegree, primary))
-			),
+			colorToCorrect: adjustHue(rotateDegree, this.primary),
 		})
 
 		this.tertiary = correctContrast({
 			mainColor: this.backgroundLight,
-			colorToCorrect: setSaturation(
-				saturation,
-				setLightness(
-					lightness,
-					adjustHue(rotateDegree * 2, this.primary)
-				)
-			),
+			colorToCorrect: adjustHue(rotateDegree * 2, this.primary),
 		})
 		// White, black and background color generation
 

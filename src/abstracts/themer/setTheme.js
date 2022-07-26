@@ -2,13 +2,14 @@ import { adjustHue, readableColor, setLightness, setSaturation } from 'polished'
 import { correctContrast } from '../colorFunctions'
 import { css } from '@emotion/react'
 import {
-	lightness,
+	lightnessAlt,
 	lightnessDark,
 	lightnessDarkAlt,
-	lightnessDarkPrm,
 	rotateDegree,
 	rotateDegreeAlt,
+	saturationAlt,
 	saturationDark,
+	saturationDarkAlt,
 } from '../constants'
 
 function colorTemp(role, color) {
@@ -48,66 +49,53 @@ export function setTheme(
 		mainColor: backgroundDark,
 		colorToCorrect: setSaturation(
 			saturationDark,
-			setLightness(lightnessDarkPrm, primary)
+			setLightness(lightnessDark, primary)
 		),
 	})
 	let secondaryDark = correctContrast({
 		mainColor: backgroundDark,
-		colorToCorrect: setSaturation(
-			saturationDark,
-			setLightness(lightnessDark, secondary)
-		),
+		colorToCorrect: adjustHue(rotateDegree, primary),
 	})
 	let tertiaryDark = correctContrast({
 		mainColor: backgroundDark,
-		colorToCorrect: setSaturation(
-			saturationDark,
-			setLightness(lightnessDark, tertiary)
-		),
+		colorToCorrect: adjustHue(rotateDegree * 2, primary),
 	})
 
 	let whiteDark = white
 	let blackDark = black
 
-	let rawPrimaryAlt = setLightness(
-		lightness,
-		adjustHue(rotateDegreeAlt, primary)
-	)
-	let rawSecondaryAlt = setLightness(
-		lightness,
-		adjustHue(rotateDegree, rawPrimaryAlt)
-	)
-	let rawTertiaryAlt = setLightness(
-		lightness,
-		adjustHue(rotateDegree * 2, rawPrimaryAlt)
-	)
-
 	let primaryAlt = correctContrast({
 		mainColor: primary,
-		colorToCorrect: rawPrimaryAlt,
+		colorToCorrect: setSaturation(
+			saturationAlt,
+			setLightness(lightnessAlt, adjustHue(rotateDegreeAlt, primary))
+		),
 	})
 	let secondaryAlt = correctContrast({
 		mainColor: primary,
-		colorToCorrect: rawSecondaryAlt,
+		colorToCorrect: adjustHue(rotateDegree, primaryAlt),
 	})
 	let tertiaryAlt = correctContrast({
 		mainColor: primary,
-		colorToCorrect: rawTertiaryAlt,
+		colorToCorrect: adjustHue(rotateDegree * 2, primaryAlt),
 	})
 
 	let primaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: setLightness(lightnessDarkPrm, rawPrimaryAlt),
+		colorToCorrect: setSaturation(
+			saturationDarkAlt,
+			setLightness(lightnessDarkAlt, primaryAlt)
+		),
 	})
 
 	let secondaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: setLightness(lightnessDarkAlt, rawSecondaryAlt),
+		colorToCorrect: adjustHue(rotateDegree, primaryAltDark),
 	})
 
 	let tertiaryAltDark = correctContrast({
 		mainColor: primaryDark,
-		colorToCorrect: setLightness(lightnessDarkAlt, rawTertiaryAlt),
+		colorToCorrect: adjustHue(rotateDegree * 2, primaryAltDark),
 	})
 
 	let whiteAltDark = white

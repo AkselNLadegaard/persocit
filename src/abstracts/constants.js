@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
-import { Theme, themer } from './themer'
-import { adjustHue, complement, darken, lighten } from 'polished'
+import { Theme } from './themer'
 
 const siteWidthUntiles = 60
 const breakpoints = [30, 45, siteWidthUntiles]
@@ -8,40 +7,46 @@ const breakpoints = [30, 45, siteWidthUntiles]
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
 
 // base theme Saturations
-export const saturation = 0.8
-export const saturationDark = 0.99
-export const lightnessPrm = 0.7
+export const saturation = 0.85
 export const lightness = 0.75
 
-export const lightnessDarkPrm = 0.7
+export const saturationDark = 0.75
 export const lightnessDark = 0.8
-export const lightnessDarkAlt = 0.9
+
+export const saturationAlt = 0.9
+export const lightnessAlt = 0.75
+
+export const saturationDarkAlt = 0.8
+export const lightnessDarkAlt = 0.75
 
 export const rotateDegree = 120
-export const rotateDegreeAlt = 180
+export const rotateDegreeAlt = 120
 
 // Base colors!
-export const primaryDefault = 22
-export const primaryExperiments = 20
+export const primaryDefault = 320
+export const primaryExperiments = 300
 export const colorBlack = '#2b272b'
 export const colorWhite = '#fafafa'
-export const colorBackgroundLight = '#fcfcfc'
-export const colorBackgroundDark = '#dabca9'
+export const colorBackgroundLight = '#fbf9e9'
 
 // Theme generation
 const themeDefault = new Theme({
 	primaryHue: primaryDefault,
+})
+const themeExpNoBg = new Theme({
+	primaryHue: primaryExperiments,
 })
 
 const themeExperiments = new Theme({
 	primaryHue: primaryExperiments,
 	background: '#c7c48c',
 })
-const themeBlogColor = 666
+
 const themeBlog = new Theme({
-	primaryHue: themeBlogColor,
+	primaryHue: 666,
 	background: '#cdcde1',
 })
+
 const themeAbout = new Theme({
 	primaryHue: 220,
 	background: '#7f148d',
@@ -50,6 +55,7 @@ const themeAbout = new Theme({
 export const themes = {
 	default: themeDefault,
 	themeExperiments: themeExperiments,
+	themeExpNoBg: themeExpNoBg,
 	themeBlog: themeBlog,
 	themeAbout: themeAbout,
 }

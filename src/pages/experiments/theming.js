@@ -17,7 +17,6 @@ const ThemeTestContainer = styled.div`
 `
 
 const Theming = ({ data }) => {
-	console.log(themes)
 	return (
 		<Layout>
 			<Section>

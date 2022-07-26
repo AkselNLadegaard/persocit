@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { css, keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 import * as constant from '../abstracts/constants'
