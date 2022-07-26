@@ -24,8 +24,6 @@ export class Theme {
 			lightness: lightness,
 		})
 
-		console.log(`primary from hue is ${primary}`)
-
 		this.backgroundLight = background
 			? setLightness(bgLightness, background)
 			: colorBackgroundLight

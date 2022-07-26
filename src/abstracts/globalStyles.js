@@ -4,6 +4,7 @@ import { themes } from './constants'
 import { baseButtonStyles } from './buttonStyles'
 import { themesUtilityClasses } from './themer/themesUtilityStyles'
 import { typographyStyles } from './typographyStyles'
+import { inputStyles } from './inputStyles'
 
 export const activeStyles = css`
 	:hover,
@@ -49,5 +50,6 @@ export const globalStyles = css`
 	${basePseudoSelectorStyles};
 	${typographyStyles};
 	${baseButtonStyles};
+	${inputStyles};
 	${themesUtilityClasses(themes)};
 `

@@ -136,7 +136,7 @@ export function setTheme(
 			tertiaryAlt,
 			white,
 			black,
-			bgAlt
+			primary
 		)
 		let cssObjectDark = createThemeCssObject(
 			primaryAltDark,
@@ -144,7 +144,7 @@ export function setTheme(
 			tertiaryAltDark,
 			whiteAltDark,
 			blackAltDark,
-			backgroundAltDark
+			primaryDark
 		)
 
 		return css`

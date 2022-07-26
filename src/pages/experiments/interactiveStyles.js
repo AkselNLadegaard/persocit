@@ -64,6 +64,7 @@ const CardsContainer = styled.div`
 	}
 
 	.card-2 {
+		border: solid var(--tertiary);
 	}
 
 	.card-3 {
@@ -78,14 +79,16 @@ const CardsContainer = styled.div`
 
 const Experiments = () => {
 	const [count, setCount] = useState(0)
-	const [stateInputRange, setInputRange] = useState(0)
-	let title = ''
-	const handleChange = (event) => {
-		setInputRange(event)
-	}
-	useEffect(() => {
-		title = `You clicked ${count} times`
-	})
+	const [card1Range, setCard1Range] = useState(0)
+	let card1CssObject = css`
+		border-width: ${card1Range}px !important;
+	`
+
+	const [card2Slider1, setCard2Slider1] = useState(0)
+	const [card2Slider2, setCard2Slider2] = useState(0)
+	const [card2Slider3, setCard2Slider3] = useState(0)
+	const [card2Slider4, setCard2Slider4] = useState(0)
+
 	return (
 		<Layout>
 			<Section>
@@ -99,36 +102,21 @@ const Experiments = () => {
 							<h3>A sweet description of card-</h3>
 							<p>Oh yes a lot of stuff</p>
 						</div>
-						<div
-							className='card card-1'
-							css={css`
-								border-width: ${stateInputRange}px;
-							`}
-						>
+						<div className='card card-1' css={card1CssObject}>
 							<h4>Lorem ipsum</h4>
-							<p className='subtitle'>Neat subtitle</p>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Culpa, dolorum earum error
-								esse eum fuga illum in ipsa iure labore magnam
-								natus necessitatibus neque nesciunt odit qui
-								rerum, soluta veniam!
+							<p className='subtitle'>
+								Generate css class with emotion
 							</p>
+							<p>The css class then uses the value</p>
 							<p> {count}</p>
-							<p> {stateInputRange}</p>
-							<button
-								className='btn'
-								onClick={() => setCount(count + 1)}
-							>
-								Goofy
-							</button>
+							<p> {card1Range}</p>
 							<input
 								type='range'
 								min='0'
 								max='100'
-								value={stateInputRange}
+								value={card1Range}
 								onChange={(event) =>
-									setInputRange(event.target.value)
+									setCard1Range(event.target.value)
 								}
 								step='1'
 							/>
@@ -136,12 +124,15 @@ const Experiments = () => {
 					</div>
 					<div className='card-row '>
 						<div className='card-description'>
-							<h3>A sweet description of card-</h3>
-							<p>Oh yes a lot of stuff</p>
+							<h3>As a style object-</h3>
+							<p>A lot faster</p>
 						</div>
 						<div
 							className='bg-themeBlog card card-2'
-							style={{ borderWidth: `${stateInputRange}px` }}
+							style={{
+								borderBlockWidth: `${card2Slider1}px ${card2Slider3}px`,
+								borderInlineWidth: `${card2Slider4}px ${card2Slider2}px`,
+							}}
 						>
 							<div className='bg-inner'>
 								<h4>Lorem ipsum</h4>
@@ -159,9 +150,39 @@ const Experiments = () => {
 									type='range'
 									min='0'
 									max='100'
-									value={stateInputRange}
+									value={card2Slider1}
 									onChange={(event) =>
-										setInputRange(event.target.value)
+										setCard2Slider1(event.target.value)
+									}
+									step='1'
+								/>
+								<input
+									type='range'
+									min='0'
+									max='100'
+									value={card2Slider2}
+									onChange={(event) =>
+										setCard2Slider2(event.target.value)
+									}
+									step='1'
+								/>
+								<input
+									type='range'
+									min='0'
+									max='100'
+									value={card2Slider3}
+									onChange={(event) =>
+										setCard2Slider3(event.target.value)
+									}
+									step='1'
+								/>
+								<input
+									type='range'
+									min='0'
+									max='100'
+									value={card2Slider4}
+									onChange={(event) =>
+										setCard2Slider4(event.target.value)
 									}
 									step='1'
 								/>
