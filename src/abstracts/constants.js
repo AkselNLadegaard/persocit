@@ -1,39 +1,78 @@
 import { css } from '@emotion/react'
-import { Theme, themer } from './themer'
-import { adjustHue, complement, darken, lighten } from 'polished'
+import { Theme } from './themer'
 
 const siteWidthUntiles = 60
 const breakpoints = [30, 45, siteWidthUntiles]
 
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
 
+// base theme Saturations
+export const saturation = 0.85
+export const lightness = 0.75
+
+export const saturationDark = 0.75
+export const lightnessDark = 0.83
+
+export const saturationAlt = 0.9
+export const lightnessAlt = 0.75
+
+export const saturationDarkAlt = 0.8
+export const lightnessDarkAlt = 0.75
+
+export const rotateDegree = 120
+export const rotateDegreeAlt = 120
+
 // Base colors!
-export const primaryDefault = 12
-export const primaryExperiments = 120
+export const primaryDefault = 320
+export const primaryExperiments = 300
 export const colorBlack = '#2b272b'
 export const colorWhite = '#fafafa'
-export const colorBackgroundLight = '#fcfcfc'
-export const colorBackgroundDark = '#ffe4c7'
+export const colorBackgroundLight = '#fbf9e9'
 
 // Theme generation
 const themeDefault = new Theme({
 	primaryHue: primaryDefault,
 })
+const themeExpNoBg = new Theme({
+	primaryHue: primaryExperiments,
+})
 
 const themeExperiments = new Theme({
 	primaryHue: primaryExperiments,
+	background: '#c7c48c',
 })
-const themeBlogColor = 180
+
+const themeBlack = new Theme({
+	primaryHue: 200,
+	background: '#000000',
+})
+
+const themeBlackAlt = new Theme({
+	primaryHue: 100,
+	background: '#333333',
+})
+const themeWhite = new Theme({
+	primaryHue: 200,
+	background: '#ffffff',
+})
+
 const themeBlog = new Theme({
-	primaryHue: themeBlogColor,
+	primaryHue: 333,
+	background: '#cdcde1',
 })
+
 const themeAbout = new Theme({
 	primaryHue: 220,
+	background: '#7f148d',
 })
 
 export const themes = {
 	default: themeDefault,
 	themeExperiments: themeExperiments,
+	white: themeWhite,
+	black: themeBlack,
+	blackAlt: themeBlackAlt,
+	themeExpNoBg: themeExpNoBg,
 	themeBlog: themeBlog,
 	themeAbout: themeAbout,
 }
@@ -55,5 +94,9 @@ export const initialCustomProperties = css`
 	--tablet: ${breakpoints[1]};
 	--desktop: ${`${siteWidthUntiles}em`};
 
-	--opaque: 0.7;
+	--opaque: 0.8;
+	--zIndexNav: 10;
+
+	--siteGap: 2ch;
+	--sectionPadding: 7ch;
 `

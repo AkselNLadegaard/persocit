@@ -1,38 +1,27 @@
-import { adjustHue, hslToColorString, setLightness } from 'polished'
+import { adjustHue, darken, hslToColorString } from 'polished'
 import { css } from '@emotion/react'
 import {
-	colorBackgroundDark,
 	colorBackgroundLight,
 	colorBlack,
 	colorWhite,
-} from './constants'
-import { correctContrast } from './colorFunctions'
-import {
-	bgDarkLightness,
-	bgLightness,
 	lightness,
 	rotateDegree,
 	saturation,
-	setTheme,
-} from './themer/setTheme'
+} from './constants'
+import { correctContrast } from './colorFunctions'
+import { setTheme } from './themer/setTheme'
 
 export class Theme {
-	constructor({ primaryHue, background = null, backgroundDark = null }) {
+	constructor({ primaryHue, background = null }) {
 		let primary = hslToColorString({
 			hue: primaryHue,
 			saturation: saturation,
 			lightness: lightness,
 		})
 
-		console.log(`primary from hue is ${primary}`)
+		this.backgroundLight = background ? background : colorBackgroundLight
 
-		this.backgroundLight = background
-			? setLightness(bgLightness, background)
-			: colorBackgroundLight
-
-		this.backgroundDark = backgroundDark
-			? setLightness(bgDarkLightness, backgroundDark)
-			: colorBackgroundDark
+		this.backgroundDark = darken(0.1, this.backgroundLight)
 
 		this.primary = correctContrast({
 			mainColor: this.backgroundLight,
@@ -41,7 +30,7 @@ export class Theme {
 		//this.secondary = generateSecondary(primary, secondary)
 		this.secondary = correctContrast({
 			mainColor: this.backgroundLight,
-			colorToCorrect: adjustHue(rotateDegree, primary),
+			colorToCorrect: adjustHue(rotateDegree, this.primary),
 		})
 
 		this.tertiary = correctContrast({

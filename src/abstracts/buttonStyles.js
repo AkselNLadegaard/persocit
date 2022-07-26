@@ -10,11 +10,11 @@ export const baseButtonStyles = css`
 		background: var(--btnBg);
 		color: var(--btnColor);
 		font-size: 1.3rem;
-		line-height: 1.2;
+		line-height: 1.4;
 		white-space: nowrap;
 		text-decoration: none;
-		padding: 0.25rem 0.5rem;
-		margin: 0.25rem;
+		padding: 0.25rem 1ch;
+		margin: 0.5rem 0.5ch 0.25rem;
 		cursor: pointer;
 
 		:hover,

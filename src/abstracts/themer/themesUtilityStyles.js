@@ -4,14 +4,30 @@ export function themesUtilityClasses(themes) {
 	return Object.keys(themes).map(
 		(value, index) =>
 			css`
-				.bg-${value} {
+				.bg-${value}-primary {
 					${themes[value].theme};
-					background: var(--primary);
-					color: var(--primaryText);
+					--background: var(--primary) !important;
+					--backgroundText: var(--primaryText) !important;
+					background: var(--background);
+					color: var(--backgroundText);
 
-					> .bg-inner {
+					> * {
 						${themes[value].themeAlt};
 					}
+				}
+
+				.bg-${value} {
+					${themes[value].theme};
+					background: var(--background);
+					color: var(--backgroundText);
+				}
+
+				.set-${value} {
+					${themes[value].theme};
+				}
+
+				.set-${value}-alt {
+					${themes[value].themeAlt};
 				}
 			`
 	)

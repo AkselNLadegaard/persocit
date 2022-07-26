@@ -34,7 +34,7 @@ const GradientContainer = styled.div`
 	}
 `
 
-const Experiments = () => {
+const Gradients = () => {
 	return (
 		<Layout>
 			<Section>
@@ -74,4 +74,4 @@ const Experiments = () => {
 	)
 }
 
-export default Experiments
+export default Gradients

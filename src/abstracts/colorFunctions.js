@@ -13,14 +13,11 @@ export function canDarken({ mainColor, colorToCorrect, level = 'AA' }) {
 	for (i; !meetsContrastGuidelines(mainColor, colorIm)[level]; i++) {
 		colorIm = darken(i / 100, colorIm)
 		if (i >= 100) {
-			console.log('Cannot correct color with lighten')
 			colorIm = colorToCorrect
 			break
 		}
 	}
 	let canDarken = meetsContrastGuidelines(mainColor, colorIm)[level]
-	console.log(`This color canDarken: ${canDarken}`)
-	console.log(`This color canDarken steps: ${i}`)
 	return {
 		canDarken: canDarken,
 		correctedColor: colorIm,
@@ -34,13 +31,11 @@ export function canLighten({ mainColor, colorToCorrect, level = 'AA' }) {
 	for (i; !meetsContrastGuidelines(mainColor, colorIm)[level]; i++) {
 		colorIm = lighten(i / 100, colorIm)
 		if (i >= 100) {
-			console.log('Cannot correct color with lighten')
 			colorIm = colorToCorrect
 			break
 		}
 	}
 	let canLighten = meetsContrastGuidelines(mainColor, colorIm)[level]
-
 	return {
 		canLighten: canLighten,
 		correctedColor: colorIm,
@@ -67,7 +62,6 @@ export function correctContrast({
 		) {
 			colorIm = adjustHue(i, colorIm)
 			if (i >= 360) {
-				console.log('Cannot correct color with hue')
 				colorIm = colorToCorrect
 				break
 			}
@@ -81,7 +75,6 @@ export function correctContrast({
 		) {
 			colorIm = saturate(i / 100, colorIm)
 			if (i >= 100) {
-				console.log('Cannot correct color with saturate')
 				colorIm = colorToCorrect
 				break
 			}
