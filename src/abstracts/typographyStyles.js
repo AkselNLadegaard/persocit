@@ -84,6 +84,7 @@ export const typographyStyles = css`
 		:active,
 		:focus {
 			border-bottom: solid 0.15rem;
+			margin-bottom: -0.05rem;
 		}
 	}
 

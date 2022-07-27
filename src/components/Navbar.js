@@ -63,7 +63,7 @@ const Container = styled.div`
 		${constant.mq[1]} {
 			display: flex;
 			align-self: center;
-			align-items: center;
+			align-items: flex-start;
 			height: 100%;
 			margin: 0;
 			padding: 16px 0;
@@ -119,14 +119,16 @@ const SideNavContainer = styled.div`
 
 	.escape {
 		width: 100%;
-		background: rgba(233, 233, 233, 0.4);
-
+		background: rgba(0, 0, 0, 0.4);
+		margin: 0;
+		padding: 0;
+		border-radius: 0;
+		backdrop-filter: blur(4px);
 		:hover,
 		:focus,
 		:active {
+			outline-offset: 0;
 		}
-
-		filter: blur(4px);
 	}
 
 	.links-container {
@@ -137,8 +139,8 @@ const SideNavContainer = styled.div`
 		background: var(--background);
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-end;
-		padding: var(--gap);
+		justify-content: center;
+		padding: var(--gap) 4ch;
 		overflow-y: auto;
 
 		> * {
@@ -154,6 +156,7 @@ const SideNavActive = css``
 const Hamburger = styled.button`
 	width: 2rem;
 	height: 2rem;
+	padding: 0;
 	background: rgba(0, 0, 0, 0.8);
 
 	:hover,
