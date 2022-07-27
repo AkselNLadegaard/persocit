@@ -22,7 +22,7 @@ export const globalStyles = css`
 	}
 
 	main {
-		min-height: calc(100vh - var(--navHeight) - var(--navOffset) - 6rem);
+		min-height: calc(100vh - var(--navHeight) - var(--navOffset) - 8rem);
 	}
 
 	${basePseudoSelectorStyles};

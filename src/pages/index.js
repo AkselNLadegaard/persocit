@@ -3,8 +3,10 @@ import Layout from '../components/Layout'
 import Section from '../components/Section'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import * as constant from '../abstracts/constants'
+import { HeroSection } from './experiments'
 
-const Hero = styled.div`
+const LinksSection = styled(Section)`
 	width: 100%;
 
 	.cardsContainer {
@@ -24,12 +26,14 @@ const Hero = styled.div`
 				border: solid var(--borderWidth);
 			}
 
-			div {
-				display: flex;
-				align-items: center;
-				text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			padding: var(--gap);
+
+			${constant.mq[1]} {
 				aspect-ratio: 1 / 1;
-				padding: var(--gap);
 			}
 		}
 	}
@@ -38,22 +42,23 @@ const Hero = styled.div`
 const IndexPage = () => {
 	return (
 		<Layout>
-			<Section>
-				<Hero>
-					<h1>This is the frontpage</h1>
-					<div className='cardsContainer'>
-						<Link className='bg-experiments' to={'experiments'}>
-							<div>Go see some fun codng experiments</div>
-						</Link>
-						<Link className='bg-about' to={'about'}>
-							<div>Curious what this site is all about?</div>
-						</Link>
-						<Link className='bg-blog' to={'blog'}>
-							<div>Or go to the empty blog</div>
-						</Link>
-					</div>
-				</Hero>
-			</Section>
+			<HeroSection>
+				<h1>Welcome to my site!</h1>
+			</HeroSection>
+			<LinksSection>
+				<h3>Some popular destinations:</h3>
+				<div className='cardsContainer'>
+					<Link className='bg-experiments' to={'experiments'}>
+						<div>Go see some fun codng experiments</div>
+					</Link>
+					<Link className='bg-about' to={'about'}>
+						<div>Curious what this site is all about?</div>
+					</Link>
+					<Link className='bg-blog' to={'blog'}>
+						<div>Or go to the empty blog</div>
+					</Link>
+				</div>
+			</LinksSection>
 		</Layout>
 	)
 }

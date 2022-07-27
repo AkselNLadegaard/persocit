@@ -5,15 +5,21 @@ import * as constant from '../abstracts/constants'
 // Components
 import { Link } from 'gatsby'
 import TestSvg from '../assets/svg/svgTest.svg'
+import { siteWidthUntiles } from '../abstracts/constants'
 
 const Header = styled.header`
 	position: sticky;
 	top: 0;
 	right: 0;
-	margin: var(--navOffset) auto 2rem;
+	margin: var(--navOffset) auto 4rem;
 	height: var(--navHeight);
 	width: 100%;
 	z-index: var(--zIndexNav);
+
+	.sitetitle {
+		font-size: 1.8rem;
+		margin: 0;
+	}
 `
 const animationCycleLogoColors = keyframes`
   0% {
@@ -43,7 +49,7 @@ const Container = styled.div`
 	}
 
 	display: flex;
-	align-items: stretch;
+	align-items: center;
 	justify-content: space-between;
 
 	a {
@@ -61,7 +67,6 @@ const Container = styled.div`
 			display: flex;
 			align-self: center;
 			align-items: flex-start;
-			height: 100%;
 			margin: 0;
 			padding: 16px 0;
 		}
@@ -73,6 +78,10 @@ const Container = styled.div`
 	}
 
 	.logo {
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		gap: var(--gap);
 		align-self: center;
 		border-bottom: none;
 
@@ -100,6 +109,10 @@ const Container = styled.div`
 				stroke: var(--tertiary) !important;
 			}
 		}
+
+		@media (min-width: ${siteWidthUntiles + 28}em) {
+			margin-left: -6rem;
+		}
 	}
 `
 const SideNavContainer = styled.div`
@@ -121,6 +134,7 @@ const SideNavContainer = styled.div`
 		padding: 0;
 		border-radius: 0;
 		backdrop-filter: blur(4px);
+
 		:hover,
 		:focus,
 		:active {
@@ -167,12 +181,13 @@ const Hamburger = styled.button`
 	}
 `
 
-const Navbar = ({ ...props }) => {
+const Navbar = ({ title = 'Nordvig Persocit', ...props }) => {
 	//determines if the user has a set them
 
 	const [sideNavActive, setSideNavActive] = useState(false)
 	const handleSidenav = ({ toStatus }) =>
 		setSideNavActive(toStatus ? toStatus : !sideNavActive)
+	let siteTitle = title
 	const Links = () => {
 		return (
 			<>
@@ -200,8 +215,8 @@ const Navbar = ({ ...props }) => {
 		<Header {...props}>
 			<Container>
 				<Link to={'/'} className={'logo'}>
-					{/*<StaticImage src="../images/icon.png" alt="logo" placeholder="blurred" layout="fixed" height={96}/>*/}
 					<TestSvg />
+					<p className={'sitetitle'}>{siteTitle}</p>
 				</Link>
 
 				<Hamburger onClick={handleSidenav}>M</Hamburger>

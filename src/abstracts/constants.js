@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { Theme } from './themer'
 
-const siteWidthUntiles = 60
+export const siteWidthUntiles = 60
 const breakpoints = [30, 45, siteWidthUntiles]
 
 export const mq = breakpoints.map((bp) => `@media (min-width: ${bp}em)`)
@@ -112,7 +112,7 @@ export const initialCustomProperties = css`
 	--zIndexNav: 10;
 
 	--siteGap: 2ch;
-	--sectionPadding: 7ch;
+	--sectionPadding: 4ch;
 
 	--navOffset: 4rem;
 	--navHeight: 8ch;

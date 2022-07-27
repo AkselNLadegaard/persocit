@@ -2,22 +2,36 @@ import React from 'react'
 import Layout from '../components/Layout'
 import Section from '../components/Section'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
 import { themes } from '../abstracts/constants'
+import * as constant from '../abstracts/constants'
+
+export const HeroSection = styled(Section)`
+	> *:last-child {
+		border-bottom: 0.5ch var(--tertiary) solid !important;
+	}
+`
 
 const ExperimentCardContainer = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 20ch);
+	grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
 	grid-gap: var(--gap);
 
 	.card {
 		padding: var(--gap);
 		border: dotted 2px;
 
+		> *:first-child {
+			min-height: 5ch;
+		}
+
 		:hover,
 		:focus,
 		:active {
 			border: solid 2px;
+		}
+
+		${constant.mq[1]} {
+			aspect-ratio: 1 / 1;
 		}
 	}
 `
@@ -25,15 +39,15 @@ const ExperimentCardContainer = styled.div`
 const Experiments = () => {
 	return (
 		<Layout theme={themes.experiments}>
-			<Section>
+			<HeroSection>
 				<h1>Experiments</h1>
 				<p>A bunch of experiments!</p>
 				<p>
 					I dream of having one for every major UI element, to
-					illustrate the breadth of possibilities with CSS with a
-					little sprinkle of js
+					illustrate the breadth of possibilities with CSS and a
+					sprinkle of js
 				</p>
-			</Section>
+			</HeroSection>
 
 			<Section>
 				<ExperimentCardContainer>
