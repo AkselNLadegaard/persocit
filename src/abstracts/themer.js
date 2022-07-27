@@ -12,13 +12,13 @@ import { correctContrast } from './colorFunctions'
 import { setTheme } from './themer/setTheme'
 
 export class Theme {
-	constructor({ primaryHue, background = null }) {
+	constructor({ name, primaryHue, background = null }) {
 		let primary = hslToColorString({
 			hue: primaryHue,
 			saturation: saturation,
 			lightness: lightness,
 		})
-
+		this.name = name
 		this.backgroundLight = background ? background : colorBackgroundLight
 
 		this.backgroundDark = darken(0.1, this.backgroundLight)

@@ -6,7 +6,7 @@ import { themes } from '../abstracts/constants'
 
 const About = () => {
 	return (
-		<Layout theme={themes.themeAbout}>
+		<Layout theme={themes.about}>
 			<Section>
 				<h1>The about page</h1>
 				<p>This website is built mainly using:</p>

@@ -10,13 +10,10 @@ const Header = styled.header`
 	position: sticky;
 	top: 0;
 	right: 0;
-	margin: 4rem auto 2rem;
+	margin: var(--navOffset) auto 2rem;
+	height: var(--navHeight);
 	width: 100%;
 	z-index: var(--zIndexNav);
-
-	${constant.mq[1]} {
-		margin: 10rem auto 2rem;
-	}
 `
 const animationCycleLogoColors = keyframes`
   0% {
@@ -42,7 +39,7 @@ const Container = styled.div`
 	background: var(--background);
 
 	${constant.mq[1]} {
-		padding: 0 var(--gap);
+		padding: 4px var(--gap) 0;
 	}
 
 	display: flex;

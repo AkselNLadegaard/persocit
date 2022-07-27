@@ -21,6 +21,10 @@ export const globalStyles = css`
 		background: var(--background);
 	}
 
+	main {
+		min-height: calc(100vh - var(--navHeight) - var(--navOffset) - 6rem);
+	}
+
 	${basePseudoSelectorStyles};
 	${typographyStyles};
 	${baseButtonStyles};

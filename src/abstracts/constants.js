@@ -31,50 +31,64 @@ export const colorBackgroundLight = '#fbf9e9'
 
 // Theme generation
 const themeDefault = new Theme({
+	name: 'default',
 	primaryHue: primaryDefault,
 })
 const themeExpNoBg = new Theme({
+	name: 'expNoBg',
 	primaryHue: primaryExperiments,
 })
 
 const themeExperiments = new Theme({
+	name: 'experiments',
 	primaryHue: primaryExperiments,
 	background: '#c7c48c',
 })
 
 const themeBlack = new Theme({
+	name: 'black',
 	primaryHue: 200,
 	background: '#000000',
 })
 
 const themeBlackAlt = new Theme({
+	name: 'blackAlt',
 	primaryHue: 100,
 	background: '#333333',
 })
 const themeWhite = new Theme({
+	name: 'white',
 	primaryHue: 200,
 	background: '#ffffff',
 })
+const themeWhiteAlt = new Theme({
+	name: 'whiteAlt',
+	primaryHue: 100,
+	background: '#f4f4f4',
+})
 
 const themeBlog = new Theme({
+	name: 'blog',
 	primaryHue: 333,
 	background: '#cdcde1',
 })
 
 const themeAbout = new Theme({
+	name: 'about',
 	primaryHue: 220,
 	background: '#7f148d',
 })
 
 export const themes = {
 	default: themeDefault,
-	themeExperiments: themeExperiments,
+	experiments: themeExperiments,
 	white: themeWhite,
 	black: themeBlack,
 	blackAlt: themeBlackAlt,
-	themeExpNoBg: themeExpNoBg,
-	themeBlog: themeBlog,
-	themeAbout: themeAbout,
+	expNoBg: themeExpNoBg,
+	blog: themeBlog,
+	about: themeAbout,
+	whiteAlt: themeWhiteAlt,
 }
 
 export const initialCustomProperties = css`
@@ -99,4 +113,12 @@ export const initialCustomProperties = css`
 
 	--siteGap: 2ch;
 	--sectionPadding: 7ch;
+
+	--navOffset: 4rem;
+	--navHeight: 8ch;
+
+	${mq[1]} {
+		--navOffset: 10rem;
+		--navHeight: 8ch;
+	}
 `

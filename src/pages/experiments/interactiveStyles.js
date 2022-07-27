@@ -134,7 +134,7 @@ const Experiments = () => {
 							<p>A lot faster</p>
 						</div>
 						<div
-							className='bg-themeBlog card card-2'
+							className='bg-blog card card-2'
 							style={{
 								borderBlockWidth: `${card2Slider1}px ${card2Slider3}px`,
 								borderInlineWidth: `${card2Slider4}px ${card2Slider2}px`,

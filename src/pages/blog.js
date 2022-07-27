@@ -10,7 +10,7 @@ function isEmpty(str) {
 
 const Blog = ({ data }) => {
 	return (
-		<Layout theme={themes.themeBlog}>
+		<Layout theme={themes.blog}>
 			<Section>
 				<h1> Blog overview</h1>
 				<ul>

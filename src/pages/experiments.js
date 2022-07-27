@@ -24,7 +24,7 @@ const ExperimentCardContainer = styled.div`
 
 const Experiments = () => {
 	return (
-		<Layout theme={themes.themeExperiments}>
+		<Layout theme={themes.experiments}>
 			<Section>
 				<h1>Experiments</h1>
 				<p>A bunch of experiments!</p>

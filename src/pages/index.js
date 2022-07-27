@@ -42,16 +42,13 @@ const IndexPage = () => {
 				<Hero>
 					<h1>This is the frontpage</h1>
 					<div className='cardsContainer'>
-						<Link
-							className='bg-themeExperiments'
-							to={'experiments'}
-						>
-							<div>Go see some fun coding experiments</div>
+						<Link className='bg-experiments' to={'experiments'}>
+							<div>Go see some fun codng experiments</div>
 						</Link>
-						<Link className='bg-themeAbout' to={'about'}>
+						<Link className='bg-about' to={'about'}>
 							<div>Curious what this site is all about?</div>
 						</Link>
-						<Link className='bg-themeBlog' to={'blog'}>
+						<Link className='bg-blog' to={'blog'}>
 							<div>Or go to the empty blog</div>
 						</Link>
 					</div>

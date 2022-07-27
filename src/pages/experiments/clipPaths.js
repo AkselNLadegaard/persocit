@@ -136,7 +136,7 @@ const ClipPathPage = () => {
 			<Section>
 				<h1>Experiments with the ClipPath property</h1>
 			</Section>
-			<Section className={'bg-themeExperiments'}>
+			<Section className={'bg-experiments'}>
 				<h2>Basic shapes</h2>
 
 				<ClipPathContainer>
@@ -156,7 +156,7 @@ const ClipPathPage = () => {
 					<ClipPathCard className='cp triangle-3'></ClipPathCard>
 				</ClipPathContainer>
 			</Section>
-			<Section className={'bg-themeBlog'}>
+			<Section className={'bg-blog'}>
 				<h2>Path</h2>
 				<ClipPathContainer className={'bg-inner'}>
 					<ClipPathCard className='cp path-1'></ClipPathCard>

@@ -107,7 +107,7 @@ const Experiments = () => {
 							<h3>A sweet description of card-</h3>
 							<p>Oh yes a lot of stuff</p>
 						</div>
-						<div className='bg-themeBlog card card-2'>
+						<div className='bg-blog card card-2'>
 							<div className='bg-inner'>
 								<h4>Lorem ipsum</h4>
 								<p>

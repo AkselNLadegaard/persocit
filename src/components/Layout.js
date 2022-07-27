@@ -8,13 +8,13 @@ import Footer from './Footer'
 import { themes } from '../abstracts/constants'
 
 const Layout = ({ children, theme }) => {
-	let layoutTheme = theme ? theme.theme : themes.default.theme
+	let pageTheme = theme ? theme : themes.default
 	return (
 		<>
 			<Global
 				styles={css`
 					:root {
-						${layoutTheme};
+						${pageTheme.theme};
 					}
 				`}
 			/>
@@ -25,7 +25,7 @@ const Layout = ({ children, theme }) => {
 			/>
 			<Navbar />
 			<main>{children}</main>
-			<Footer>This is a footer!</Footer>
+			<Footer theme={pageTheme.name}>This is a footer!</Footer>
 		</>
 	)
 }

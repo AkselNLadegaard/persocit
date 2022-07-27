@@ -1,10 +1,9 @@
 module.exports = {
 	siteMetadata: {
 		siteUrl: 'https://persocitmain.gatsbyjs.io/',
-		title: 'Persocite',
-		author: 'Aksel',
-		description:
-			'Personal site for learning, having fun and possible a CV and portfolio in the future!',
+		title: 'Aksels personal site ==> perso-cite ==> persocit',
+		author: 'Aksel Nordvig Ladegaard',
+		description: 'A little personal site for playing with the frontend!',
 	},
 	plugins: [
 		{
