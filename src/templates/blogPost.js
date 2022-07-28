@@ -1,9 +1,9 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import React         from 'react'
+import Layout        from '../components/layout/Layout'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import {graphql, Link} from 'gatsby'
-import Section from '../components/Section'
-import {MDXProvider} from '@mdx-js/react'
+import Section         from '../components/general/Section'
+import {MDXProvider}   from '@mdx-js/react'
 
 const shortcodes = {Link} // Provide common components here
 // take a look at the various remark plugins for transforming MDX.

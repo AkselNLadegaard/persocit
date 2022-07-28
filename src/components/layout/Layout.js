@@ -1,11 +1,11 @@
 import React from 'react'
-import { css, Global } from '@emotion/react'
-import { globalStyles } from '../abstracts/globalStyles'
+import { css, Global }  from '@emotion/react'
+import { globalStyles } from '../../abstracts/globalStyles'
 
 // Components
-import Navbar from './Navbar'
-import Footer from './Footer'
-import { themes } from '../abstracts/constants'
+import Navbar     from './Navbar'
+import Footer     from './Footer'
+import { themes } from '../../abstracts/constants'
 
 const Layout = ({ children, theme }) => {
 	let pageTheme = theme ? theme : themes.default

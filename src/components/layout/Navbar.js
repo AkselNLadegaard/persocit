@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { css, keyframes } from '@emotion/react'
-import styled from '@emotion/styled'
-import * as constant from '../abstracts/constants'
+import styled               from '@emotion/styled'
+import * as constant        from '../../abstracts/constants'
 // Components
-import { Link } from 'gatsby'
-import TestSvg from '../assets/svg/svgTest.svg'
-import { siteWidthUntiles } from '../abstracts/constants'
+import { Link }             from 'gatsby'
+import TestSvg              from '../../assets/svg/svgTest.svg'
+import { siteWidthUntiles } from '../../abstracts/constants'
 
 const Header = styled.header`
 	position: sticky;

@@ -1,8 +1,8 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import React             from 'react'
+import Layout            from '../components/layout/Layout'
 import { graphql, Link } from 'gatsby'
-import Section from '../components/Section'
-import { themes } from '../abstracts/constants'
+import Section           from '../components/general/Section'
+import { themes }        from '../abstracts/constants'
 
 function isEmpty(str) {
 	return !str || str.length === 0

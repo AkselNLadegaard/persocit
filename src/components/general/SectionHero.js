@@ -1,5 +1,5 @@
 import styled  from "@emotion/styled";
-import Section from "../Section";
+import Section from "./Section";
 
 export const SectionHero = styled(Section)`
 	> *:last-child {

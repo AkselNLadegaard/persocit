@@ -1,7 +1,7 @@
-import * as React    from 'react'
-import Layout        from '../components/Layout'
-import Section       from '../components/Section'
-import styled        from '@emotion/styled'
+import * as React from 'react'
+import Layout     from '../components/layout/Layout'
+import Section    from '../components/general/Section'
+import styled  from '@emotion/styled'
 import {Link}        from 'gatsby'
 import * as constant from '../abstracts/constants'
 import {SectionHero} from "../components/general/SectionHero";

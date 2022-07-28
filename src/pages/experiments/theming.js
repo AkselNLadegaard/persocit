@@ -1,8 +1,8 @@
 import React from 'react'
 import { themes } from '../../abstracts/constants'
-import styled from '@emotion/styled'
-import Layout from '../../components/Layout'
-import Section from '../../components/Section'
+import styled  from '@emotion/styled'
+import Layout  from '../../components/layout/Layout'
+import Section from '../../components/general/Section'
 
 const ThemeTestContainer = styled.div`
 	display: grid;

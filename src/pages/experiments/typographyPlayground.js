@@ -1,6 +1,6 @@
-import React from 'react'
-import Layout from '../../components/Layout'
-import Section from '../../components/Section'
+import React   from 'react'
+import Layout  from '../../components/layout/Layout'
+import Section from '../../components/general/Section'
 import { Link } from '../../../.cache/gatsby-browser-entry'
 
 const TypographyPlayground = (props) => {

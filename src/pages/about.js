@@ -1,7 +1,7 @@
-import React from 'react'
-import Layout from '../components/Layout'
+import React    from 'react'
+import Layout   from '../components/layout/Layout'
 import { Link } from 'gatsby'
-import Section from '../components/Section'
+import Section    from '../components/general/Section'
 import { themes } from '../abstracts/constants'
 
 const About = () => {

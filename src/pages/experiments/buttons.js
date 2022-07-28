@@ -1,7 +1,7 @@
 import * as React from 'react'
-import Layout from '../../components/Layout'
-import Section from '../../components/Section'
-import styled from '@emotion/styled'
+import Layout     from '../../components/layout/Layout'
+import Section    from '../../components/general/Section'
+import styled  from '@emotion/styled'
 import { css } from '@emotion/react'
 
 const ButtonCardContainer = styled.div`

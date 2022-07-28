@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import styled from '@emotion/styled'
-import Layout from '../../components/Layout'
-import Section from '../../components/Section'
+import styled  from '@emotion/styled'
+import Layout  from '../../components/layout/Layout'
+import Section from '../../components/general/Section'
 import { css } from '@emotion/react'
 import StaggerEffect from '../../components/experiments/interactiveStyles/staggerEffect'
 
