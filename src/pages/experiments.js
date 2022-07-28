@@ -1,15 +1,11 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import Section from '../components/Section'
-import styled from '@emotion/styled'
-import { themes } from '../abstracts/constants'
+import React         from 'react'
+import Layout        from '../components/Layout'
+import Section       from '../components/Section'
+import styled        from '@emotion/styled'
 import * as constant from '../abstracts/constants'
+import {themes}      from '../abstracts/constants'
+import {SectionHero} from "../components/general/SectionHero";
 
-export const HeroSection = styled(Section)`
-	> *:last-child {
-		border-bottom: 0.5ch var(--tertiary) solid !important;
-	}
-`
 
 const ExperimentCardContainer = styled.div`
 	display: grid;
@@ -39,7 +35,7 @@ const ExperimentCardContainer = styled.div`
 const Experiments = () => {
 	return (
 		<Layout theme={themes.experiments}>
-			<HeroSection>
+			<SectionHero>
 				<h1>Experiments</h1>
 				<p>A bunch of experiments!</p>
 				<p>
@@ -47,7 +43,7 @@ const Experiments = () => {
 					illustrate the breadth of possibilities with CSS and a
 					sprinkle of js
 				</p>
-			</HeroSection>
+			</SectionHero>
 
 			<Section>
 				<ExperimentCardContainer>
