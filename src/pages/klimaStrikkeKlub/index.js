@@ -7,8 +7,8 @@ import {LinksSection} from "../../components/layout/LinksSection";
 
 const Index = () => {
     return (
-        <Layout theme={themes.white} footer={false} title={"KlimaStrikkeKlubben"}>
-            <Section className={'bg-climate'}>
+        <Layout theme={themes.climate} footer={false} title={"KlimaStrikkeKlubben"}>
+            <Section>
                 < h1> Klimastrikkeklubben
                     ! < /h1>
                 <p>En sød beskrivelse </p>
@@ -39,7 +39,7 @@ const Index = () => {
                     </div>
                 </LinksSection>
             </Section>
-            <Section>
+            <Section className={'bg-climateAlt'}>
                 <h2><Link to={'/klimaStrikkeKlub/values'}>Værdier for klimastrikkeklub</Link></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos earum esse eum nam non rem sint
                     voluptates! Aliquam dolorum ea eos ex facilis labore maxime numquam quasi reprehenderit sequi.
@@ -74,7 +74,8 @@ const Index = () => {
                         <a href="src/pages/klimaStrikkeKlub/klimaStrikkeklub">DTU center for absolute sustainability</a>
                     </li>
                     <li>
-                        Eksperimenter og dokumentation, særligt <a href="src/pages/klimaStrikkeKlub/klimaStrikkeklub">Low Tech
+                        Eksperimenter og dokumentation, særligt <a href="src/pages/klimaStrikkeKlub/klimaStrikkeklub">Low
+                        Tech
                         Magazine af Kris De decker</a>
                     </li>
                     <li>

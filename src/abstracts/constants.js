@@ -80,10 +80,15 @@ const themeAbout = new Theme({
                              })
 
 const themeClimate = new Theme({
-                                 name:       'climate',
-                                 primaryHue: 0,
-                                 background: '#f8fff3',
-                             })
+                                   name:       'climate',
+                                   primaryHue: 0,
+                                   background: '#f8fff3',
+                               })
+const themeClimateAlt = new Theme({
+                                      name:       'climateAlt',
+                                      primaryHue: 180,
+                                      background: '#ffffff',
+                                  })
 
 export const themes = {
     default:     themeDefault,
@@ -95,7 +100,8 @@ export const themes = {
     blog:        themeBlog,
     about:       themeAbout,
     whiteAlt:    themeWhiteAlt,
-    climate:       themeClimate
+    climate:     themeClimate,
+    climateAlt:  themeClimateAlt,
 }
 
 export const initialCustomProperties = css`

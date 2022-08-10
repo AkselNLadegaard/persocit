@@ -4,7 +4,6 @@ import {Link}         from 'gatsby'
 import {SectionHero}  from "../components/general/SectionHero";
 import {LinksSection} from "../components/layout/LinksSection";
 
-
 const IndexPage = () => {
     return (
         <Layout>
