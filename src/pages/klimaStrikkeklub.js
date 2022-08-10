@@ -13,7 +13,7 @@ const KlimaStrikkeklub = () => {
                 <p>En sød beskrivelse </p>
                 <br/>
                 <h2>Mål for klimastrikkeklub</h2>
-                <p>Klimastrikkeklubbens formål er at bidrage til at skabe rammerne for et godt liv inden for de
+                <p>Klimastrikkeklubbens formål er at katte  til at skabe rammerne for et godt liv inden for de
                     planetære grænser.
                     Klimestrikke-klubbens formål er at udvikle på projekter, teknologier og systemer, der kan skabe gode
                     liv inden for de planetære grænser.
