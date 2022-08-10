@@ -17,8 +17,14 @@ const Header = styled.header`
   z-index: var(--zIndexNav);
 
   .sitetitle {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    word-break: break-all;
     margin: 0;
+  }
+  ${constant.mq[1]}{
+    .sitetitle {
+      font-size: 1.8rem;
+    }
   }
 `
 const animationCycleLogoColors = keyframes`
@@ -181,7 +187,7 @@ const Hamburger = styled.button`
   }
 `
 
-const Navbar = ({title = 'Nordvig Persocit', ...props}) => {
+const Navbar = ({title = 'Persocit', logo = true, ...props}) => {
     //determines if the user has a set them
 
     const [sideNavActive, setSideNavActive] = useState(false)
@@ -216,7 +222,7 @@ const Navbar = ({title = 'Nordvig Persocit', ...props}) => {
         <Header {...props}>
             <Container>
                 <Link to={'/'} className={'logo'}>
-                    <TestSvg/>
+                    {logo &&  <TestSvg/>}
                     <p className={'sitetitle'}>{siteTitle}</p>
                 </Link>
 

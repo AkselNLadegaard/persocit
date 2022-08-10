@@ -9,7 +9,7 @@ import Projects       from "./projects";
 
 const Index = () => {
     return (
-        <Layout theme={themes.climate} footer={false} title={"KlimaStrikkeKlubben"}>
+        <Layout theme={themes.climate} footer={false} logo={false} title={"KlimaStrikkeKlubben"}>
             <Section>
                 < h1> Klimastrikkeklubben
                     ! < /h1>
@@ -26,6 +26,9 @@ const Index = () => {
                     vi er imod 2-2.5 C (climate gap rapport)</p>
                 <LinksSection>
                     <div className={'cardsContainer'}>
+                        <Link to={'blog/'}>
+                            Bloggen!
+                        </Link>
                         <Link to={'goals/'}>
                             Målsætninger
                         </Link>

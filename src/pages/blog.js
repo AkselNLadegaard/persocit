@@ -3,6 +3,7 @@ import Layout            from '../components/layout/Layout'
 import { graphql, Link } from 'gatsby'
 import Section           from '../components/general/Section'
 import { themes }        from '../abstracts/constants'
+import slugify           from "slugify";
 
 function isEmpty(str) {
 	return !str || str.length === 0
@@ -16,7 +17,7 @@ const Blog = ({ data }) => {
 				<ul>
 					{data.allMdx.nodes.map((nodes, index) => (
 						<li key={index}>
-							<Link to={nodes.slug}>
+							<Link to={slugify(nodes.frontmatter.title)}>
 								{nodes.frontmatter.title}
 							</Link>
 							<br />
@@ -39,7 +40,7 @@ const Blog = ({ data }) => {
 export const query = graphql`
 	{
 		allMdx(
-			filter: { frontmatter: { type: { eq: "blogPost" } } }
+			filter: { frontmatter: { type: { eq: "blogPostAksel" } } }
 			sort: { fields: frontmatter___dateCreated, order: DESC }
 		) {
 			nodes {

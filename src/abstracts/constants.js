@@ -128,7 +128,7 @@ export const initialCustomProperties = css`
   --sectionPadding: 4ch;
 
   --navOffset: 4rem;
-  --navHeight: 8ch;
+  --navHeight: 5ch;
 
   ${mq[1]} {
     --navOffset: 10rem;

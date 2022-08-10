@@ -8,7 +8,6 @@ export const LinksSection = styled(Section)`
   .cardsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18ch, 1fr));
-    grid-auto-rows: minmax(20ch, auto);
     grid-gap: var(--gap);
 
     > a {
@@ -29,7 +28,6 @@ export const LinksSection = styled(Section)`
       padding: var(--gap);
 
       ${constant.mq[1]} {
-        aspect-ratio: 1 / 1;
       }
     }
   }
