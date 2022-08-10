@@ -7,7 +7,7 @@ export const LinksSection = styled(Section)`
 
   .cardsContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20ch, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(18ch, 1fr));
     grid-auto-rows: minmax(20ch, auto);
     grid-gap: var(--gap);
 

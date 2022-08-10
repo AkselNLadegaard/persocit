@@ -82,11 +82,11 @@ const themeAbout = new Theme({
 const themeClimate = new Theme({
                                    name:       'climate',
                                    primaryHue: 0,
-                                   background: '#f8fff3',
+                                   background: '#fefff3',
                                })
 const themeClimateAlt = new Theme({
                                       name:       'climateAlt',
-                                      primaryHue: 180,
+                                      primaryHue: 90,
                                       background: '#ffffff',
                                   })
 

@@ -4,6 +4,8 @@ import Section        from "../../components/general/Section";
 import {themes}       from '../../abstracts/constants'
 import {Link}         from "gatsby";
 import {LinksSection} from "../../components/layout/LinksSection";
+import Projects       from "./projects";
+
 
 const Index = () => {
     return (
@@ -27,7 +29,7 @@ const Index = () => {
                         <Link to={'goals/'}>
                             Målsætninger
                         </Link>
-                        <Link to={'inspiration/'}>
+                        <Link to={'inspirations/'}>
                             Vores inspirationer
                         </Link>
                         <Link to={'projects/'}>
@@ -67,7 +69,9 @@ const Index = () => {
                 </ul>
             </Section>
             <Section>
-                <h2>Klimastrikkeklubbens inspiration</h2>
+                <h2>
+                    <Link to={'inspirations/'}>Klimastrikkeklubbens inspiration</Link>
+                </h2>
 
                 <ul>
                     <li>
@@ -89,8 +93,10 @@ const Index = () => {
                     </li>
                 </ul>
             </Section>
-            <Section>
-                <h2>Måder vi kan hjælpe på</h2>
+            <Section className={'bg-climateAlt'}>
+                <h2>
+                    <Link to={"projects/"}>Måder vi kan hjælpe på</Link>
+                </h2>
                 <p>
                     Der er mange måder..
                 </p>
@@ -116,7 +122,11 @@ const Index = () => {
                 </ul>
             </Section>
             <Section>
-                <h2>Mål for vores og måske dine projekter</h2>
+                <h2>
+                    <Link to={'goals/'}>
+                        Mål for vores og måske dine projekter
+                    </Link>
+                </h2>
                 <p>De udviklede koncepter må ikke bidrage til at skabe en øget produktion og konsumering, medmindre at
                     konceptet erstatter (displace) en mere forurenene produktion og konsumering.
                 </p>
