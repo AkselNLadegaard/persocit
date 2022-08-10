@@ -191,7 +191,7 @@ const Navbar = ({title = 'Nordvig Persocit', ...props}) => {
     const Links = () => {
         return (
             <>
-                <Link to={'/klimaStrikkeklub'}>Klima Strikkeklub</Link>
+                <Link to={'/klimaStrikkeKlub'}>Klima Strikkeklub</Link>
                 <Link to={'/experiments'}>Experiments</Link>
                 <Link to={'/blog'}>Blog</Link>
                 <Link to={'/about'}>About</Link>

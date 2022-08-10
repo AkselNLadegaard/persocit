@@ -1,10 +1,15 @@
-import React from 'react';
+import React   from 'react';
+import Layout  from "../../components/layout/Layout";
+import Section from "../../components/general/Section";
 
 const Goals = () => {
     return (
-        <div>
-            
-        </div>
+        <Layout>
+            <Section>
+                <h1>Goals</h1>
+
+            </Section>
+        </Layout>
     );
 };
 

@@ -1,10 +1,11 @@
-import React    from 'react';
-import Layout   from "../components/layout/Layout";
-import Section  from "../components/general/Section";
-import {themes} from '../abstracts/constants'
-import {Link}   from "gatsby";
+import React          from 'react';
+import Layout         from "../../components/layout/Layout";
+import Section        from "../../components/general/Section";
+import {themes}       from '../../abstracts/constants'
+import {Link}         from "gatsby";
+import {LinksSection} from "../../components/layout/LinksSection";
 
-const KlimaStrikkeklub = () => {
+const Index = () => {
     return (
         <Layout theme={themes.white} footer={false} title={"KlimaStrikkeKlubben"}>
             <Section className={'bg-climate'}>
@@ -21,7 +22,22 @@ const KlimaStrikkeklub = () => {
                 <h3>Hvorfor er det et mål</h3>
                 <p>Da de ambitiøse mål, FNs klimamål, Parisaftalen som med den nuværende udvikling ikke vil blive nået,
                     vi er imod 2-2.5 C (climate gap rapport)</p>
-
+                <LinksSection>
+                    <div className={'cardsContainer'}>
+                        <Link to={'goals/'}>
+                            Målsætninger
+                        </Link>
+                        <Link to={'inspiration/'}>
+                            Vores inspirationer
+                        </Link>
+                        <Link to={'projects/'}>
+                            Projects
+                        </Link>
+                        <Link to={'values/'}>
+                            Values
+                        </Link>
+                    </div>
+                </LinksSection>
             </Section>
             <Section>
                 <h2><Link to={'/klimaStrikkeKlub/values'}>Værdier for klimastrikkeklub</Link></h2>
@@ -55,14 +71,14 @@ const KlimaStrikkeklub = () => {
 
                 <ul>
                     <li>
-                        <a href="https://sustainability.dtu.dk/">DTU center for absolute sustainability</a>
+                        <a href="src/pages/klimaStrikkeKlub/klimaStrikkeklub">DTU center for absolute sustainability</a>
                     </li>
                     <li>
-                        Eksperimenter og dokumentation, særligt <a href="https://solar.lowtechmagazine.com/">Low Tech
+                        Eksperimenter og dokumentation, særligt <a href="src/pages/klimaStrikkeKlub/klimaStrikkeklub">Low Tech
                         Magazine af Kris De decker</a>
                     </li>
                     <li>
-                        <a href="https://www.kateraworth.com/doughnut/">Donut Economics</a>
+                        <a href="src/pages/klimaStrikkeKlub/klimaStrikkeklub">Donut Economics</a>
                     </li>
                     <li>
                         Ellen McArthur foundation
@@ -111,4 +127,4 @@ const KlimaStrikkeklub = () => {
         ;
 };
 
-export default KlimaStrikkeklub;
+export default Index;
