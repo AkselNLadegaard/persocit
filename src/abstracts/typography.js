@@ -3,7 +3,7 @@ import Typography from 'typography'
 const headerFontArray = ['Atkinson Hyperlegible', 'serif']
 const bodyFontArray = ['Atkinson Hyperlegible', 'sans-serif']
 const typography = new Typography({
-	baseFontSize: '20px',
+	baseFontSize: '16px',
 	baseLineHeight: 1.4,
 	scaleRatio: 2,
 	headerFontFamily: headerFontArray,
