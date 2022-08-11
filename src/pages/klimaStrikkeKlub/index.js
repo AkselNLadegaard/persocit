@@ -9,15 +9,20 @@ import Projects       from "./projects";
 
 const Index = () => {
     return (
-        <Layout theme={themes.climate} footer={false} logo={false} title={"KlimaStrikkeKlubben"}>
+        <Layout theme={themes.climate} footer={false} logo={false} title={"KlimaStrikkeKlubben"} type={"climate"}>
             <Section>
                 < h1> Klimastrikkeklubben
                     ! < /h1>
                 <p>En sød beskrivelse </p>
                 <br/>
-                <h2>Mål for klimastrikkeklub</h2>
-                <p>Klimastrikkeklubbens formål er at bidrage til at skabe rammerne for et godt liv inden for de
+                <h2>
+                    Mål for klimastrikkeklub
+                </h2>
+                <p>
+                    Klimastrikkeklubbens formål er at bidrage til at skabe rammerne for et godt liv inden for de
                     planetære grænser.
+                </p>
+                <p>
                     Klimestrikke-klubbens formål er at udvikle på projekter, teknologier og systemer, der kan skabe gode
                     liv inden for de planetære grænser.
                 </p>

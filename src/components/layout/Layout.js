@@ -7,7 +7,7 @@ import Navbar   from './Navbar'
 import Footer   from './Footer'
 import {themes} from '../../abstracts/constants'
 
-const Layout = ({children, theme, footer = true, title = "Aksels site", logo = true}) => {
+const Layout = ({children, type = "default", theme, footer = true, title, logo = true}) => {
     let pageTheme = theme ? theme : themes.default
     return (
         <>
@@ -23,9 +23,9 @@ const Layout = ({children, theme, footer = true, title = "Aksels site", logo = t
                   ${globalStyles};
                 `}
             />
-            <Navbar title={title} logo={logo}/>
+            <Navbar title={title} logo={logo} type={type} />
             <main>{children}</main>
-            {footer && <Footer theme={pageTheme.name}>This is a footer!</Footer>}
+            {footer && <Footer theme={pageTheme.name} type={type}>This is a footer!</Footer>}
         </>
     )
 }

@@ -10,7 +10,8 @@ const shortcodes = {Link, Section} // Provide common components here
 // take a look at the various remark plugins for transforming MDX.
 export default function BlogPost({data: {mdx}}) {
     return (
-        <Layout theme={themes[mdx.frontmatter.theme]}>
+        <Layout theme={themes[mdx.frontmatter.theme]}
+                type={(mdx.frontmatter.type === "blogPostKlima") ? 'climate' : 'default'}>
             <MDXProvider components={shortcodes}>
                 <MDXRenderer>{mdx.body}</MDXRenderer>
             </MDXProvider>
@@ -35,3 +36,4 @@ export const pageQuery = graphql`
         }
     }
 `
+

@@ -4,7 +4,8 @@ import styled             from '@emotion/styled'
 import * as constant      from '../../abstracts/constants'
 // Components
 import {Link}             from 'gatsby'
-import TestSvg            from '../../assets/svg/svgTest.svg'
+import SvgPersocitLogo    from '../../assets/svg/svgTest.svg'
+import SvgKlimaLogo       from '../../assets/svg/svgTest.svg'
 import {siteWidthUntiles} from '../../abstracts/constants'
 
 const Header = styled.header`
@@ -18,15 +19,11 @@ const Header = styled.header`
   z-index: var(--zIndexNav);
 
   .sitetitle {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     word-break: break-all;
     margin: 0;
   }
-  ${constant.mq[1]}{
-    .sitetitle {
-      font-size: 1.8rem;
-    }
-  }
+
 `
 const animationCycleLogoColors = keyframes`
   0% {
@@ -187,22 +184,38 @@ const Hamburger = styled.button`
   }
 `
 
-const Navbar = ({title = 'Persocit', logo = true, ...props}) => {
+const Navbar = ({title, logo = true, type = "default", ...props}) => {
     //determines if the user has a set them
 
     const [sideNavActive, setSideNavActive] = useState(false)
     const handleSidenav = ({toStatus}) =>
         setSideNavActive(toStatus ? toStatus : !sideNavActive)
-    let siteTitle = title
+
+    function siteTitle() {
+        if (title) {
+            return title
+        } else if (type === 'climate') {
+            return 'KlimaStrikkeKlub'
+        } else {
+            return 'Aksels site'
+        }
+    }
+
     const Links = () => {
-        return (
-            <>
-                <Link to={'/klimaStrikkeKlub'}>Klima Strikkeklub</Link>
-                <Link to={'/experiments'}>Experiments</Link>
-                <Link to={'/blog'}>Blog</Link>
-                <Link to={'/about'}>About</Link>
-            </>
-        )
+        if (!type || type === "default") {
+            return (
+                <>
+                    <Link to={'/klimaStrikkeKlub'}>Klima Strikkeklub</Link>
+                    <Link to={'/experiments'}>Experiments</Link>
+                    <Link to={'/blog'}>Blog</Link>
+                    <Link to={'/about'}>About</Link>
+                </>
+            )
+        } else if (type === "climate") {
+            return (
+                <Link to={'/klimaStrikkeKlub/blog'}>Bloggen</Link>
+            )
+        }
     }
     const SideNav = () => {
         return (
@@ -221,10 +234,23 @@ const Navbar = ({title = 'Persocit', logo = true, ...props}) => {
     return (
         <Header {...props}>
             <Container>
-                <Link to={'/'} className={'logo'}>
-                    {logo &&  <TestSvg/>}
-                    <p className={'sitetitle'}>{siteTitle}</p>
-                </Link>
+                {
+                    (type === 'climate') ? (
+                        <>
+                            <Link to={'/klimaStrikkeKlub'} className={'logo'}>
+                                {logo && <SvgKlimaLogo/>}
+                                <p className={'sitetitle'}>{siteTitle()}</p>
+                            </Link>
+                        </>) : (
+                        <>
+                            <Link to={'/'} className={'logo'}>
+                                {logo && <SvgPersocitLogo/>}
+                                <p className={'sitetitle'}>{siteTitle()}</p>
+                            </Link>
+                        </>
+                    )
+
+                }
 
                 <Hamburger onClick={handleSidenav}>M</Hamburger>
                 <ul className={'links-container'}>
