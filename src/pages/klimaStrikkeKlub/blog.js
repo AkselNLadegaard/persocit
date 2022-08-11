@@ -11,7 +11,7 @@ function isEmpty(str) {
 
 const Blog = ({data}) => {
     return (
-        <Layout theme={themes.climateAlt}>
+        <Layout theme={themes.climateAlt} type={'climate'}>
             <Section>
                 <h1>KlimaStrikkeKlubbens blog!</h1>
                 <ul>
