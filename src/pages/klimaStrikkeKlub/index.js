@@ -34,16 +34,16 @@ const Index = () => {
                         <Link to={'blog/'}>
                             Bloggen!
                         </Link>
-                        <Link to={'goals/'}>
+                        <Link to={''}>
                             Målsætninger
                         </Link>
-                        <Link to={'inspirations/'}>
+                        <Link to={''}>
                             Vores inspirationer
                         </Link>
-                        <Link to={'projects/'}>
+                        <Link to={''}>
                             Projects
                         </Link>
-                        <Link to={'values/'}>
+                        <Link to={'s'}>
                             Values
                         </Link>
                     </div>
