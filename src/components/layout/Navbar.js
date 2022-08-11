@@ -13,6 +13,7 @@ const Header = styled.header`
   right: 0;
   margin: var(--navOffset) auto 4rem;
   height: var(--navHeight);
+  background: var(--background);
   width: 100%;
   z-index: var(--zIndexNav);
 
@@ -48,7 +49,6 @@ const Container = styled.div`
   max-width: var(--siteWidth);
   margin: 0 auto;
   padding: 0.5em var(--gap) 0.25em;
-  background: var(--background);
 
   ${constant.mq[1]} {
     padding: 4px var(--gap) 0;
