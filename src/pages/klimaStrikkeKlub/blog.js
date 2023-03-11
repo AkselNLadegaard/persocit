@@ -41,7 +41,7 @@ export const query = graphql`
     {
         allMdx(
             filter: { frontmatter: { type: { eq: "blogPostKlima" } } }
-            sort: { fields: frontmatter___dateCreated, order: DESC }
+            sort: { frontmatter: { dateCreated: DESC }}
         ) {
             nodes {
                 frontmatter {
@@ -54,7 +54,6 @@ export const query = graphql`
                     dateUpdated
                 }
                 id
-                slug
             }
         }
     }

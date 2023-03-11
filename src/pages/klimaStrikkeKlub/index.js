@@ -4,7 +4,6 @@ import Section        from "../../components/general/Section";
 import {themes}       from '../../abstracts/constants'
 import {Link}         from "gatsby";
 import {LinksSection} from "../../components/layout/LinksSection";
-import Projects       from "./projects";
 
 
 const Index = () => {
@@ -43,7 +42,7 @@ const Index = () => {
                         <Link to={''}>
                             Projects
                         </Link>
-                        <Link to={'s'}>
+                        <Link to={''}>
                             Values
                         </Link>
                     </div>
