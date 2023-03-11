@@ -42,7 +42,7 @@ const Index = () => {
                         <Link to={''}>
                             Projects
                         </Link>
-                        <Link to={'s'}>
+                        <Link to={''}>
                             Values
                         </Link>
                     </div>

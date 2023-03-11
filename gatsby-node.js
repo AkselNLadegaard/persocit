@@ -42,7 +42,6 @@ exports.createPages = async ({graphql, actions, reporter}) => {
 				edges {
 					node {
 						id
-						slug
 						frontmatter {
 							title
 						}
