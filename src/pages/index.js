@@ -29,3 +29,26 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+
+/* Addinng a head to sites */
+export function Head() {
+    return (
+        <>
+            <title>Hello World</title>
+            <meta property="og:title" content="Aksels Nordvigs small site" />
+            <meta name="description" content="Links to resources, portfolio and coding adventures" />
+            <meta property="og:description" content="Links to resources, portfolio and coding adventures" />
+
+            <meta name="keywords" content="design, engineering, denmark" />
+
+            <meta name="author" content="Aksel Nordvig" />
+            <meta property="og:type" content="website" />
+
+            {/*{
+            <meta property="og:image" content="https://www.example.com/image.jpg" />
+            <meta property="og:url" content="https://www.example.com" /> */}
+
+        </>
+    )
+}

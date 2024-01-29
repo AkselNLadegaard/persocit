@@ -22,7 +22,6 @@ module.exports = {
             },
         },
         'gatsby-plugin-gatsby-cloud',
-        'gatsby-plugin-react-helmet',
         'gatsby-plugin-sitemap',
 
         {
@@ -44,7 +43,6 @@ module.exports = {
                         resolve: `gatsby-remark-images`,
                         options: {
                             maxWidth: 1200,
-                            tracedSVG: true,
                             withWebp: true,
                         },
                     },

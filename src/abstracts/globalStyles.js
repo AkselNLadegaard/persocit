@@ -28,7 +28,7 @@ export const globalStyles = css`
 	// total hack
 	img {
 		box-shadow: none !important;
-		objectFit: contain !important;
+		object-fit: contain !important;
 	}
 	// real solution will be to drop this silly fadein or fix aspect ratios or use another implementation for markdown files, but it is just so convenient....
 	//  There also "must" be an official solution for this. Portrait images simply cannot just be this borked. 

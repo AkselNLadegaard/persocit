@@ -1,9 +1,9 @@
-import React    from 'react'
-import styled   from '@emotion/styled'
-import Layout   from '../../components/layout/Layout'
-import Section  from '../../components/general/Section'
-import {themes} from '../../abstracts/constants'
-import {css}    from '@emotion/react'
+import React from 'react'
+import styled from '@emotion/styled'
+import Layout from '../components/layout/Layout'
+import Section from '../components/general/Section'
+import { themes } from '../abstracts/constants'
+import { css } from '@emotion/react'
 
 const GradientContainer = styled.div`
   display: grid;
@@ -111,76 +111,76 @@ const GradientContainer = styled.div`
 `
 
 const Gradients = () => {
-    return (
-        <Layout>
-            <Section>
-                <h1>Gradient fun!</h1>
-                <p>Messing around with gradients </p>
-            </Section>
+  return (
+    <Layout>
+      <Section>
+        <h1>Gradient fun!</h1>
+        <p>Messing around with gradients </p>
+      </Section>
 
-            <Section>
-                <h2>Linear gradients</h2>
-                <GradientContainer>
-                    {Object.keys(themes).map((value, index) => (
-                        <div
-                            key={index}
-                            css={css`
+      <Section>
+        <h2>Linear gradients</h2>
+        <GradientContainer>
+          {Object.keys(themes).map((value, index) => (
+            <div
+              key={index}
+              css={css`
                               ${themes[value].theme}
                             `}
-                            className={'card linearGradient'}
-                        ></div>
-                    ))}
-                </GradientContainer>
-            </Section>
-            <Section>
-                <h2>Radial</h2>
-                <GradientContainer>
-                    {Object.keys(themes).map((value, index) => (
-                        <div
-                            key={index}
-                            css={css`
+              className={'card linearGradient'}
+            ></div>
+          ))}
+        </GradientContainer>
+      </Section>
+      <Section>
+        <h2>Radial</h2>
+        <GradientContainer>
+          {Object.keys(themes).map((value, index) => (
+            <div
+              key={index}
+              css={css`
                               ${themes[value].theme}
                             `}
-                            className={'card radialGradient'}
-                        ></div>
-                    ))}
-                </GradientContainer>
-            </Section>
-            <Section>
-                <h2>Conic gradients</h2>
-                <GradientContainer>
-                    {Object.keys(themes).map((value, index) => (
-                        <div
-                            key={index}
-                            css={css`
+              className={'card radialGradient'}
+            ></div>
+          ))}
+        </GradientContainer>
+      </Section>
+      <Section>
+        <h2>Conic gradients</h2>
+        <GradientContainer>
+          {Object.keys(themes).map((value, index) => (
+            <div
+              key={index}
+              css={css`
                               ${themes[value].theme}
                             `}
-                            className={'card conicGradient'}
-                        ></div>
-                    ))}
-                </GradientContainer>
-            </Section>
-            <Section>
-                <h2>Repeating gradients</h2>
-                <p>Converted a few of <a href="https://projects.verou.me/css3patterns/" title={"repeating css paterns"}>repeating
-                    css3 patterns</a> to custom properties</p>
-                <GradientContainer>
-                    {Object.keys(themes).map((value, index) => (
-                        <div
-                            key={index}
-                            css={css`
+              className={'card conicGradient'}
+            ></div>
+          ))}
+        </GradientContainer>
+      </Section>
+      <Section>
+        <h2>Repeating gradients</h2>
+        <p>Converted a few of <a href="https://projects.verou.me/css3patterns/" title={"repeating css paterns"}>repeating
+          css3 patterns</a> to custom properties</p>
+        <GradientContainer>
+          {Object.keys(themes).map((value, index) => (
+            <div
+              key={index}
+              css={css`
                               ${themes[value].theme}
                             `}
-                            className={`card repeatingGradient-${index + 1}`}
-                        >
-                            <p>So can you read this</p>
-                            <p><b>What about this?</b></p>
-                        </div>
-                    ))}
-                </GradientContainer>
-            </Section>
-        </Layout>
-    )
+              className={`card repeatingGradient-${index + 1}`}
+            >
+              <p>So can you read this</p>
+              <p><b>What about this?</b></p>
+            </div>
+          ))}
+        </GradientContainer>
+      </Section>
+    </Layout>
+  )
 }
 
 export default Gradients

@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout/Layout'
-import { MDX } from 'gatsby-plugin-mdx'
+
 import { graphql, Link } from 'gatsby'
 import Section from '../components/general/Section'
 import { MDXProvider } from '@mdx-js/react'
