@@ -9,10 +9,7 @@ Currently hosted on Gatsby Cloud: https://persocitmain.gatsbyjs.io/
 ## Build 
     ```shell
     # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
-    ```shell
-    cd my-gatsby-site/
+    npm install
     npm run develop
     ```
 Site is now running at http://localhost:8000!

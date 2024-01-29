@@ -1,10 +1,10 @@
-import React   from 'react'
-import Layout  from '../components/layout/Layout'
+import React from 'react'
+import Layout from '../components/layout/Layout'
 import Section from '../components/general/Section'
-import styled  from '@emotion/styled'
+import styled from '@emotion/styled'
 import * as constant from '../abstracts/constants'
-import {themes}      from '../abstracts/constants'
-import {SectionHero} from "../components/general/SectionHero";
+import { themes } from '../abstracts/constants'
+import { SectionHero } from "../components/general/SectionHero";
 
 
 const ExperimentCardContainer = styled.div`
@@ -37,12 +37,8 @@ const Experiments = () => {
 		<Layout theme={themes.experiments}>
 			<SectionHero>
 				<h1>Experiments</h1>
-				<p>A bunch of experiments!</p>
-				<p>
-					I dream of having one for every major UI element, to
-					illustrate the breadth of possibilities with CSS and a
-					sprinkle of js
-				</p>
+				<p>A bunch of frontend experiments, mostly to showcase the 'dynamic' color theming</p>
+
 			</SectionHero>
 
 			<Section>
@@ -65,7 +61,7 @@ const Experiments = () => {
 						<h3>Typography</h3>
 						<p>All of the typographic elements!</p>
 					</a>
-					<a
+					{/* <a
 						href='/experiments/gradients'
 						title={'Go see the gradient experiments'}
 						className='card'
@@ -91,6 +87,13 @@ const Experiments = () => {
 						<p>Feeeling Clippy?</p>
 					</a>
 					<a
+						href='/experiments/interactiveStyles'
+						title={'Go see the card experiments'}
+						className='card'
+					>
+						<h3>Interactive styles</h3>
+					</a>
+					<a
 						href='/experiments/cards'
 						title={'Go see the card experiments'}
 						className='card'
@@ -98,13 +101,9 @@ const Experiments = () => {
 						<h3>Cards</h3>
 						<p>Feeeling Clippy?</p>
 					</a>
-					<a
-						href='/experiments/interactiveStyles'
-						title={'Go see the card experiments'}
-						className='card'
-					>
-						<h3>Interactive styles</h3>
-					</a>
+
+					*/}
+
 				</ExperimentCardContainer>
 			</Section>
 		</Layout>

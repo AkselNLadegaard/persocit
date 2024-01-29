@@ -1,6 +1,6 @@
-import React                     from 'react'
-import styled                    from '@emotion/styled'
-import {graphql, useStaticQuery} from 'gatsby'
+import React from 'react'
+import styled from '@emotion/styled'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const FooterContainer = styled.footer`
   &.footerContainer {
@@ -19,7 +19,7 @@ const FooterContainer = styled.footer`
   }
 `
 
-const Footer = ({theme, type, ...props}) => {
+const Footer = ({ theme, type, ...props }) => {
     const data = useStaticQuery(graphql`
         query {
             site {
@@ -44,15 +44,6 @@ const Footer = ({theme, type, ...props}) => {
                     <p>By: {siteAuthor}</p>
                 </>
             )
-        } else if (type === "climate") {
-            return (
-                <>
-                    <h4>Klimastrikkeklub</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus autem debitis dolor dolore
-                        ipsum mollitia necessitatibus porro quis recusandae, suscipit vero voluptates! Consequatur
-                        eligendi ex laboriosam provident reprehenderit, sed suscipit?</p>
-                </>
-            )
         }
     }
     return (
@@ -62,8 +53,8 @@ const Footer = ({theme, type, ...props}) => {
         >
             <div className={` inner-container`}>
                 <div className={'about'}>
-                    FooterContent
-
+                    <h4>{siteTitle}</h4>
+                    <p>{siteDescription}</p>
                 </div>
             </div>
         </FooterContainer>

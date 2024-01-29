@@ -1,7 +1,7 @@
 import React from 'react'
 import { themes } from '../../abstracts/constants'
-import styled  from '@emotion/styled'
-import Layout  from '../../components/layout/Layout'
+import styled from '@emotion/styled'
+import Layout from '../../components/layout/Layout'
 import Section from '../../components/general/Section'
 
 const ThemeTestContainer = styled.div`
@@ -41,8 +41,8 @@ const Theming = ({ data }) => {
 					adjusted if needed.
 				</p>
 				<p>
-					All generated colors have a corresponded --colorText, which
-					tends to be AA rated!{' '}
+					All generated colors have a corresponding --colorText, which
+					the script tries to ensure is AA rated. However some might be a bit off.
 				</p>
 				<h3>The process:</h3>
 				<ol>
@@ -69,7 +69,7 @@ const Theming = ({ data }) => {
 					<li>
 						A similair approach is then used to generate a dark
 						version - all colors are darkened and the steps are
-						repeated with different constants
+						repeated.
 					</li>
 				</ol>
 				<ThemeTestContainer>

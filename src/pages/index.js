@@ -1,8 +1,8 @@
-import * as React     from 'react'
-import Layout         from '../components/layout/Layout'
-import {Link}         from 'gatsby'
-import {SectionHero}  from "../components/general/SectionHero";
-import {LinksSection} from "../components/layout/LinksSection";
+import * as React from 'react'
+import Layout from '../components/layout/Layout'
+import { Link } from 'gatsby'
+import { SectionHero } from "../components/general/SectionHero";
+import { LinksSection } from "../components/layout/LinksSection";
 
 const IndexPage = () => {
     return (

@@ -1,9 +1,9 @@
-import React             from 'react'
-import Layout            from '../components/layout/Layout'
+import React from 'react'
+import Layout from '../components/layout/Layout'
 import { graphql, Link } from 'gatsby'
-import Section           from '../components/general/Section'
-import { themes }        from '../abstracts/constants'
-import slugify           from "slugify";
+import Section from '../components/general/Section'
+import { themes } from '../abstracts/constants'
+import slugify from "slugify";
 
 function isEmpty(str) {
 	return !str || str.length === 0
@@ -14,6 +14,7 @@ const Blog = ({ data }) => {
 		<Layout theme={themes.blog}>
 			<Section>
 				<h1> Blog overview</h1>
+
 				<ul>
 					{data.allMdx.nodes.map((nodes, index) => (
 						<li key={index}>
@@ -40,7 +41,7 @@ const Blog = ({ data }) => {
 export const query = graphql`
 	{
 		allMdx(
-			filter: { frontmatter: { type: { eq: "blogPostAksel" } } }
+			filter: { frontmatter: { type: { eq: "blogpost" } } }
 			sort: { frontmatter: { dateCreated: DESC }}
 		) {
 			nodes {

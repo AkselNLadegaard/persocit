@@ -1,11 +1,11 @@
 module.exports = {
     siteMetadata: {
-        siteUrl:     'https://persocitmain.gatsbyjs.io/',
-        title:       'Aksels personal site ==> perso-cite ==> persocit',
-        author:      'Aksel Nordvig Ladegaard',
-        description: 'A little personal site for playing with the frontend!',
+        siteUrl: 'https://persocitmain.gatsbyjs.io/',
+        title: 'Aksel Nordvigs personal site',
+        author: 'Aksel Nordvig ',
+        description: 'Where I try to, play with the frontend, link to interesting stuff and someday have a portfolio.',
     },
-    plugins:      [
+    plugins: [
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {
@@ -22,7 +22,6 @@ module.exports = {
             },
         },
         'gatsby-plugin-gatsby-cloud',
-        'gatsby-plugin-image',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sitemap',
 
@@ -32,6 +31,11 @@ module.exports = {
                 icon: 'src/images/icon.png',
             },
         },
+
+        `gatsby-transformer-sharp`,
+        'gatsby-plugin-image',
+        `gatsby-plugin-sharp`,
+
         {
             resolve: `gatsby-plugin-mdx`,
             options: {
@@ -39,32 +43,16 @@ module.exports = {
                     {
                         resolve: `gatsby-remark-images`,
                         options: {
-                            maxWidth:     1200,
-                            quality:      75,
+                            maxWidth: 1200,
+                            tracedSVG: true,
+                            withWebp: true,
                         },
                     },
                 ],
             },
         },
-        {
-            resolve: `gatsby-plugin-sharp`,
-            options: {
-                defaults: {
-                    formats:          [`auto`, `webp`],
-                    placeholder:      `dominantColor`,
-                    quality:          1,
-                    breakpoints:      [750, 1080, 1366, 1920],
-                    backgroundColor:  `transparent`,
-                    tracedSVGOptions: {},
-                    blurredOptions:   {},
-                    jpgOptions:       {},
-                    pngOptions:       {},
-                    webpOptions:      {},
-                    avifOptions:      {},
-                }
-            }
-        },
-        'gatsby-transformer-sharp',
+
+
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -85,7 +73,7 @@ module.exports = {
                 name: 'pages',
                 path: './src/pages/',
             },
-            __key:   'pages',
+            __key: 'pages',
         },
     ],
 }

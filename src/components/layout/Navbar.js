@@ -1,12 +1,12 @@
-import React, {useState}  from 'react'
-import {css, keyframes}   from '@emotion/react'
-import styled             from '@emotion/styled'
-import * as constant      from '../../abstracts/constants'
+import React, { useState } from 'react'
+import { css, keyframes } from '@emotion/react'
+import styled from '@emotion/styled'
+import * as constant from '../../abstracts/constants'
 // Components
-import {Link}             from 'gatsby'
-import SvgPersocitLogo    from '../../assets/svg/svgTest.svg'
-import SvgKlimaLogo       from '../../assets/svg/svgTest.svg'
-import {siteWidthUntiles} from '../../abstracts/constants'
+import { Link } from 'gatsby'
+import SvgPersocitLogo from '../../assets/svg/svgTest.svg'
+import SvgKlimaLogo from '../../assets/svg/svgTest.svg'
+import { siteWidthUntiles } from '../../abstracts/constants'
 
 const Header = styled.header`
   position: sticky;
@@ -184,82 +184,62 @@ const Hamburger = styled.button`
   }
 `
 
-const Navbar = ({title, logo = true, type = "default", ...props}) => {
-    //determines if the user has a set them
+const Navbar = ({ title, logo = true, type = "default", ...props }) => {
+  //determines if the user has a set them
 
-    const [sideNavActive, setSideNavActive] = useState(false)
-    const handleSidenav = ({toStatus}) =>
-        setSideNavActive(toStatus ? toStatus : !sideNavActive)
+  const [sideNavActive, setSideNavActive] = useState(false)
+  const handleSidenav = ({ toStatus }) =>
+    setSideNavActive(toStatus ? toStatus : !sideNavActive)
 
-    function siteTitle() {
-        if (title) {
-            return title
-        } else if (type === 'climate') {
-            return 'KlimaStrikkeKlub'
-        } else {
-            return 'Aksels site'
-        }
-    }
 
-    const Links = () => {
-        if (!type || type === "default") {
-            return (
-                <>
-                    <Link to={'/klimaStrikkeKlub'}>Klima Strikkeklub</Link>
-                    <Link to={'/experiments'}>Experiments</Link>
-                    <Link to={'/blog'}>Blog</Link>
-                    <Link to={'/about'}>About</Link>
-                </>
-            )
-        } else if (type === "climate") {
-            return (
-                <Link to={'/klimaStrikkeKlub/blog'}>Bloggen</Link>
-            )
-        }
+
+  const Links = () => {
+    if (!type || type === "default") {
+      return (
+        <>
+
+          <Link to={'/experiments'}>Experiments</Link>
+          <Link to={'/blog'}>Blog</Link>
+          <Link to={'/about'}>About</Link>
+        </>
+      )
+    } else {
+      return (
+        <Link to={'/'}>Home</Link>
+      )
     }
-    const SideNav = () => {
-        return (
-            <SideNavContainer css={sideNavActive && SideNavActive}>
-                <div className={'links-container'}>
-                    <Links/>
-                </div>
-                <button
-                    aria-label='Close sidenav'
-                    className={'escape'}
-                    onClick={() => handleSidenav(false)}
-                />
-            </SideNavContainer>
-        )
-    }
+  }
+  const SideNav = () => {
     return (
-        <Header {...props}>
-            <Container>
-                {
-                    (type === 'climate') ? (
-                        <>
-                            <Link to={'/klimaStrikkeKlub'} className={'logo'}>
-                                {logo && <SvgKlimaLogo/>}
-                                <p className={'sitetitle'}>{siteTitle()}</p>
-                            </Link>
-                        </>) : (
-                        <>
-                            <Link to={'/'} className={'logo'}>
-                                {logo && <SvgPersocitLogo/>}
-                                <p className={'sitetitle'}>{siteTitle()}</p>
-                            </Link>
-                        </>
-                    )
-
-                }
-
-                <Hamburger onClick={handleSidenav}>M</Hamburger>
-                <ul className={'links-container'}>
-                    <Links/>
-                </ul>
-            </Container>
-            {sideNavActive && <SideNav/>}
-        </Header>
+      <SideNavContainer css={sideNavActive && SideNavActive}>
+        <div className={'links-container'}>
+          <Links />
+        </div>
+        <button
+          aria-label='Close sidenav'
+          className={'escape'}
+          onClick={() => handleSidenav(false)}
+        />
+      </SideNavContainer>
     )
+  }
+  return (
+    <Header {...props}>
+      <Container>
+
+        <Link to={'/'} className={'logo'}>
+          {logo && <SvgPersocitLogo />}
+          <p className={'sitetitle'}>Aksels site</p>
+        </Link>
+
+        <Hamburger onClick={handleSidenav}>M</Hamburger>
+        <ul className={'links-container'}>
+          <Links />
+        </ul>
+      </Container>
+      {sideNavActive && <SideNav />}
+    </Header>
+  )
 }
 
 export default Navbar
