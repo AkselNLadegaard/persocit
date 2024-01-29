@@ -35,26 +35,17 @@ const Footer = ({ theme, type, ...props }) => {
     const siteTitle = data.site.siteMetadata.title
     const siteDescription = data.site.siteMetadata.description
     const siteAuthor = data.site.siteMetadata.author
-    const FooterContent = (type) => {
-        if (!type || type === "default") {
-            return (
-                <>
-                    <h4>{siteTitle}</h4>
-                    <p>{siteDescription}</p>
-                    <p>By: {siteAuthor}</p>
-                </>
-            )
-        }
-    }
+
     return (
         <FooterContainer
             {...props}
             className={`set-${theme}-alt footerContainer`}
         >
-            <div className={` inner-container`}>
+            <div className={`inner-container`}>
                 <div className={'about'}>
                     <h4>{siteTitle}</h4>
                     <p>{siteDescription}</p>
+                    <span><p>Painstakingly coded by: <author>{' '}{siteAuthor}</author></p></span>
                 </div>
             </div>
         </FooterContainer>

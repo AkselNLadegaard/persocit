@@ -5,7 +5,7 @@ import * as constant from '../../abstracts/constants'
 // Components
 import { Link } from 'gatsby'
 import SvgPersocitLogo from '../../assets/svg/svgTest.svg'
-import SvgKlimaLogo from '../../assets/svg/svgTest.svg'
+
 import { siteWidthUntiles } from '../../abstracts/constants'
 
 const Header = styled.header`
