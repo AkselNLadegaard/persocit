@@ -1,20 +1,19 @@
 import React from 'react'
+
 import Layout from '../components/layout/Layout'
+import { themes } from "../abstracts/constants";
 
 import { graphql, Link } from 'gatsby'
 import Section from '../components/general/Section'
 import { MDXProvider } from '@mdx-js/react'
-import { themes } from "../abstracts/constants";
 
-const shortcodes = { Link, Section } // Provide common components here
-// take a look at the various remark plugins for transforming MDX.
+const shortcodes = { Link, Section, themes }
+
 export default function BlogPost({ data, children }) {
 
   return (
     <>
-      <Layout theme={themes.default}
-        type='default'>
-
+      <Layout>
         <MDXProvider components={shortcodes}>
           {children}
         </MDXProvider>
@@ -28,6 +27,7 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
+        theme
       }
     }
   }

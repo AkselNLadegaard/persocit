@@ -11,6 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                     id
                     frontmatter {
                         title
+                        theme
                     }
                     internal {
                         contentFilePath

@@ -1,7 +1,7 @@
-import React    from 'react'
-import Layout   from '../components/layout/Layout'
+import React from 'react'
+import Layout from '../components/layout/Layout'
 import { Link } from 'gatsby'
-import Section    from '../components/general/Section'
+import Section from '../components/general/Section'
 import { themes } from '../abstracts/constants'
 
 const About = () => {
@@ -19,7 +19,7 @@ const About = () => {
 						>
 							GatsbyJS
 						</a>{' '}
-						cause it rocks.
+
 					</li>
 					<li>
 						<a
@@ -28,7 +28,7 @@ const About = () => {
 						>
 							Emotion
 						</a>{' '}
-						as styled components is an awesome paradigm.
+
 					</li>
 					<li>
 						<a
@@ -37,7 +37,7 @@ const About = () => {
 						>
 							MDX
 						</a>{' '}
-						for generating blog posts.
+
 					</li>
 				</ul>
 
@@ -58,7 +58,7 @@ const About = () => {
 						href='https://github.com/AkselNLadegaard/persocit'
 						title={'Go to the sites githubrepo'}
 					>
-						this github repo
+						Github
 					</a>
 				</p>
 				<Link to={'/'}>Back to the front page</Link>

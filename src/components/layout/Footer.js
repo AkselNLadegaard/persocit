@@ -8,7 +8,7 @@ const FooterContainer = styled.footer`
     border-top: 0.3em solid var(--primary);
     background: var(--background);
     color: var(--backgroundText);
-    margin: 3rem 0 0;
+    //margin: 3rem 0 0;
   }
 
   .inner-container {
@@ -45,7 +45,9 @@ const Footer = ({ theme, type, ...props }) => {
                 <div className={'about'}>
                     <h4>{siteTitle}</h4>
                     <p>{siteDescription}</p>
-                    <span><p>Painstakingly coded by: <author>{' '}{siteAuthor}</author></p></span>
+                    <address>
+                        <p>Painstakingly coded by: {' '}{siteAuthor}</p>
+                    </address>
                 </div>
             </div>
         </FooterContainer>

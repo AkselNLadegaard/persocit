@@ -46,13 +46,12 @@ export const query = graphql`
 		) {
 			nodes {
 				frontmatter {
-					dateCreated
-					tags
-					type
-					misc
 					title
 					description
+					dateCreated
 					dateUpdated
+					tags
+					type
 				}
 				id
 			}
